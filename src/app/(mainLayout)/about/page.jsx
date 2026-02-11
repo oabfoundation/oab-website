@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -15,12 +15,11 @@ import {
   CheckCircle,
   Target,
   Award,
-  MapPin
+  MapPin,
 } from "lucide-react";
 import MissionVision from "@/app/pages/MissionVision";
 
 export default function About() {
-
   const images = [
     "https://i.ibb.co.com/Pzzzcrpf/Screenshot-2026-02-11-120224.png",
     "https://i.ibb.co.com/Zqn6rKf/Screenshot-2026-02-11-120237.png",
@@ -55,7 +54,6 @@ export default function About() {
     "https://scontent.fdac152-1.fna.fbcdn.net/v/t39.30808-6/624932101_827722963653966_7229841347665812230_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=7Lb3Z8MFitYQ7kNvwEvbG65&_nc_oc=AdmGvPr3ELl6M-jWjp6VoNmIAU0qeT5p5PDshl3KS3UEoeFvRuDKjCxQjbhTypMxkRQ&_nc_zt=23&_nc_ht=scontent.fdac152-1.fna&_nc_gid=FCykVzrQwk69PsFoUJWvsA&oh=00_AfuD4Rxcx23SqgBY3KJEGq6FABD6kl3DOK4qL3z1UXXtKw&oe=69920AEB",
     "https://scontent.fdac152-1.fna.fbcdn.net/v/t39.30808-6/626792410_827722930320636_4057726052747859506_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Ol9F9l2HIJMQ7kNvwE5XKxj&_nc_oc=AdnGdZo9k-rw691lC91ws7ptsvY9D5iLbWtGodn4HTVIrJ_QPR0JkyjVYb9iIcLxBpk&_nc_zt=23&_nc_ht=scontent.fdac152-1.fna&_nc_gid=tQhLaBTuCflqYNufeHIL4g&oh=00_Afu6KoxqLjnxczL2BiHEw4jsEcdHXOCGj_1tSgBafoj1xQ&oe=69921B9F",
     "https://scontent.fdac152-1.fna.fbcdn.net/v/t39.30808-6/623411854_827722960320633_5829362996367204878_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zqGM2Ttor38Q7kNvwGSHOuI&_nc_oc=AdnlWue4N_YrPlka3BM4WWP-Eeq9S9LCuawjhotAh7lOFWkkxKvjrq_sOSsVPPKuQGY&_nc_zt=23&_nc_ht=scontent.fdac152-1.fna&_nc_gid=PzePbMMZ4Oaj_RESX4Xncg&oh=00_AfsE7x32gadEPjC6DdYQbZfbq8IWfEx0_GYVJ4udLGanaw&oe=699215CA",
-
   ];
 
   const batchSize = 3; // Protibar koto image dakhabe
@@ -63,7 +61,7 @@ export default function About() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStartIndex(prev => (prev + batchSize) % images.length);
+      setStartIndex((prev) => (prev + batchSize) % images.length);
     }, 2000); // 2 seconds
 
     return () => clearInterval(interval);
@@ -81,7 +79,7 @@ export default function About() {
       <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-300 via-primary-300 to-primary-300 p-8 md:p-12">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -translate-y-32 translate-x-32"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-200/20 rounded-full translate-y-24 -translate-x-24"></div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +95,7 @@ export default function About() {
             been working across Bangladesh to create lasting impact aligned with
             the United Nations Sustainable Development Goals (SDGs).
           </p>
-          
+
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <div className="flex items-center space-x-2 text-primary-600">
               <Globe className="h-6 w-6" />
@@ -117,150 +115,188 @@ export default function About() {
         </motion.div>
       </section>
 
-{/* Who We Are */}
-<motion.section
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
-  viewport={{ once: true }}
-  className="animate-on-scroll"
->
-  <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
-    <div className="p-3 bg-primary/10 rounded-xl md:mt-2 shrink-0">
-      <Lightbulb className="h-8 w-8 text-primary-600" />
-    </div>
+      {/* Who We Are */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="animate-on-scroll"
+      >
+        <div className="flex flex-col md:flex-row items-start gap-6 mb-10">
+          <div className="p-3 bg-primary/10 rounded-xl md:mt-2 shrink-0">
+            <Lightbulb className="h-8 w-8 text-primary-600" />
+          </div>
 
-  <div className="flex-1">
-  <div className="mb-8">
-    <div className="inline-block">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-        Who We Are
-      </h2>
-      <div className="h-1 w-20 bg-primary rounded-full"></div>
-    </div>
-  </div>
-<p className="text-gray-700 leading-relaxed text-lg pl-4 mb-4">
-  <span className="text-primary-600 font-semibold">OAB Foundation (Over All Bangladesh Foundation)</span> is a visionary 
-  non-profit organization established in <span className="text-primary-600 font-semibold">2018</span> with a strong commitment to 
-  building a <span className="text-primary-600 font-semibold">sustainable, inclusive, and equitable Bangladesh</span>. 
-  From its inception, the foundation has been working tirelessly to 
-  <strong>address pressing social challenges</strong>, uplift <strong>disadvantaged communities</strong>, 
-  and promote the values of <strong>justice, equality, and sustainability</strong>.
-</p>
+          <div className="flex-1">
+            <div className="mb-8">
+              <div className="inline-block">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  Who We Are
+                </h2>
+                <div className="h-1 w-20 bg-primary rounded-full"></div>
+              </div>
+            </div>
+            <p className="text-gray-700 leading-relaxed text-lg pl-4 mb-4">
+              <span className="text-primary-600 font-semibold">
+                OAB Foundation (Over All Bangladesh Foundation)
+              </span>{" "}
+              is a visionary non-profit organization established in{" "}
+              <span className="text-primary-600 font-semibold">2018</span> with
+              a strong commitment to building a{" "}
+              <span className="text-primary-600 font-semibold">
+                sustainable, inclusive, and equitable Bangladesh
+              </span>
+              . From its inception, the foundation has been working tirelessly
+              to
+              <strong>address pressing social challenges</strong>, uplift{" "}
+              <strong>disadvantaged communities</strong>, and promote the values
+              of <strong>justice, equality, and sustainability</strong>.
+            </p>
 
-<p className="text-gray-700 leading-relaxed text-lg pl-4 mb-4">
-  Over the years, <span className="text-primary-600 font-semibold">OAB Foundation</span> has grown into a nationwide platform for 
-  <strong>youth, volunteers, and change-makers</strong> united by a shared dream of 
-  creating a <span className="text-primary-600 font-semibold">fairer and greener future</span>. Through diverse programs and initiatives, 
-  we empower <strong>children, women, and young people</strong> to become 
-  <strong>skilled, confident, and socially responsible citizens</strong> capable of leading positive change within their own communities.
-</p>
+            <p className="text-gray-700 leading-relaxed text-lg pl-4 mb-4">
+              Over the years,{" "}
+              <span className="text-primary-600 font-semibold">
+                OAB Foundation
+              </span>{" "}
+              has grown into a nationwide platform for
+              <strong>youth, volunteers, and change-makers</strong> united by a
+              shared dream of creating a{" "}
+              <span className="text-primary-600 font-semibold">
+                fairer and greener future
+              </span>
+              . Through diverse programs and initiatives, we empower{" "}
+              <strong>children, women, and young people</strong> to become
+              <strong>
+                skilled, confident, and socially responsible citizens
+              </strong>{" "}
+              capable of leading positive change within their own communities.
+            </p>
 
-<p className="text-gray-700 leading-relaxed text-lg pl-4">
-  Our work is deeply rooted in the belief that <span className="text-primary-600 font-semibold">sustainable development</span> is
-  only possible when <strong>communities are actively involved</strong> in shaping their
-  own future. By aligning our initiatives with the <span className="text-primary-600 font-semibold">United Nations Sustainable Development Goals (SDGs)</span>, 
-  we ensure that our <span className="text-primary-600 font-semibold">impact</span> is both <strong>locally meaningful</strong> and <strong>globally relevant</strong>.
-</p>
+            <p className="text-gray-700 leading-relaxed text-lg pl-4">
+              Our work is deeply rooted in the belief that{" "}
+              <span className="text-primary-600 font-semibold">
+                sustainable development
+              </span>{" "}
+              is only possible when{" "}
+              <strong>communities are actively involved</strong> in shaping
+              their own future. By aligning our initiatives with the{" "}
+              <span className="text-primary-600 font-semibold">
+                United Nations Sustainable Development Goals (SDGs)
+              </span>
+              , we ensure that our{" "}
+              <span className="text-primary-600 font-semibold">impact</span> is
+              both <strong>locally meaningful</strong> and{" "}
+              <strong>globally relevant</strong>.
+            </p>
 
-     <section className="mt-6">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Activities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {currentImages.map((src, index) => (
-            <motion.img
-              key={index}
-              src={src}
-              alt={`OAB Foundation Activity ${index + 1}`}
-              className="rounded-xl w-full h-48 object-cover shadow-md"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          ))}
+            <section className="mt-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                Our Activities
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {currentImages.map((src, index) => (
+                  <motion.img
+                    key={index}
+                    src={src}
+                    alt={`OAB Foundation Activity ${index + 1}`}
+                    className="rounded-xl w-full h-48 object-cover shadow-md"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                ))}
+              </div>
+            </section>
+
+            {/* Highlight points */}
+            <div className="grid md:grid-cols-2 gap-6 mt-6">
+              <div className="group relative overflow-hidden p-6 bg-gradient-to-br from-primary-100 to-primary-500 rounded-2xl  transition-all duration-300 hover:shadow-lg">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-125 hover:border-primary-700 transition-transform duration-500"></div>
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                    <MapPin className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h4 className="font-bold text-lg text-gray-900 mb-2">
+                    Nationwide Presence
+                  </h4>
+                  <p className="text-gray-700">
+                    Active engagement across rural and urban communities
+                    throughout Bangladesh with grassroots implementation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="group relative overflow-hidden p-6 bg-gradient-to-br from-primary-100 to-primary-500 rounded-2xl  transition-all duration-300 hover:shadow-lg">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-125 transition-transform duration-500"></div>
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Users className="h-6 w-6 text-primary-600" />
+                  </div>
+                  <h4 className="font-bold text-lg text-gray-900 mb-2">
+                    Youth-Driven Movement
+                  </h4>
+                  <p className="text-gray-700">
+                    Powered by passionate youth and volunteers committed to
+                    social responsibility and sustainable development.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-
-  {/* Highlight points */}
-  <div className="grid md:grid-cols-2 gap-6 mt-6">
-    <div className="group relative overflow-hidden p-6 bg-gradient-to-br from-primary-100 to-primary-500 rounded-2xl  transition-all duration-300 hover:shadow-lg">
-      <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-125 hover:border-primary-700 transition-transform duration-500"></div>
-      <div className="relative">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-          <MapPin className="h-6 w-6 text-primary-600" />
-        </div>
-        <h4 className="font-bold text-lg text-gray-900 mb-2">
-          Nationwide Presence
-        </h4>
-        <p className="text-gray-700">
-          Active engagement across rural and urban communities throughout
-          Bangladesh with grassroots implementation.
-        </p>
-      </div>
-    </div>
-
-    <div className="group relative overflow-hidden p-6 bg-gradient-to-br from-primary-100 to-primary-500 rounded-2xl  transition-all duration-300 hover:shadow-lg">
-      <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-full -translate-y-8 translate-x-8 group-hover:scale-125 transition-transform duration-500"></div>
-      <div className="relative">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-          <Users className="h-6 w-6 text-primary-600" />
-        </div>
-        <h4 className="font-bold text-lg text-gray-900 mb-2">
-          Youth-Driven Movement
-        </h4>
-        <p className="text-gray-700">
-          Powered by passionate youth and volunteers committed to social
-          responsibility and sustainable development.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* Core Work Areas */}
       <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Our Core <span className="text-primary-600 font-bold">Work Areas</span></h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          Our Core{" "}
+          <span className="text-primary-600 font-bold">Work Areas</span>
+        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
               icon: <Leaf className="h-7 w-7 text-primary-600" />,
               title: "Climate Action & Environment",
-              description: "Raising awareness, training youth, and driving community-based solutions to fight climate change and protect our planet.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
+              description:
+                "Raising awareness, training youth, and driving community-based solutions to fight climate change and protect our planet.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
             },
             {
               icon: <HandHeart className="h-7 w-7 text-primary-600" />,
               title: "Women & Children Empowerment",
-              description: "Ensuring rights, education, healthcare, and leadership opportunities for women and disadvantaged children.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
+              description:
+                "Ensuring rights, education, healthcare, and leadership opportunities for women and disadvantaged children.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
             },
             {
               icon: <GraduationCap className="h-7 w-7 text-primary-600" />,
               title: "Education & Skill Development",
-              description: "Equipping young people with knowledge, leadership skills, and capacity-building programs through the OAB Learning Academy.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
+              description:
+                "Equipping young people with knowledge, leadership skills, and capacity-building programs through the OAB Learning Academy.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
             },
             {
               icon: <Scale className="h-7 w-7 text-primary-600" />,
               title: "Human Rights & Social Development",
-              description: "Promoting equality, justice, and inclusive growth by uplifting marginalized communities.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
+              description:
+                "Promoting equality, justice, and inclusive growth by uplifting marginalized communities.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
             },
             {
               icon: <HeartPulse className="h-7 w-7 text-primary-600" />,
               title: "Health & Well-being",
-              description: "Saving lives and improving health through the OAB Blood Bank, health campaigns, and awareness initiatives.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
+              description:
+                "Saving lives and improving health through the OAB Blood Bank, health campaigns, and awareness initiatives.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
             },
             {
               icon: <Target className="h-7 w-7 text-primary-600" />,
               title: "Community Development",
-              description: "Building sustainable communities through integrated development programs and grassroots initiatives.",
-              color: "from-primary-50 to-primary-100 border-primary-100"
-            }
+              description:
+                "Building sustainable communities through integrated development programs and grassroots initiatives.",
+              color: "from-primary-50 to-primary-100 border-primary-100",
+            },
           ].map((area, index) => (
             <motion.div
               key={index}
@@ -274,7 +310,9 @@ export default function About() {
               <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {area.icon}
               </div>
-              <h3 className="font-bold text-lg mb-3 text-gray-800">{area.title}</h3>
+              <h3 className="font-bold text-lg mb-3 text-gray-800">
+                {area.title}
+              </h3>
               <p className="text-gray-700">{area.description}</p>
             </motion.div>
           ))}
@@ -282,7 +320,7 @@ export default function About() {
       </section>
 
       {/* Work in Action */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -290,14 +328,16 @@ export default function About() {
         className="animate-on-scroll"
       >
         <div className=" rounded-2xl p-4 ">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Work in Action</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Our Work in Action
+          </h2>
           <div className="space-y-5">
             {[
               "Running community-based initiatives that provide education, training, and opportunities to underprivileged groups.",
               "Organizing awareness campaigns, workshops, and advocacy programs for social justice and environmental protection.",
               "Focusing on youth leadership development to build skills, confidence, and vision for a sustainable society.",
               "Partnering with national and international organizations to amplify impact and bring global solutions to local challenges.",
-              "Implementing projects such as health awareness drives, blood donation programs, skill development workshops, and climate action campaigns."
+              "Implementing projects such as health awareness drives, blood donation programs, skill development workshops, and climate action campaigns.",
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -317,46 +357,48 @@ export default function About() {
         </div>
       </motion.section>
 
-
-
       {/* Impact Stats */}
       <section className="py-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center"> Our <span className="text-primary-600 font-bold">Impact</span> in Numbers</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+          {" "}
+          Our <span className="text-primary-600 font-bold">Impact</span> in
+          Numbers
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-        { 
-          icon: Users, 
-          label: "Active Volunteers", 
-          value: "10,000+", 
-          description: "Nationwide engagement",
-          gradient: "from-primary-500 to-primary-600",
-          delay: 0.1
-        },
-        { 
-          icon: TrendingUp, 
-          label: "Successful Campaigns", 
-          value: "250+", 
-          description: "Strategic initiatives",
-          gradient: "from-primary-500 to-primary-500",
-          delay: 0.2
-        },
-        { 
-          icon: Heart, 
-          label: "Communities Impacted", 
-          value: "100+", 
-          description: "Positive transformation",
-          gradient: "from-primary-500 to-primary-600",
-          delay: 0.3
-        },
-        { 
-          icon: MapPin, 
-          label: "Regions Covered", 
-          value: "8", 
-          description: "National footprint",
-          gradient: "from-primary-500 to-primary-500",
-          delay: 0.4
-        }
-      ].map((stat, index) => {
+            {
+              icon: Users,
+              label: "Active Volunteers",
+              value: "10,000+",
+              description: "Nationwide engagement",
+              gradient: "from-primary-500 to-primary-600",
+              delay: 0.1,
+            },
+            {
+              icon: TrendingUp,
+              label: "Successful Campaigns",
+              value: "250+",
+              description: "Strategic initiatives",
+              gradient: "from-primary-500 to-primary-500",
+              delay: 0.2,
+            },
+            {
+              icon: Heart,
+              label: "Communities Impacted",
+              value: "100+",
+              description: "Positive transformation",
+              gradient: "from-primary-500 to-primary-600",
+              delay: 0.3,
+            },
+            {
+              icon: MapPin,
+              label: "Regions Covered",
+              value: "8",
+              description: "National footprint",
+              gradient: "from-primary-500 to-primary-500",
+              delay: 0.4,
+            },
+          ].map((stat, index) => {
             const IconComponent = stat.icon;
             return (
               <motion.div
@@ -367,21 +409,27 @@ export default function About() {
                 viewport={{ once: true }}
                 className="bg-primary p-6 rounded-2xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className={`text-3xl text-primary-700 mb-3 flex justify-center`}>
+                <div
+                  className={`text-3xl text-primary-700 mb-3 flex justify-center`}
+                >
                   <IconComponent className="h-10 w-10" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className={`text-gray-700 font-medium mb-1 `}>{stat.label}</div>
+                <div className="text-3xl font-bold text-gray-900 mb-1">
+                  {stat.value}
+                </div>
+                <div className={`text-gray-700 font-medium mb-1 `}>
+                  {stat.label}
+                </div>
                 <div className="text-sm text-gray-500">{stat.description}</div>
-                      {/* Animated Progress Line */}
-              <div className="mt-6 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 1, delay: stat.delay + 0.3 }}
-                  className={`h-full bg-gradient-to-r ${stat.gradient}`}
-                />
-              </div>
+                {/* Animated Progress Line */}
+                <div className="mt-6 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    transition={{ duration: 1, delay: stat.delay + 0.3 }}
+                    className={`h-full bg-gradient-to-r ${stat.gradient}`}
+                  />
+                </div>
               </motion.div>
             );
           })}
@@ -389,7 +437,7 @@ export default function About() {
       </section>
 
       {/* Our Belief */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -401,7 +449,7 @@ export default function About() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Belief</h2>
             <div className="space-y-4">
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -409,21 +457,21 @@ export default function About() {
                 className="text-gray-700 text-lg leading-relaxed"
               >
                 At the core of OAB Foundation lies a simple but powerful belief:
-                sustainable change begins with people. By empowering individuals and
-                creating platforms for leadership and action, we aim to transform
-                entire communities.
+                sustainable change begins with people. By empowering individuals
+                and creating platforms for leadership and action, we aim to
+                transform entire communities.
               </motion.p>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="text-gray-700 text-lg leading-relaxed"
               >
-                We believe meaningful change begins at the local level. That's why we
-                listen to communities, understand their needs, and co-create solutions
-                with them—from rural villages to urban centers—rooted in trust,
-                action, and hope.
+                We believe meaningful change begins at the local level. That's
+                why we listen to communities, understand their needs, and
+                co-create solutions with them—from rural villages to urban
+                centers—rooted in trust, action, and hope.
               </motion.p>
             </div>
           </div>

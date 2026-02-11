@@ -1,8 +1,8 @@
 import {
   Aperture,
-  BadgeAlert,
   Facebook,
   Linkedin,
+  Mail,
   Phone,
   Twitter,
 } from "lucide-react";
@@ -29,8 +29,8 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-3 text-gray-700">
             <p className="flex items-center gap-3">
-              <BadgeAlert className="text-orange-600" />
-              contact@polytechnicinfo.com
+              <Mail className="text-orange-600" />
+              contact@oabfoundation.org
             </p>
             <p className="flex items-center gap-3">
               <Phone className="text-orange-600" />
@@ -59,12 +59,6 @@ const Contact = () => {
                 className="p-3 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-600 hover:text-white transition"
               >
                 <Twitter />
-              </a>
-              <a
-                href="#"
-                className="p-3 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-600 hover:text-white transition"
-              >
-                <Aperture />
               </a>
             </div>
           </div>
