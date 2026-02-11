@@ -17,6 +17,7 @@ import {
   Award,
   MapPin
 } from "lucide-react";
+import MissionVision from "@/app/pages/MissionVision";
 
 export default function About() {
 
@@ -428,6 +429,7 @@ export default function About() {
           </div>
         </div>
       </motion.section>
+      <MissionVision></MissionVision>
     </main>
   );
 }
