@@ -20,6 +20,7 @@ import {
 import MissionVision from "@/app/pages/MissionVision";
 import OurNumbers from "@/app/pages/Numbers";
 import Numbers from "@/app/pages/Numbers";
+import OurPartners from "@/app/pages/Partners";
 
 export default function About() {
   const images = [
@@ -481,6 +482,7 @@ export default function About() {
       </motion.section>
       <MissionVision></MissionVision>
     <Numbers></Numbers>
+    <OurPartners></OurPartners>
     </main>
   );
 }

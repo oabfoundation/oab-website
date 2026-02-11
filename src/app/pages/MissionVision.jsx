@@ -17,7 +17,7 @@ export default function MissionVision() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
       
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -28,7 +28,7 @@ export default function MissionVision() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-orange-500 mb-4">Our Mission</h2>
+          <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Mission</h2>
           <p className="text-gray-700 leading-relaxed text-lg">
             To create skilled citizens by empowering disadvantaged children, youth and women’s communities
             and raising awareness among people to ensure effective workforce and leadership, real education
@@ -75,7 +75,7 @@ export default function MissionVision() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-orange-500 mb-4">Our Vision</h2>
+          <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Vision</h2>
           <p className="text-gray-700 leading-relaxed text-lg">
             We want a sustainable, non-discriminatory society where everyone
             is able to fulfill their highest potential and a green world full
