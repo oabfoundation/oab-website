@@ -18,6 +18,8 @@ import {
   MapPin,
 } from "lucide-react";
 import MissionVision from "@/app/pages/MissionVision";
+import OurNumbers from "@/app/pages/Numbers";
+import Numbers from "@/app/pages/Numbers";
 
 export default function About() {
   const images = [
@@ -478,6 +480,7 @@ export default function About() {
         </div>
       </motion.section>
       <MissionVision></MissionVision>
+    <Numbers></Numbers>
     </main>
   );
 }
