@@ -1,7 +1,11 @@
+import OabBanner from "../pages/OabBanner";
+import WhatWeDo from "../pages/WhatWeDo";
+
 const Home = () => {
   return (
-    <section className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <h1>Hello! OAB Foundation</h1>
+    <section className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans">
+   <OabBanner></OabBanner>
+   <WhatWeDo></WhatWeDo>
     </section>
   );
 };
