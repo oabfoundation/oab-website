@@ -57,7 +57,7 @@ export default function WhatWeDo() {
         <div
           key={index}
           className={`
-            flex flex-col lg:flex-row items-center max-w-7xl mx-auto px-6 gap-12
+            flex flex-col lg:flex-row items-center mx-auto gap-12
             absolute inset-0 transition-opacity duration-1000
             ${index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"}
           `}
