@@ -27,7 +27,7 @@ export default function Numbers() {
     },
     { 
       number: "100,000+", 
-      label: "Number of Lives Impacted", 
+      label: " Live Impactes", 
       description: "Positive community transformation",
       icon: UsersRound,
       gradient: "from-primary-500 to-primary-500",

@@ -1,3 +1,5 @@
+import Impact from "../pages/Impact";
+import Numbers from "../pages/Numbers";
 import OabBanner from "../pages/OabBanner";
 import OurVision from "../pages/OurVision";
 import WeCoverBangladesh from "../pages/WeCoverBangladesh";
@@ -10,6 +12,8 @@ const Home = () => {
    <WhatWeDo></WhatWeDo>
    <OurVision></OurVision>
    <WeCoverBangladesh></WeCoverBangladesh>
+   <Numbers></Numbers>
+   <Impact></Impact>
     </section>
   );
 };
