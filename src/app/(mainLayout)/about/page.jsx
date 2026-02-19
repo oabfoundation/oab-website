@@ -17,10 +17,10 @@ import {
   Award,
   MapPin,
 } from "lucide-react";
-import MissionVision from "@/app/pages/MissionVision";
-import OurNumbers from "@/app/pages/Numbers";
-import Numbers from "@/app/pages/Numbers";
-import OurPartners from "@/app/pages/Partners";
+import MissionVision from "@/components/mainLayout/pages/MissionVision";
+import Numbers from "@/components/mainLayout/pages/Numbers";
+import OurPartners from "@/components/mainLayout/pages/Partners";
+
 
 export default function About() {
   const images = [

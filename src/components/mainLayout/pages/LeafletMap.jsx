@@ -1,7 +1,10 @@
 "use client";
+import L from "leaflet";
+
 
 import { MapContainer, TileLayer, Circle, Tooltip } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { useEffect, useRef } from "react";
 
 export default function LeafletMap({ onDistrictHover, onDistrictClick }) {
   const mapRef = useRef(null);

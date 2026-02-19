@@ -1,9 +1,11 @@
-import Impact from "../pages/Impact";
-import Numbers from "../pages/Numbers";
-import OabBanner from "../pages/OabBanner";
-import OurVision from "../pages/OurVision";
-import WeCoverBangladesh from "../pages/WeCoverBangladesh";
-import WhatWeDo from "../pages/WhatWeDo";
+import WhatWeCareFor from "@/components/mainLayout/pages/CareFor";
+import OurImpact from "@/components/mainLayout/pages/Impact";
+import Numbers from "@/components/mainLayout/pages/Numbers";
+import OabBanner from "@/components/mainLayout/pages/OabBanner";
+import OurVision from "@/components/mainLayout/pages/OurVision";
+import WeCoverBangladesh from "@/components/mainLayout/pages/WeCoverBangladesh";
+import WhatWeDo from "@/components/mainLayout/pages/WhatWeDo";
+
 
 const Home = () => {
   return (
@@ -13,7 +15,8 @@ const Home = () => {
    <OurVision></OurVision>
    <WeCoverBangladesh></WeCoverBangladesh>
    <Numbers></Numbers>
-   <Impact></Impact>
+   <OurImpact></OurImpact>
+<WhatWeCareFor></WhatWeCareFor>
     </section>
   );
 };

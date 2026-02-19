@@ -121,7 +121,7 @@ export default function Numbers() {
   ];
 
   return (
-    <section className="relative pt-16 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
         {/* Header Section */}
         <div
