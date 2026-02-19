@@ -78,7 +78,7 @@ export default function About() {
 
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
-      {/* Hero Section */}
+
       <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-300 via-primary-300 to-primary-300 p-8 md:p-12">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -translate-y-32 translate-x-32"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-200/20 rounded-full translate-y-24 -translate-x-24"></div>
