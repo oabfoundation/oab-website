@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
       <header className="sticky top-0 bg-white z-50">
         <Header />
       </header>
-      <main>{children}</main>
+      <main className="max-w-11/12 mx-auto">{children}</main>
       <footer className="bg-green-50">
         <Footer />
       </footer>
