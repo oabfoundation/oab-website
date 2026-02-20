@@ -8,27 +8,27 @@ const stories = [
     title: "Scholarship Beneficiary",
     description:
       "With the support of OAB Foundation, I was able to continue my education and achieve my dream of becoming a teacher.",
-    image: "/success1.jpg",
+    image: "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
   },
   {
     name: "Rahim Uddin",
     title: "Medical Camp Beneficiary",
     description:
       "The free medical camp organized by OAB Foundation helped me receive treatment that I could not afford before.",
-    image: "/success2.jpg",
+    image: "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
   },
   {
     name: "Fatema Begum",
     title: "Relief Support Recipient",
     description:
       "During the flood crisis, OAB Foundation provided food and essential supplies that saved our family.",
-    image: "/success3.jpg",
+    image: "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
   },
 ];
 
 export default function SuccessStories() {
   return (
-    <section className="py-16">
+    <section className="pb-16">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
@@ -46,7 +46,7 @@ export default function SuccessStories() {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden"
+              className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl hover:border-2 border-orange-500 transition duration-300 overflow-hidden"
             >
               <div className="relative">
                 <img

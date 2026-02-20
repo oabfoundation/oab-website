@@ -6,48 +6,48 @@ const leaders = [
   {
     name: "Asaduzzaman Tohin",
     role: "Founder & President",
-    image: "/leaders/asaduzzaman.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Faisal Tahsan",
     role: "Head of HR",
-    image: "/leaders/faisal.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Md. Hasan",
     role: "Lead, IT Team",
-    image: "/leaders/hasan.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Forhad Hossain",
     role: "Graphics & Video Team",
-    image: "/leaders/forhad.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Farhana Alam Jesy",
     role: "Climate Action Team",
-    image: "/leaders/farhana.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Adib Imam",
     role: "HR Team",
-    image: "/leaders/adib.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Moymuna Rahman",
     role: "Women’s Team",
-    image: "/leaders/moymuna.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
   {
     name: "Rakib Mridha",
     role: "Campus Ambassador Coordinator",
-    image: "/leaders/rakib.jpg",
+    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
-  {
-    name: "Nasim Limon",
-    role: "Convenor Committee",
-    image: "/leaders/nasim.jpg",
-  },
+  // {
+  //   name: "Nasim Limon",
+  //   role: "Convenor Committee",
+  //   image: "/leaders/nasim.jpg",
+  // },
 ];
 
 export default function Leadership() {
@@ -70,7 +70,7 @@ export default function Leadership() {
           {leaders.map((leader, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 text-center overflow-hidden group"
+              className="bg-white rounded-2xl shadow-md hover:border-2 border-orange-500 hover:shadow-xl transition duration-300 text-center overflow-hidden group"
             >
               <div className="relative">
                 <img

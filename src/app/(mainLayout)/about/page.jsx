@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import {
   Leaf,
   HandHeart,
@@ -59,7 +58,7 @@ export default function About() {
     "https://scontent.fdac152-1.fna.fbcdn.net/v/t39.30808-6/623411854_827722960320633_5829362996367204878_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zqGM2Ttor38Q7kNvwGSHOuI&_nc_oc=AdnlWue4N_YrPlka3BM4WWP-Eeq9S9LCuawjhotAh7lOFWkkxKvjrq_sOSsVPPKuQGY&_nc_zt=23&_nc_ht=scontent.fdac152-1.fna&_nc_gid=PzePbMMZ4Oaj_RESX4Xncg&oh=00_AfsE7x32gadEPjC6DdYQbZfbq8IWfEx0_GYVJ4udLGanaw&oe=699215CA",
   ];
 
-  const batchSize = 3; // Protibar koto image dakhabe
+  const batchSize = 3; 
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
@@ -70,20 +69,20 @@ export default function About() {
     return () => clearInterval(interval);
   }, []);
 
-  // Current batch images select kora
+
   const currentImages = [];
   for (let i = 0; i < batchSize; i++) {
     currentImages.push(images[(startIndex + i) % images.length]);
   }
 
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+    <main className=" mx-auto px-4 sm:px-6 py-12 space-y-16">
 
       <section className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-300 via-primary-300 to-primary-300 p-8 md:p-12">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -translate-y-32 translate-x-32"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-200/20 rounded-full translate-y-24 -translate-x-24"></div>
 
-        <motion.div
+        < div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -115,13 +114,12 @@ export default function About() {
               <span className="font-semibold">Since 2018</span>
             </div>
           </div>
-        </motion.div>
+        </ div>
       </section>
 
       {/* Who We Are */}
-      <motion.section
+      < section
         initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
         className="animate-on-scroll"
@@ -199,7 +197,7 @@ export default function About() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {currentImages.map((src, index) => (
-                  <motion.img
+                  < img
                     key={index}
                     src={src}
                     alt={`OAB Foundation Activity ${index + 1}`}
@@ -248,7 +246,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </ section>
 
       {/* Core Work Areas */}
       <section>
@@ -301,10 +299,10 @@ export default function About() {
               color: "from-primary-50 to-primary-100 border-primary-100",
             },
           ].map((area, index) => (
-            <motion.div
+            < div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+          
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -317,13 +315,13 @@ export default function About() {
                 {area.title}
               </h3>
               <p className="text-gray-700">{area.description}</p>
-            </motion.div>
+            </ div>
           ))}
         </div>
       </section>
 
       {/* Work in Action */}
-      <motion.section
+      < section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -342,7 +340,7 @@ export default function About() {
               "Partnering with national and international organizations to amplify impact and bring global solutions to local challenges.",
               "Implementing projects such as health awareness drives, blood donation programs, skill development workshops, and climate action campaigns.",
             ].map((item, index) => (
-              <motion.div
+              < div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -354,11 +352,11 @@ export default function About() {
                   <CheckCircle className="h-5 w-5 text-primary-600" />
                 </div>
                 <p className="text-gray-700 flex-1">{item}</p>
-              </motion.div>
+              </ div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </ section>
 
       {/* Impact Stats */}
       <section className="py-4">
@@ -404,7 +402,7 @@ export default function About() {
           ].map((stat, index) => {
             const IconComponent = stat.icon;
             return (
-              <motion.div
+              < div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -426,21 +424,21 @@ export default function About() {
                 <div className="text-sm text-gray-500">{stat.description}</div>
                 {/* Animated Progress Line */}
                 <div className="mt-6 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-                  <motion.div
+                  < div
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     transition={{ duration: 1, delay: stat.delay + 0.3 }}
                     className={`h-full bg-gradient-to-r ${stat.gradient}`}
                   />
                 </div>
-              </motion.div>
+              </ div>
             );
           })}
         </div>
       </section>
 
       {/* Our Belief */}
-      <motion.section
+      < section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -452,7 +450,7 @@ export default function About() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Belief</h2>
             <div className="space-y-4">
-              <motion.p
+              < p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -463,8 +461,8 @@ export default function About() {
                 sustainable change begins with people. By empowering individuals
                 and creating platforms for leadership and action, we aim to
                 transform entire communities.
-              </motion.p>
-              <motion.p
+              </ p>
+              < p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -475,11 +473,11 @@ export default function About() {
                 why we listen to communities, understand their needs, and
                 co-create solutions with them—from rural villages to urban
                 centers—rooted in trust, action, and hope.
-              </motion.p>
+              </ p>
             </div>
           </div>
         </div>
-      </motion.section>
+      </ section>
       <MissionVision></MissionVision>
     <Numbers></Numbers>
     <OurPartners></OurPartners>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function OabBanner() {
@@ -48,9 +49,10 @@ export default function OabBanner() {
           healthcare, and social support initiatives.
         </p>
 
+     <Link href={'/about'}>
         <button className="bg-orange-500 hover:bg-orange-600 text-black px-6 py-3 rounded-full font-semibold transition">
           Learn More
-        </button>
+        </button></Link>
       </div>
     </section>
   );

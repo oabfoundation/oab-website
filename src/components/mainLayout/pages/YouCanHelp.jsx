@@ -31,7 +31,7 @@ const waysToHelp = [
 
 export default function HowYouCanHelp() {
   return (
-    <section className="py-16 ">
+    <section className="pb-16 ">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Section Header */}
