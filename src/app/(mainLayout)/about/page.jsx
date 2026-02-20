@@ -479,7 +479,7 @@ export default function About() {
         </div>
       </ section>
       <MissionVision></MissionVision>
-    <Numbers></Numbers>
+    {/* <Numbers></Numbers> */}
     <OurPartners></OurPartners>
     </main>
   );
