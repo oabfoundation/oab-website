@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import MissionVision from "@/components/mainLayout/pages/MissionVision";
 import Numbers from "@/components/mainLayout/pages/Numbers";
-// import OurPartners from "@/components/mainLayout/pages/Partners";
+import OurPartners from "@/components/mainLayout/pages/Partners";
 
 
 export default function About() {
@@ -480,7 +480,7 @@ export default function About() {
       </ section>
       <MissionVision></MissionVision>
     <Numbers></Numbers>
-    {/* <OurPartners></OurPartners> */}
+    <OurPartners></OurPartners>
     </main>
   );
 }
