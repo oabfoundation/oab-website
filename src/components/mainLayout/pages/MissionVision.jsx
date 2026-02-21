@@ -22,7 +22,7 @@ export default function MissionVision() {
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-8">
         {/* Text */}
-        <motion.div
+        < div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -34,10 +34,10 @@ export default function MissionVision() {
             and raising awareness among people to ensure effective workforce and leadership, real education
             and the elimination of social inequality, climate change and injustice.
           </p>
-        </motion.div>
+        </ div>
 
         {/* Images */}
-        <motion.div
+        < div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -63,13 +63,13 @@ export default function MissionVision() {
               className="w-1/2 h-32 md:h-40 object-cover rounded-xl shadow-md"
             />
           </div>
-        </motion.div>
+        </ div>
       </div>
 
       {/* Our Vision */}
       <div className="flex flex-col items-center justify-center gap-8 md:flex-row-reverse">
         {/* Text */}
-        <motion.div
+        < div
           className="md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -81,10 +81,10 @@ export default function MissionVision() {
             is able to fulfill their highest potential and a green world full
             of vibrant people.
           </p>
-        </motion.div>
+        </ div>
 
         {/* Images */}
-        <motion.div
+        < div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -110,7 +110,7 @@ export default function MissionVision() {
               className="w-1/2 h-32 md:h-40 object-cover rounded-xl shadow-md"
             />
           </div>
-        </motion.div>
+        </ div>
       </div>
 
     </section>

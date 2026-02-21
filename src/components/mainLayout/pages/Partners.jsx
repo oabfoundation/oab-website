@@ -4,11 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { 
   Handshake, 
-  Globe, 
-  Award, 
-  Shield,
-  TrendingUp,
-  Users
+
 } from "lucide-react";
 
 export default function OurPartners() {
@@ -57,25 +53,13 @@ export default function OurPartners() {
 
   return (
     <section className="relative overflow-hidden ">
-
-      
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
         
         {/* Header Section */}
         <div className="text-center mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-3 mb-6"
-          >
-            <Handshake className="h-8 w-8 text-primary-500" />
-            <span className="text-sm font-semibold tracking-wider text-primary-600 uppercase">
-              Collaborative Excellence
-            </span>
-          </motion.div>
 
-          <motion.h2
+
+          <h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -85,9 +69,9 @@ export default function OurPartners() {
             <span className="text-primary-600">
               Partners
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
+          <p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -95,7 +79,7 @@ export default function OurPartners() {
           >
             Through strategic alliances and collaborative efforts, we amplify our impact 
             and drive sustainable change across Bangladesh and beyond.
-          </motion.p>
+          </p>
 
         
         </div>
