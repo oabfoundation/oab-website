@@ -305,7 +305,6 @@ export default function About() {
           
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className={`bg-gradient-to-br ${area.color} p-6 rounded-2xl border shadow-sm hover:shadow-md transition-all duration-300 group`}
             >
               <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
@@ -343,7 +342,6 @@ export default function About() {
               < div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="flex items-start space-x-4 group"

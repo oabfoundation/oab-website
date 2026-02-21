@@ -15,9 +15,9 @@ const Header = () => {
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "OAB Events", path: "/events" },
-    { name: "Contact", path: "/contact" },
+     { name: "Contact", path: "/contact" },
+    { name: "Dashboard", path: "/dashboard" },
+   
   ];
 
   // Close dropdown when clicking outside
