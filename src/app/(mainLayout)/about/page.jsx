@@ -322,7 +322,7 @@ export default function About() {
       {/* Work in Action */}
       < section
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+ 
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="animate-on-scroll"
@@ -403,7 +403,7 @@ export default function About() {
               < div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+        
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="bg-primary p-6 rounded-2xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -424,7 +424,7 @@ export default function About() {
                 <div className="mt-6 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
                   < div
                     initial={{ width: 0 }}
-                    whileInView={{ width: "100%" }}
+          
                     transition={{ duration: 1, delay: stat.delay + 0.3 }}
                     className={`h-full bg-gradient-to-r ${stat.gradient}`}
                   />
@@ -438,7 +438,7 @@ export default function About() {
       {/* Our Belief */}
       < section
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         className="animate-on-scroll  rounded-2xl p-8 md:p-10  hover:border hover:bg-primary-100 border-primary-500"
@@ -450,7 +450,7 @@ export default function About() {
             <div className="space-y-4">
               < p
                 initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+            
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
                 className="text-gray-700 text-lg leading-relaxed"
@@ -462,7 +462,7 @@ export default function About() {
               </ p>
               < p
                 initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+           
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 className="text-gray-700 text-lg leading-relaxed"

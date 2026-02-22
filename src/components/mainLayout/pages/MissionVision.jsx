@@ -25,7 +25,7 @@ export default function MissionVision() {
         < div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Mission</h2>
@@ -40,7 +40,7 @@ export default function MissionVision() {
         < div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+  
           transition={{ duration: 0.6 }}
         >
           {/* Top Large Image */}
@@ -72,7 +72,6 @@ export default function MissionVision() {
         < div
           className="md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Vision</h2>
@@ -87,7 +86,7 @@ export default function MissionVision() {
         < div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+    
           transition={{ duration: 0.6 }}
         >
           {/* Top Large Image */}
