@@ -1,3 +1,4 @@
+"use client"
 import { getProjects } from "@/app/api/projects/route";
 import {
   BookOpen,
