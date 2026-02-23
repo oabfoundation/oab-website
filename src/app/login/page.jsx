@@ -68,7 +68,7 @@ const Login = () => {
         {/* Left Panel: Branding & Interactive Background */}
         <section className="hidden lg:flex lg:col-span-7 p-16 flex-col justify-between border-r border-slate-100 dark:border-slate-800 relative overflow-hidden group cursor-pointer">
           
-          {/* Background Layer */}
+   
           <div className="absolute inset-0 z-0">
             <Image 
               src={bg} 
