@@ -1,5 +1,3 @@
-"use client"
-import React, { useEffect, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +5,7 @@ import { getEvents } from "@/app/api/events/route";
 
 const newsData = [
   {
-    id:"1",
+    id: "1",
     title: "Winter Blanket Distribution Program 2025",
     date: "15 January 2026",
     image:
@@ -16,7 +14,7 @@ const newsData = [
     category: "Impact",
   },
   {
-    id:"2",
+    id: "2",
     title: "Free Medical Camp Successfully Completed",
     date: "02 February 2026",
     image:
@@ -25,7 +23,7 @@ const newsData = [
     category: "Healthcare",
   },
   {
-    id:"3",
+    id: "3",
     title: "Ramadan Food Package Initiative",
     date: "10 March 2026",
     image:
@@ -35,49 +33,17 @@ const newsData = [
   },
 ];
 
-
-
-
 const Events = () => {
-
-
-const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-
-        const fetchEvents = async () => {
-            try {
-                setLoading(true);
-                const result = await getEvents();
-                if (result?.success) {
-                    setEvents(result.data);
-                }
-            } catch (error) {
-                console.error("Error fetching events:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchEvents();
-    }, []);
-
-    if (loading) {
-        return <div className="p-10 text-center">Loading events...</div>;
-    }
-
   return (
     <section className="py-16">
-        {/* {events.map(e => <p key={e?._id}>{e.title}</p>)} */}
+      {/* {events.map(e => <p key={e?._id}>{e.title}</p>)} */}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900">
-            Latest from the{" "}
-            <span className="text-orange-500">OAB Foundation</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Latest <span className="text-orange-600">Events</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="max-w-2xl mx-auto mt-2 text-lg md:text-xl">
             We believe in sharing our journey with you. Stay updated with our
             ongoing programs, recent successes, and upcoming humanitarian
             efforts.
@@ -139,7 +105,7 @@ useEffect(() => {
         </div>
 
         {/* Center View All Button */}
-        <div className="flex justify-center mt-12">
+        {/* <div className="flex justify-center mt-12">
           <Link
             href="/events"
             className="inline-flex items-center gap-2 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-200 transition-all duration-300 hover:-translate-y-1"
@@ -147,10 +113,8 @@ useEffect(() => {
             View All Updates
             <ArrowRight size={18} />
           </Link>
-        </div>
+        </div> */}
       </div>
-
-    
     </section>
   );
 };

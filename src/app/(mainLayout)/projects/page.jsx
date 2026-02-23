@@ -1,17 +1,7 @@
-"use client";
 import { getProjects } from "@/app/api/projects/route";
-import Loading from "@/app/loading";
-import {
-  BookOpen,
-  Utensils,
-  HeartPulse,
-  Shirt,
-  Laptop,
-  ArrowRight,
-} from "lucide-react";
+import { BookOpen, Utensils, HeartPulse, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const projectData = [
   {
@@ -41,71 +31,18 @@ const projectData = [
     image:
       "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
-  {
-    id: 4,
-    title: "Winter Clothing Drive",
-    description:
-      "Distributing warm clothes to protect vulnerable communities during winter.",
-    icon: <Shirt size={28} />,
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
-  {
-    id: 5,
-    title: "Skill Development",
-    description:
-      "Training youth with practical skills to help them become financially independent.",
-    icon: <Laptop size={28} />,
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
-  {
-    id: 6,
-    title: "Skill Development",
-    description:
-      "Training youth with practical skills to help them become financially independent.",
-    icon: <Laptop size={28} />,
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
 ];
-
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setLoading(true);
-        const result = await getProjects();
-        if (result?.success) {
-          setProjects(result.data);
-        }
-      } catch (error) {
-        console.error("Error fetching Projects:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
-    <section className="min-h-screen pt-16 ">
+    <div className="min-h-screen py-16 ">
       {/* {projects.map(p => <p key={p?._id}>{p.title}</p>)} */}
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Title */}
+        {/* div Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-orange-600 drop-shadow-lg">
-            Our Ongoing Projects
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Ongoing <span className="text-orange-600">Projects</span>
           </h2>
-          <p className=" mt-4 text-lg md:text-xl">
+          <p className=" mt-2 text-lg md:text-xl">
             Making a meaningful impact through continuous community initiatives.
           </p>
         </div>
@@ -115,7 +52,7 @@ const Projects = () => {
           {projectData.map((project) => (
             <div
               key={project.id}
-              className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl hover:border-2 border-orange-500 transition-transform duration-500 transform hover:-translate-y-2"
+              className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-500 transition-all duration-300 overflow-hidden"
             >
               {/* Card Image with gradient overlay */}
               <div className="relative h-64">
@@ -132,7 +69,7 @@ const Projects = () => {
                 <div>
                   <div className="flex items-center gap-3 text-orange-500 mb-3">
                     {project.icon}
-                    <h3 className="text-xl font-bold text-gray-800">
+                    <h3 className="text-xl font-bold text-gray-800 leading-snug  group-hover:text-orange-500 transition-colors">
                       {project.title}
                     </h3>
                   </div>
@@ -153,7 +90,7 @@ const Projects = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -6,15 +6,13 @@ import {
   House,
 } from "lucide-react";
 import Link from "next/link";
-import Footer from "./dashboard/Components/Footer";
-import Banner from "./dashboard/Components/Banner";
 
 const DashboardLayout = ({ children }) => {
   const sidebarLinks = [
     { name: "Return Home", path: "/", icon: House },
     { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-    { name: "Events", path: "/dashboard/events", icon: PanelsTopLeft },
-    { name: "Projects", path: "/dashboard/projects", icon: PanelsTopLeft },
+    { name: "Polytechnics", path: "/dashboard/submit", icon: PanelsTopLeft },
+    { name: "Department", path: "/dashboard/department", icon: PanelsTopLeft },
   ];
 
   return (
@@ -74,9 +72,7 @@ const DashboardLayout = ({ children }) => {
         <main className="flex-1 overflow-y-auto ml-20 md:ml-60 lg:ml-60 p-6 md:p-8 bg-slate-50">
           <div className="max-w-7xl mx-auto">{children}</div>
         </main>
-      
       </div>
-        <Footer></Footer>
     </section>
   );
 };

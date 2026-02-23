@@ -1,11 +1,11 @@
-import WhatWeCareFor from "@/components/mainLayout/pages/CareFor";
-import MissionVision from "@/components/mainLayout/pages/MissionVision";
-import Numbers from "@/components/mainLayout/pages/Numbers";
-import OabBanner from "@/components/mainLayout/pages/OabBanner";
-import OurPartners from "@/components/mainLayout/pages/Partners";
-import SuccessStories from "@/components/mainLayout/pages/SuccessStories";
-import WeCoverBangladesh from "@/components/mainLayout/pages/WeCoverBangladesh";
-import HowYouCanHelp from "@/components/mainLayout/pages/YouCanHelp";
+import WhatWeCareFor from "@/components/mainLayout/home/CareFor";
+import MissionVision from "@/components/mainLayout/home/MissionVision";
+import Numbers from "@/components/mainLayout/home/Numbers";
+import OabBanner from "@/components/mainLayout/home/OabBanner";
+import OurPartners from "@/components/mainLayout/home/Partners";
+import SuccessStories from "@/components/mainLayout/home/SuccessStories";
+import WeCoverBangladesh from "@/components/mainLayout/home/WeCoverBangladesh";
+import HowYouCanHelp from "@/components/mainLayout/home/YouCanHelp";
 
 const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import WorkAreas from "@/components/mainLayout/about/WorkAreas";
-import OurPartners from "@/components/mainLayout/pages/Partners";
+import OurPartners from "@/components/mainLayout/home/Partners";
 
 const Globe = ({ className }) => (
   <svg

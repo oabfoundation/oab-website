@@ -1,6 +1,6 @@
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import OabBanner from "@/components/mainLayout/pages/OabBanner";
+import OabBanner from "@/components/mainLayout/home/OabBanner";
 import React from "react";
 
 const MainLayout = ({ children }) => {
