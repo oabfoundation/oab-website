@@ -23,7 +23,7 @@ const DashboardEvents = () => {
           onClick={() => router.push("/dashboard/events/add")}
           className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 
           text-white px-5 py-2.5 rounded-xl shadow-md 
-          hover:shadow-lg transition duration-300"
+          hover:shadow-lg transition duration-300 cursor-pointer"
         >
           <Plus size={18} />
           Add Event

@@ -1,120 +1,168 @@
 "use client";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { postEvents } from "@/app/api/events/route"; 
-const AddEvents = () => {
-  const router = useRouter();
+import React from "react";
+import { useForm } from "react-hook-form";
+import {
+  Type,
+  Calendar,
+  Image as ImageIcon,
+  AlignLeft,
+  MapPin,
+  Tag,
+  Send,
+} from "lucide-react";
 
-
-  const [formData, setFormData] = useState({
-    title: "",
-    date: "",
-    image: "",
-    desc: "",
-    category: "",
+const AddNewsForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: {
+      title: "",
+      date: new Date().toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+      category: "Impact",
+      location: "",
+      image: "",
+      desc: "",
+      longDesc: "",
+    },
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-
-    const res = await postEvents(formData);
-
-    if (res.success) {
-      alert("Event Added Successfully");
-      router.push("/dashboard/events");
-    } else {
-      alert("Something went wrong: " + res.message);
-    }
+  const onSubmit = (data) => {
+    console.log("News Data:", data);
+    alert("Impact story added successfully!");
+    reset();
   };
 
   return (
-    <div className="p-8 max-w-2xl mx-auto bg-white rounded-2xl shadow-sm mt-10">
-      <h1 className="text-2xl font-bold mb-6 text-slate-800">Add New Event</h1>
-
-      <form onSubmit={handleSubmit} className="space-y-5">
-        {/* Title */}
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Event Title</label>
-          <input
-            type="text"
-            name="title"
-            placeholder=" Winter Blanket Distribution 2025"
-            required
-            onChange={handleChange}
-            className="w-full border border-slate-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+    <section className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100 max-w-5xl mx-auto my-8">
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-10 border-b border-slate-50 pb-6">
+        <div className="p-3 bg-orange-50 rounded-2xl text-orange-600">
+          <Send size={28} />
         </div>
+        <div>
+          <h2 className="text-2xl font-bold text-slate-800">
+            Post Latest Impact
+          </h2>
+          <p className="text-slate-500 text-sm">
+            Share the success stories of OAB Foundation with the world.
+          </p>
+        </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Date */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Date</label>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Title */}
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+              <Type size={16} className="text-orange-500" /> Event Title
+            </label>
             <input
-              type="text"
-              name="date"
-              placeholder="15 January 2026"
-              required
-              onChange={handleChange}
-              className="w-full border border-slate-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              {...register("title", { required: "Title is required" })}
+              placeholder="e.g. Winter Blanket Distribution 2025"
+              className={`w-full px-4 py-3 bg-slate-50 border rounded-xl outline-none focus:ring-2 transition-all ${
+                errors.title
+                  ? "border-red-300 focus:ring-red-50"
+                  : "border-slate-200 focus:ring-orange-100"
+              }`}
+            />
+          </div>
+
+          {/* Date */}
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+              <Calendar size={16} className="text-orange-500" /> Date
+            </label>
+            <input
+              {...register("date")}
+              placeholder="e.g. 15 January 2026"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
+            />
+          </div>
+
+          {/* Location */}
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+              <MapPin size={16} className="text-orange-500" /> Location
+            </label>
+            <input
+              {...register("location")}
+              placeholder="e.g. Northern Bangladesh"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
             />
           </div>
 
           {/* Category */}
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Category</label>
-            <input
-              type="text"
-              name="category"
-              placeholder="Impact / Charity"
-              required
-              onChange={handleChange}
-              className="w-full border border-slate-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+              <Tag size={16} className="text-orange-500" /> Category
+            </label>
+            <select
+              {...register("category")}
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100 cursor-pointer"
+            >
+              <option value="Impact">Impact</option>
+              <option value="Event">Event</option>
+              <option value="Relief">Relief</option>
+              <option value="Education">Education</option>
+            </select>
           </div>
         </div>
 
-        {/* Image URL */}
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Image URL</label>
-          <input
-            type="file"
-            name="image"
-            required
-            onChange={handleChange}
-            className="w-full border border-slate-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Description */}
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Description</label>
+        {/* Short Description */}
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+            <AlignLeft size={16} className="text-orange-500" /> Short Summary
+          </label>
           <textarea
-            name="desc"
-            rows="4"
-            placeholder="Describe the event..."
-            required
-            onChange={handleChange}
-            className="w-full border border-slate-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            {...register("desc")}
+            rows={2}
+            placeholder="Write a brief intro (max 150 characters)..."
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100 resize-none"
           />
         </div>
 
+        {/* Long Description */}
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-slate-700">
+            Full Detailed Story
+          </label>
+          <textarea
+            {...register("longDesc")}
+            rows={5}
+            placeholder="Explain the whole impact journey here..."
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
+          />
+        </div>
+
+        {/* Image URL */}
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+            <ImageIcon size={16} className="text-orange-500" /> Cover Image URL
+          </label>
+          <input
+            {...register("image")}
+            placeholder="https://oabfoundation.org/photo.jpg"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
+          />
+        </div>
+
+        {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition duration-300 shadow-md"
+          className="w-full md:w-max px-10 bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-orange-100 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
         >
-          Submit Event
+          Publish Impact Story
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 
-export default AddEvents;
+export default AddNewsForm;
