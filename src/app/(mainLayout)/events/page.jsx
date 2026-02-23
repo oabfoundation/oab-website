@@ -1,3 +1,4 @@
+import React from "react";
 import { Quote } from "lucide-react";
 import Link from "next/link";
 const stories = [
@@ -25,15 +26,39 @@ const stories = [
     image:
       "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
   },
+  {
+    name: "Amina Khatun",
+    title: "Scholarship Beneficiary",
+    description:
+      "With the support of OAB Foundation, I was able to continue my education and achieve my dream of becoming a teacher.",
+    image:
+      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+  },
+  {
+    name: "Rahim Uddin",
+    title: "Medical Camp Beneficiary",
+    description:
+      "The free medical camp organized by OAB Foundation helped me receive treatment that I could not afford before.",
+    image:
+      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+  },
+  {
+    name: "Fatema Begum",
+    title: "Relief Support Recipient",
+    description:
+      "During the flood crisis, OAB Foundation provided food and essential supplies that saved our family.",
+    image:
+      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+  },
 ];
-export default function SuccessStories() {
+const Events = () => {
   return (
-    <section className="my-16">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-800">
-            Success <span className="text-orange-600">Stories</span>
+            Successful <span className="text-orange-600">Events</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Real lives transformed through the dedication and support of OAB
@@ -68,26 +93,18 @@ export default function SuccessStories() {
                 </h3>
                 <span className="text-sm text-orange-600">{story.title}</span>
               </div>
-              <div>
-                <Link
-                  href="/events"
-                  className="py-2 px-3 bg-orange-500 rounded-2xl text-center block mb-10"
-                >
-                  Read More
-                </Link>
-              </div>
+              <Link
+                href="/events"
+                className="py-2 px-3 bg-orange-500 rounded-2xl text-center block mb-10"
+              >
+                Read More
+              </Link>
             </div>
           ))}
         </div>
       </div>
-      <div className="mx-auto">
-        <Link
-          href="/events"
-          className="py-2 px-3 bg-orange-500 rounded-2xl text-center mb-10"
-        >
-          Read More
-        </Link>
-      </div>
     </section>
   );
-}
+};
+
+export default Events;

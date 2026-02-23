@@ -1,39 +1,39 @@
-import React from 'react';
+import { Linkedin, Mail } from "lucide-react";
+import React from "react";
 const leaders = [
   {
     name: "Asaduzzaman Tohin",
     role: "Founder & President",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
+    image: "https://i.ibb.co.com/FL92nkZy/Tuhin.png",
   },
   {
-    name: "Faisal Tahsan",
-    role: "Head of HR",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
+    name: "Rakib Hossain",
+    role: "Head of Finance",
+    image: "https://i.ibb.co.com/9HzRLnDB/Rakib.jpg",
   },
   {
-    name: "Md. Hasan",
+    name: "Mohyminul Islam",
     role: "Lead, IT Team",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
+    image: "https://i.ibb.co.com/rGxhTTRq/20251226-114756.jpg",
   },
   {
     name: "Forhad Hossain",
     role: "Graphics & Video Team",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
+    image: "https://i.ibb.co.com/wrRyFVhX/user.png",
   },
-
 ];
 const Leader = () => {
-     return (
+  return (
     <section className="py-16 ">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-800">
             Our <span className="">Leadership</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Meet the passionate leaders guiding OAB Foundation toward sustainable impact and community empowerment.
+            Meet the passionate leaders guiding OAB Foundation toward
+            sustainable impact and community empowerment.
           </p>
         </div>
 
@@ -66,9 +66,7 @@ const Leader = () => {
                 <h3 className="text-lg font-semibold text-gray-800">
                   {leader.name}
                 </h3>
-                <p className="text-orange-600 text-sm mt-1">
-                  {leader.role}
-                </p>
+                <p className="text-orange-600 text-sm mt-1">{leader.role}</p>
               </div>
             </div>
           ))}
