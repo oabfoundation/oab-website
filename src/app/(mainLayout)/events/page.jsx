@@ -1,7 +1,9 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getEvents } from "@/app/api/events/route";
 
 const newsData = [
   {
@@ -28,12 +30,43 @@ const newsData = [
     desc: "Preparing for the holy month by ensuring that families have access to nutritious food and essential supplies.",
     category: "Humanitarian",
   },
-  // ... baki data gulu thakbe
 ];
 
+
+
+
 const Events = () => {
+
+
+const [events, setEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+
+        const fetchEvents = async () => {
+            try {
+                setLoading(true);
+                const result = await getEvents();
+                if (result?.success) {
+                    setEvents(result.data);
+                }
+            } catch (error) {
+                console.error("Error fetching events:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchEvents();
+    }, []);
+
+    if (loading) {
+        return <div className="p-10 text-center">Loading events...</div>;
+    }
+
   return (
     <section className="py-16">
+        {events.map(e => <p key={e?._id}>{e.title}</p>)}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -113,6 +146,8 @@ const Events = () => {
           </Link>
         </div>
       </div>
+
+    
     </section>
   );
 };
