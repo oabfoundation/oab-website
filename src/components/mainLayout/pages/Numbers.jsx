@@ -2,10 +2,15 @@
 
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { 
-  Users, Target, UsersRound, MapPin, 
-  TrendingUp, Globe, Heart, 
- Zap, 
+import {
+  Users,
+  Target,
+  UsersRound,
+  MapPin,
+  TrendingUp,
+  Globe,
+  Heart,
+  Zap,
 } from "lucide-react";
 
 export default function Numbers() {
@@ -19,37 +24,38 @@ export default function Numbers() {
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-      
+
       // Simulate counting animation for numbers
       const intervals = {};
       stats.forEach((stat, index) => {
-        const targetNumber = parseInt(stat.number.replace(/[^0-9]/g, ''));
-        const suffix = stat.number.replace(/[0-9]/g, '');
+        const targetNumber = parseInt(stat.number.replace(/[^0-9]/g, ""));
+        const suffix = stat.number.replace(/[0-9]/g, "");
         let currentNumber = 0;
-        
+
         intervals[index] = setInterval(() => {
           currentNumber += Math.ceil(targetNumber / 50);
           if (currentNumber >= targetNumber) {
             currentNumber = targetNumber;
             clearInterval(intervals[index]);
           }
-          setCountValues(prev => ({
+          setCountValues((prev) => ({
             ...prev,
-            [index]: currentNumber + suffix
+            [index]: currentNumber + suffix,
           }));
         }, 30);
       });
-      
+
       return () => Object.values(intervals).forEach(clearInterval);
     }
   }, [isInView, controls]);
 
   const stats = [
-    { 
-      number: "14K", 
+    {
+      number: "14K",
       rawNumber: 14000,
-      label: "Active Volunteers", 
-      description: "Passionate volunteers driving meaningful change across Bangladesh",
+      label: "Active Volunteers",
+      description:
+        "Passionate volunteers driving meaningful change across Bangladesh",
       icon: Users,
       gradient: "from-orange-500 to-orange-600",
       lightGradient: "from-orange-50 to-orange-50",
@@ -59,13 +65,14 @@ export default function Numbers() {
       iconColor: "text-orange-600",
       delay: 0.1,
       trend: "+25% this year",
-      trendIcon: TrendingUp
+      trendIcon: TrendingUp,
     },
-    { 
-      number: "12+", 
+    {
+      number: "12+",
       rawNumber: 12,
-      label: "Strategic Projects", 
-      description: "Ongoing sustainable initiatives successfully creating lasting impact",
+      label: "Strategic Projects",
+      description:
+        "Ongoing sustainable initiatives successfully creating lasting impact",
       icon: Target,
       gradient: "from-orange-500 to-orange-600",
       lightGradient: "from-orange-50 to-orange-100",
@@ -75,12 +82,12 @@ export default function Numbers() {
       iconColor: "text-orange-600",
       delay: 0.2,
       trend: "+3 new this quarter",
-      trendIcon: Zap
+      trendIcon: Zap,
     },
-    { 
-      number: "100K+", 
+    {
+      number: "100K+",
       rawNumber: 100000,
-      label: "Lives Impacted", 
+      label: "Lives Impacted",
       description: "Positive community transformation through our programs",
       icon: UsersRound,
       gradient: "from-orange-500 to-orange-600",
@@ -91,12 +98,12 @@ export default function Numbers() {
       iconColor: "text-orange-600",
       delay: 0.3,
       trend: "Growing daily",
-      trendIcon: Heart
+      trendIcon: Heart,
     },
-    { 
-      number: "30+", 
+    {
+      number: "30+",
       rawNumber: 30,
-      label: "Districts Covered", 
+      label: "Districts Covered",
       description: "National reach across Bangladesh with expanding presence",
       icon: MapPin,
       gradient: "from-orange-500 to-orange-600",
@@ -107,50 +114,24 @@ export default function Numbers() {
       iconColor: "text-orange-600",
       delay: 0.4,
       trend: "5 new districts in 2024",
-      trendIcon: Globe
+      trendIcon: Globe,
     },
   ];
 
-
   return (
-    <section className="relative py-16 overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
+    <div className="relative py-16 overflow-hidden">
+      <div className="relative " ref={containerRef}>
         {/* Header Section */}
-        <div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-   
-
-          {/* Main Heading with Gradient */}
-          <h2 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Numbers That
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-orange-600 to-orange-600 bg-clip-text text-transparent">
-              Speak Volumes
-            </span>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+            Numbers That <span className="text-orange-600">Speak Volumes</span>
           </h2>
-
-          {/* Description with Decorative Elements */}
-          <div className="relative max-w-3xl mx-auto">
-            < div
-              initial={{ width: 0 }}
-              animate={isInView ? { width: "100px" } : {}}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute -top-8 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent"
-            />
-            <p className="text-gray-600 text-xl leading-relaxed">
-              Every digit represents a milestone in our journey—a testament to our 
-              <span className="text-orange-600 font-semibold"> commitment </span> 
-              and the tangible impact we create across Bangladesh.
-            </p>
-          </div>
-
-
+          <div className="h-1.5 w-20 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            Every digit represents a milestone in our journey—a testament to our
+            <span className="text-orange-600 font-semibold"> commitment </span>
+            and the tangible impact we create across Bangladesh.
+          </p>
         </div>
 
         {/* Main Stats Grid */}
@@ -165,7 +146,7 @@ export default function Numbers() {
                 key={index}
                 variants={{
                   hidden: { opacity: 0, y: 60 },
-                  visible: { opacity: 1, y: 0 }
+                  visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -174,17 +155,17 @@ export default function Numbers() {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="relative group"
               >
-           
-
                 {/* Main Card */}
-                <div className={`
+                <div
+                  className={`
                   relative bg-white rounded-3xl p-8 
                   border-2 ${stat.borderColor}
                   shadow-xl ${stat.shadowColor}
                   transition-all duration-500
-                  ${isHovered ? 'transform -translate-y-2 shadow-2xl' : ''}
+                  ${isHovered ? "transform -translate-y-2 shadow-2xl" : ""}
                   overflow-hidden
-                `}>
+                `}
+                >
                   {/* Decorative Corner Accent */}
                   <div className="absolute top-0 right-0 w-20 h-20">
                     <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-orange-100 border-r-transparent"></div>
@@ -195,7 +176,7 @@ export default function Numbers() {
                     <div
                       animate={{
                         rotate: isHovered ? 360 : 0,
-                        scale: isHovered ? 1.2 : 1
+                        scale: isHovered ? 1.2 : 1,
                       }}
                       transition={{ duration: 0.6 }}
                       className={`w-16 h-16 ${stat.iconBg} rounded-2xl flex items-center justify-center relative z-10`}
@@ -208,15 +189,17 @@ export default function Numbers() {
                   <div
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                    transition={{ 
+                    transition={{
                       type: "spring",
                       stiffness: 200,
                       damping: 20,
-                      delay: stat.delay + 0.3
+                      delay: stat.delay + 0.3,
                     }}
                     className="text-5xl md:text-6xl font-bold mb-3"
                   >
-                    <span className={`bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
+                    <span
+                      className={`bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}
+                    >
                       {countValues[index] || stat.number}
                     </span>
                   </div>
@@ -239,16 +222,16 @@ export default function Numbers() {
                     className="flex items-center gap-2 text-sm"
                   >
                     <TrendIcon className="w-4 h-4 text-orange-500" />
-                    <span className="text-orange-600 font-medium">{stat.trend}</span>
+                    <span className="text-orange-600 font-medium">
+                      {stat.trend}
+                    </span>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-
       </div>
-
-    </section>
+    </div>
   );
 }

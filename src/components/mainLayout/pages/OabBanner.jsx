@@ -10,9 +10,7 @@ export default function OabBanner() {
     "https://i.ibb.co.com/GzcTkMQ/Whats-App-Image-2025-07-06-at-20-42-18-95475630.jpg",
     "https://i.ibb.co.com/SXRtrsLP/Whats-App-Image-2025-07-06-at-20-42-20-5e3d1b7e.jpg.jpg",
   ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((index) => (index + 1) % images.length);
@@ -22,7 +20,7 @@ export default function OabBanner() {
   }, []);
 
   return (
-    <section className="w-full h-[600px] relative overflow-hidden">
+    <section className="w-full h-[300px] lg:h-[600px] relative overflow-hidden">
       {/* Images */}
       {images.map((img, index) => (
         <img
@@ -30,7 +28,7 @@ export default function OabBanner() {
           src={img}
           alt={`Slide ${index + 1}`}
           className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-1000 ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
+            index === currentIndex ? "opacity-80" : "opacity-0"
           }`}
         />
       ))}

@@ -11,41 +11,32 @@ export default function OurPartners() {
     {
       name: "Global Platform Bangladesh",
       logo: "https://i.ibb.co.com/bjZCW092/Screenshot-2026-02-11-152156.png",
-      type: "Strategic Alliance",
     },
     {
       name: "Development Partner",
       logo: "https://i.ibb.co.com/SDBggh5Q/Screenshot-2026-02-11-152207.png",
-      type: "Development",
     },
     {
       name: "Corporate Sponsor",
       logo: "https://i.ibb.co.com/Pvqq0j32/Screenshot-2026-02-11-152214.png",
-      type: "Corporate",
     },
     {
       name: "Government Agency",
       logo: "https://i.ibb.co.com/xSt99wfx/Screenshot-2026-02-11-152222.png",
-      type: "Government",
     },
     {
       name: "International NGO",
       logo: "https://i.ibb.co.com/N62HCVvR/Screenshot-2026-02-11-152229.png",
-      type: "International",
     },
     {
       name: "Academic Institution",
       logo: "https://i.ibb.co.com/9ktYLy9X/Screenshot-2026-02-11-152235.png",
-      type: "Academic",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden py-20 bg-white">
-      <div
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        ref={containerRef}
-      >
+    <div className="relative overflow-hidden py-20 bg-white">
+      <div className="relative " ref={containerRef}>
         {/* Header Section */}
         <div className="text-center mb-16">
           <motion.h2
@@ -79,7 +70,7 @@ export default function OurPartners() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center group"
             >
-              <div className="relative w-full h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+              <div className="relative w-full h-24 flex items-center justify-center grayscale-0 cursor-pointer">
                 <img
                   src={partner.logo}
                   alt={partner.name}
@@ -87,12 +78,12 @@ export default function OurPartners() {
                 />
               </div>
               <p className="text-[10px] uppercase tracking-tighter text-gray-400 font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                {partner.type}
+                {partner.name}
               </p>
             </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

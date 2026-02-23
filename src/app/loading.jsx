@@ -23,7 +23,7 @@ const Loading = () => {
             repeatType: "reverse",
             duration: 0.8,
           }}
-          className="absolute text-orange-600 font-bold text-xl"
+          className="absolute text-orange-600 font-bold text-sm"
         >
           OAB
         </motion.div>

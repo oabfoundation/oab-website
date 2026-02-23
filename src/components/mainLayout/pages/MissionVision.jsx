@@ -25,7 +25,7 @@ export default function MissionVision() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto py-20 px-6 space-y-32 overflow-hidden">
+    <div className="py-20 space-y-32 overflow-hidden">
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
         {/* Text Side */}
@@ -152,6 +152,6 @@ export default function MissionVision() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -8,29 +8,29 @@ const NotFound = () => {
     <main className="grid min-h-screen place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
         {/* Decorative Element */}
-        <p className="text-8xl font-bold text-blue-600">404</p>
+        <p className="text-8xl font-bold text-orange-600">404</p>
 
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          পৃষ্ঠাটি খুঁজে পাওয়া যায়নি
+          Page not found
         </h1>
 
         <p className="mt-6 text-base leading-7 text-gray-600">
-          দুঃখিত, আপনি যে পৃষ্ঠাটি খুঁজছেন তা আমরা খুঁজে পাইনি। আপনি হয়তো ভুল
-          লিংকে প্রবেশ করেছেন। আবার চেষ্টা করুন।
+          Sorry, we couldn't find the page you were looking for. You may have
+          entered the wrong link. Please try again.
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-x-6">
           {/* Primary Action */}
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-md bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all"
+            className="flex items-center gap-2 rounded-md bg-orange-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 transition-all"
           >
             <Home size={18} />
-            হোমে ফিরে যান
+            Back to home
           </Link>
 
           {/* Secondary Action */}
-          <BackButton>ফিরে যান</BackButton>
+          <BackButton>Return</BackButton>
         </div>
 
         {/* Optional: Helpful links */}
@@ -39,7 +39,7 @@ const NotFound = () => {
             Need help?{" "}
             <Link
               href="/contact"
-              className="font-medium text-blue-600 hover:underline"
+              className="font-medium text-orange-600 hover:underline"
             >
               Contact Support
             </Link>
