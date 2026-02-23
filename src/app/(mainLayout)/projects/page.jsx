@@ -1,3 +1,4 @@
+import { getProjects } from "@/app/api/projects/route";
 import {
   BookOpen,
   Utensils,
@@ -7,6 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const projectData = [
   {
@@ -66,8 +68,37 @@ const projectData = [
 ];
 
 const Projects = () => {
+
+  
+const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                setLoading(true);
+                const result = await getProjects();
+                if (result?.success) {
+                    setProjects(result.data);
+                }
+            } catch (error) {
+                console.error("Error fetching Projects:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProjects();
+    }, []);
+
+    if (loading) {
+        return <div className="p-10 text-center">Loading Projects...</div>;
+    }
+
+
   return (
     <section className="pt-16 ">
+      {projects.map(p => <p key={p?._id}>{p.title}</p>)}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-16">
