@@ -1,5 +1,6 @@
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
+import OabBanner from "@/components/mainLayout/pages/OabBanner";
 import React from "react";
 
 const MainLayout = ({ children }) => {
@@ -9,6 +10,7 @@ const MainLayout = ({ children }) => {
         <Header />
       </header>
       <main className=" bg-[#fff5f0]">
+           <OabBanner></OabBanner>
         <section className="max-w-11/12 mx-auto bg-[#fff5f0]">
           {children}
         </section>

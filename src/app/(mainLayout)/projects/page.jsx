@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const projectData = [
@@ -99,7 +100,7 @@ useEffect(() => {
 
   return (
     <section className="pt-16 ">
-      {projects.map(p => <p key={p?._id}>{p.title}</p>)}
+      {/* {projects.map(p => <p key={p?._id}>{p.title}</p>)} */}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -142,10 +143,13 @@ useEffect(() => {
                   </p>
                 </div>
 
-                <p className="mt-6 inline-flex items-center gap-2 text-orange-500 font-semibold group cursor-pointer transition-all duration-300 hover:translate-x-1 hover:scale-105">
-                  Learn More
-                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
-                </p>
+               <Link
+  href={`/projects/${project?.id}`} 
+  className="mt-6 inline-flex items-center gap-2 text-orange-500 font-semibold group cursor-pointer transition-all duration-300 hover:translate-x-1 hover:scale-105"
+>
+  Learn More
+  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+</Link>
               </div>
             </div>
           ))}

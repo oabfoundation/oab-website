@@ -7,6 +7,7 @@ import { getEvents } from "@/app/api/events/route";
 
 const newsData = [
   {
+    id:"1",
     title: "Winter Blanket Distribution Program 2025",
     date: "15 January 2026",
     image:
@@ -15,6 +16,7 @@ const newsData = [
     category: "Impact",
   },
   {
+    id:"2",
     title: "Free Medical Camp Successfully Completed",
     date: "02 February 2026",
     image:
@@ -23,6 +25,7 @@ const newsData = [
     category: "Healthcare",
   },
   {
+    id:"3",
     title: "Ramadan Food Package Initiative",
     date: "10 March 2026",
     image:
@@ -66,7 +69,7 @@ useEffect(() => {
 
   return (
     <section className="py-16">
-        {events.map(e => <p key={e?._id}>{e.title}</p>)}
+        {/* {events.map(e => <p key={e?._id}>{e.title}</p>)} */}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -120,10 +123,10 @@ useEffect(() => {
 
                 <div className="mt-auto pt-4 border-t border-gray-50">
                   <Link
-                    href="#"
+                    href={`/events/${item?.id}`}
                     className="flex items-center gap-2 text-sm font-bold text-orange-500 hover:text-orange-600 transition-colors group/btn"
                   >
-                    Read Story
+                    Read More
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover/btn:translate-x-1"
