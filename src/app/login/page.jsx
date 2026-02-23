@@ -58,8 +58,7 @@ const Login = () => {
     }
     setIsLoading(true);
     setTimeout(() => setIsLoading(false), 2000);
-  };
-
+  }
   if (!mounted) return null;
 
   return (
