@@ -4,14 +4,14 @@ import Team from "@/components/mainLayout/teams/Team";
 
 const Teams = () => {
   return (
-    <section className="min-h-screen">
+    <div className="min-h-screen max-w-11/12 mx-auto px-6">
       {/* teams */}
       <div>
         <Team />
       </div>
       {/* Leaders  */}
       <Leader />
-    </section>
+    </div>
   );
 };
 

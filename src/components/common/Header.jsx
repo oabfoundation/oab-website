@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { CreditCard, Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const Header = () => {
@@ -80,9 +80,9 @@ const Header = () => {
           <div className="hidden sm:block relative" ref={userDropdownRef}>
             <Link
               href="/donate"
-              className="border border-orange-600 text-orange-600 px-4 py-2 rounded font-semibold hover:bg-orange-50 transition"
+              className="flex items-center gap-1 bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-3 rounded-xl transition-all active:scale-95 cursor-pointer"
             >
-              Donate
+              Donate <CreditCard size={20} />
             </Link>
           </div>
 
@@ -124,9 +124,9 @@ const Header = () => {
             <div className="mt-6 flex flex-col gap-3 text-center">
               <Link
                 href="/donate"
-                className="border border-orange-600 text-orange-600 px-4 py-2 rounded font-semibold hover:bg-orange-50 transition"
+                className="flex items-center justify-center gap-1 bg-orange-600 hover:bg-orange-700 text-white font-bold px-5 py-3 rounded-xl transition-all active:scale-95 cursor-pointer"
               >
-                Donate
+                Donate <CreditCard size={20} />
               </Link>
             </div>
           </nav>
