@@ -1,16 +1,13 @@
 "use client";
-import Projects from "@/app/(mainLayout)/projects/page";
 import React from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const DashboardProjects = () => {
-
-    const router = useRouter();
+  const router = useRouter();
 
   return (
     <div className="p-6 md:p-10 bg-slate-50 min-h-screen">
-      
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
         <div>
@@ -35,9 +32,8 @@ const DashboardProjects = () => {
 
       {/* Projects Section */}
       <div className="bg-white rounded-2xl shadow-md p-6">
-        <Projects />
+        <h1>Projects data not available</h1>
       </div>
-
     </div>
   );
 };
