@@ -1,5 +1,6 @@
-import { Quote } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 import Link from "next/link";
+
 const stories = [
   {
     name: "Amina Khatun",
@@ -26,6 +27,7 @@ const stories = [
       "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
   },
 ];
+
 export default function SuccessStories() {
   return (
     <section className="my-16">
@@ -46,7 +48,7 @@ export default function SuccessStories() {
           {stories.map((story, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl hover:border-2 border-orange-500 transition duration-300 overflow-hidden"
+              className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl border border-transparent hover:border-orange-500 transition duration-300 overflow-hidden flex flex-col"
             >
               <div className="relative">
                 <img
@@ -59,19 +61,22 @@ export default function SuccessStories() {
                 </div>
               </div>
 
-              <div className="p-6">
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              <div className="p-6 flex-grow">
+                <p className="text-gray-600 text-sm italic leading-relaxed mb-4">
                   "{story.description}"
                 </p>
                 <h3 className="text-lg font-semibold text-gray-800">
                   {story.name}
                 </h3>
-                <span className="text-sm text-orange-600">{story.title}</span>
+                <span className="text-sm text-orange-600 font-medium">
+                  {story.title}
+                </span>
               </div>
-              <div>
+
+              <div className="p-6 pt-0">
                 <Link
                   href="/events"
-                  className="py-2 px-3 bg-orange-500 rounded-2xl text-center block mb-10"
+                  className="block w-full py-2 text-center bg-orange-500 hover:bg-orange-600 text-white rounded-xl transition duration-200"
                 >
                   Read More
                 </Link>
@@ -79,14 +84,17 @@ export default function SuccessStories() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="mx-auto">
-        <Link
-          href="/events"
-          className="py-2 px-3 bg-orange-500 rounded-2xl text-center mb-10"
-        >
-          Read More
-        </Link>
+
+        {/* Learn More Button */}
+        <div className="flex justify-center mt-12">
+          <Link
+            href="/events"
+            className="py-3 px-6 bg-orange-600 hover:bg-orange-700 text-white inline-flex items-center gap-2 group rounded-full transition duration-300"
+          >
+            Explore All Stories
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   );

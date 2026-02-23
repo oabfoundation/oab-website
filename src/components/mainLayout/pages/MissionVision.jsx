@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -18,29 +16,29 @@ export default function MissionVision() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 space-y-16">
-      
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-8">
         {/* Text */}
-        < div
+        <div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
-
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Mission</h2>
+          <h2 className="text-6xl font-bold text-orange-600 mb-4">
+            Our Mission
+          </h2>
           <p className="text-gray-700 leading-relaxed text-lg">
-            To create skilled citizens by empowering disadvantaged children, youth and women’s communities
-            and raising awareness among people to ensure effective workforce and leadership, real education
-            and the elimination of social inequality, climate change and injustice.
+            To create skilled citizens by empowering disadvantaged children,
+            youth and women’s communities and raising awareness among people to
+            ensure effective workforce and leadership, real education and the
+            elimination of social inequality, climate change and injustice.
           </p>
-        </ div>
+        </div>
 
         {/* Images */}
-        < div
+        <div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: 50 }}
-  
           transition={{ duration: 0.6 }}
         >
           {/* Top Large Image */}
@@ -63,30 +61,31 @@ export default function MissionVision() {
               className="w-1/2 h-32 md:h-40 object-cover rounded-xl shadow-md"
             />
           </div>
-        </ div>
+        </div>
       </div>
 
       {/* Our Vision */}
       <div className="flex flex-col items-center justify-center gap-8 md:flex-row-reverse">
         {/* Text */}
-        < div
+        <div
           className="md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-6xl font-bold text-orange-600 mb-4">Our Vision</h2>
+          <h2 className="text-6xl font-bold text-orange-600 mb-4">
+            Our Vision
+          </h2>
           <p className="text-gray-700 leading-relaxed text-lg">
-            We want a sustainable, non-discriminatory society where everyone
-            is able to fulfill their highest potential and a green world full
-            of vibrant people.
+            We want a sustainable, non-discriminatory society where everyone is
+            able to fulfill their highest potential and a green world full of
+            vibrant people.
           </p>
-        </ div>
+        </div>
 
         {/* Images */}
-        < div
+        <div
           className="md:w-1/2 flex flex-col gap-4"
           initial={{ opacity: 0, x: -50 }}
-    
           transition={{ duration: 0.6 }}
         >
           {/* Top Large Image */}
@@ -109,9 +108,8 @@ export default function MissionVision() {
               className="w-1/2 h-32 md:h-40 object-cover rounded-xl shadow-md"
             />
           </div>
-        </ div>
+        </div>
       </div>
-
     </section>
   );
 }

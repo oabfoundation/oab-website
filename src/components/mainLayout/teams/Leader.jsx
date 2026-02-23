@@ -29,7 +29,7 @@ const Leader = () => {
         {/* Section Header */}
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-800">
-            Our <span className="">Leadership</span>
+            Our <span className="">Leaders</span>
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             Meet the passionate leaders guiding OAB Foundation toward

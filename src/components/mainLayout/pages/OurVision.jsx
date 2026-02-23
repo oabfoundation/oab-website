@@ -162,17 +162,6 @@ export default function OurVision() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-4 bg-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <span className="text-gray-700 font-medium">Join us in making a difference</span>
-            <button className="bg-[#ff5a00] text-white px-6 py-2 rounded-full hover:bg-[#ff6a14] transition-colors duration-300 flex items-center gap-2 group">
-              Get Involved
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-
         {/* Stats Counter Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
           <div className="text-center">

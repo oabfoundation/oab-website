@@ -66,9 +66,11 @@ const Team = () => {
   };
 
   return (
-    <div className="mt-6">
+    <div className="py-6">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900 mb-3">Our Team</h2>
+        <h2 className="text-4xl font-bold text-gray-900 mb-3">
+          Board of Director
+        </h2>
         <p className="text-lg text-gray-600">
           Meet the talented individuals driving our success
         </p>

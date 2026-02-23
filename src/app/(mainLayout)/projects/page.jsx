@@ -1,130 +1,124 @@
-import React from "react";
-import { Calendar, ArrowRight } from "lucide-react";
+import {
+  BookOpen,
+  Utensils,
+  HeartPulse,
+  Shirt,
+  Laptop,
+  ArrowRight,
+} from "lucide-react";
 import Image from "next/image";
 
-const newsData = [
+const projectData = [
   {
-    title: "Winter Blanket Distribution Program 2025",
-    date: "15 January 2026",
+    id: 1,
+    title: "Education Support",
+    description:
+      "Providing books, school materials, and scholarships to underprivileged students across Bangladesh.",
+    icon: <BookOpen size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "OAB Foundation successfully reached underprivileged families across several districts to provide warmth during the winter season.",
-    category: "Impact",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
   {
-    title: "Free Medical Camp Successfully Completed",
-    date: "02 February 2026",
+    id: 2,
+    title: "Food Distribution",
+    description:
+      "Regular food packages distributed to low-income families and during emergencies.",
+    icon: <Utensils size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "Our medical team provided essential healthcare services, screenings, and free medicine to rural communities in need.",
-    category: "Healthcare",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
   {
-    title: "Ramadan Food Package Initiative",
-    date: "10 March 2026",
+    id: 3,
+    title: "Medical Aid",
+    description:
+      "Supporting patients with medical expenses and organizing free health camps.",
+    icon: <HeartPulse size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "Preparing for the holy month by ensuring that families have access to nutritious food and essential supplies.",
-    category: "Humanitarian",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
   {
-    title: "Winter Blanket Distribution Program 2025",
-    date: "15 January 2026",
+    id: 4,
+    title: "Winter Clothing Drive",
+    description:
+      "Distributing warm clothes to protect vulnerable communities during winter.",
+    icon: <Shirt size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "OAB Foundation successfully reached underprivileged families across several districts to provide warmth during the winter season.",
-    category: "Impact",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
   {
-    title: "Free Medical Camp Successfully Completed",
-    date: "02 February 2026",
+    id: 5,
+    title: "Skill Development",
+    description:
+      "Training youth with practical skills to help them become financially independent.",
+    icon: <Laptop size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "Our medical team provided essential healthcare services, screenings, and free medicine to rural communities in need.",
-    category: "Healthcare",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
   {
-    title: "Ramadan Food Package Initiative",
-    date: "10 March 2026",
+    id: 6,
+    title: "Skill Development",
+    description:
+      "Training youth with practical skills to help them become financially independent.",
+    icon: <Laptop size={28} />,
     image:
-      "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/638123380_842613028831626_5423169794063755824_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=qYbiOO0YH3wQ7kNvwHGg5cI&_nc_oc=Adkuyx998KiL132CUSCApstWGV4vsRV7BnoTbEWTd1SGsMbwp4isq_FcUrGYrCPyJKo&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=Bd2heAvzSKgZgyRcRGKVYA&oh=00_Afuzibd0vIaQ_6tlTU80zPKeCPLD6BbupymPo5bn-vUI9A&oe=699DF8F7",
-    desc: "Preparing for the holy month by ensuring that families have access to nutritious food and essential supplies.",
-    category: "Humanitarian",
+      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
   },
 ];
+
 const Projects = () => {
   return (
-    <section className="py-16">
-      {/* Section Header */}
-      <div className="mb-16">
-        <div className="max-w-2xl text-center mx-auto">
-          <h2 className="text-4xl font-bold tracking-tight text-base-content">
-            Latest from the{" "}
-            <span className="text-orange-500">OAB Foundation</span>
+    <section className="pt-16 ">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-orange-600 drop-shadow-lg">
+            Our Ongoing Projects
           </h2>
-          <p className="mt-4 text-base-content/60 leading-relaxed">
-            We believe in sharing our journey with you. Stay updated with our
-            ongoing programs, recent successes, and upcoming humanitarian
-            efforts.
+          <p className=" mt-4 text-lg md:text-xl">
+            Making a meaningful impact through continuous community initiatives.
           </p>
         </div>
-        {/* <button className="hidden md:flex btn btn-ghost p-2 text-white rounded-2xl bg-orange-500 hover:bg-orange-500/5 items-center gap-2">
-            View all updates <ArrowRight size={18} />
-          </button> */}
-      </div>
 
-      {/* News Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {newsData.map((item, index) => (
-          <div
-            key={index}
-            className="group rounded-2xl hover:border-2 border-orange-500 flex flex-col bg-transparent transition-all duration-300"
-          >
-            {/* Image Container */}
-            <div className="relative h-64 w-full overflow-hidden rounded-t-2xl mb-6">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Content */}
-            <div className="flex flex-col flex-grow p-3">
-              <div className="flex items-center gap-2 text-xs font-semibold text-base-content/40 uppercase tracking-widest mb-3">
-                <Calendar size={14} className="text-orange-500/60" />
-                <span>{item.date}</span>
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {projectData.map((project) => (
+            <div
+              key={project.id}
+              className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl hover:border-2 border-orange-500 transition-transform duration-500 transform hover:-translate-y-2"
+            >
+              {/* Card Image with gradient overlay */}
+              <div className="relative h-64">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover rounded-t-3xl transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-t-3xl"></div>
               </div>
 
-              <h3 className="text-xl font-bold leading-snug mb-3 group-hover:text-orange-500 transition-colors duration-300">
-                {item.title}
-              </h3>
+              <div className="bg-white p-6 rounded-b-3xl flex flex-col justify-between h-60">
+                <div>
+                  <div className="flex items-center gap-3 text-orange-500 mb-3">
+                    {project.icon}
+                    <h3 className="text-xl font-bold text-gray-800">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    {project.description}
+                  </p>
+                </div>
 
-              <p className="text-base-content/70 leading-relaxed mb-6 line-clamp-2">
-                {item.desc}
-              </p>
-
-              <div className="mt-auto">
-                <button className="flex items-center gap-2 text-sm font-bold text-orange-500 group/link">
-                  Read Story
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover/link:translate-x-1"
-                  />
-                </button>
+                <p className="mt-6 inline-flex items-center gap-2 text-orange-500 font-semibold group cursor-pointer transition-all duration-300 hover:translate-x-1 hover:scale-105">
+                  Learn More
+                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+                </p>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      {/* Mobile View All Button */}
-      {/* <div className="text-center mt-12 md:hidden">
-          <button className="btn btn-primary bg-orange-500 text-white p-2 btn-wide rounded-xl">
-            View All News
-          </button>
-        </div> */}
     </section>
   );
 };

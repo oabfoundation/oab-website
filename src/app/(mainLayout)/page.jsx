@@ -1,5 +1,4 @@
 import WhatWeCareFor from "@/components/mainLayout/pages/CareFor";
-import OurImpact from "@/components/mainLayout/pages/Impact";
 import Numbers from "@/components/mainLayout/pages/Numbers";
 import OabBanner from "@/components/mainLayout/pages/OabBanner";
 import OurPrograms from "@/components/mainLayout/pages/OurPrograms";
@@ -21,7 +20,6 @@ const Home = () => {
       <SuccessStories></SuccessStories>
       <WeCoverBangladesh></WeCoverBangladesh>
       <Numbers></Numbers>
-      <OurImpact></OurImpact>
       <Transparency></Transparency>
       <WhatWeCareFor></WhatWeCareFor>
       <HowYouCanHelp></HowYouCanHelp>

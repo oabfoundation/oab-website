@@ -8,7 +8,7 @@ import {
 
 const Contact = () => {
   return (
-    <section className="min-h-[70vh] px-4">
+    <section className="min-h-[70vh] py-16">
       <h2 className="text-4xl font-bold text-center text-orange-600 mb-10">
         Contact Us
       </h2>
