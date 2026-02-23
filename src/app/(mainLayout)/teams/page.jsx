@@ -4,7 +4,7 @@ import Team from "@/components/mainLayout/teams/Team";
 
 const Teams = () => {
   return (
-    <section>
+    <section className="min-h-screen">
       {/* teams */}
       <div>
         <Team />

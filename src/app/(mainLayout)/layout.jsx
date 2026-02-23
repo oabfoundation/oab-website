@@ -10,7 +10,6 @@ const MainLayout = ({ children }) => {
         <Header />
       </header>
       <main className=" bg-[#fff5f0]">
-           <OabBanner></OabBanner>
         <section className="max-w-11/12 mx-auto bg-[#fff5f0]">
           {children}
         </section>

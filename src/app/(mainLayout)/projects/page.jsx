@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { getProjects } from "@/app/api/projects/route";
+import Loading from "@/app/loading";
 import {
   BookOpen,
   Utensils,
@@ -70,36 +71,33 @@ const projectData = [
 ];
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  
-const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const result = await getProjects();
+        if (result?.success) {
+          setProjects(result.data);
+        }
+      } catch (error) {
+        console.error("Error fetching Projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                setLoading(true);
-                const result = await getProjects();
-                if (result?.success) {
-                    setProjects(result.data);
-                }
-            } catch (error) {
-                console.error("Error fetching Projects:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
+    fetchProjects();
+  }, []);
 
-        fetchProjects();
-    }, []);
-
-    if (loading) {
-        return <div className="p-10 text-center">Loading Projects...</div>;
-    }
-
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
-    <section className="pt-16 ">
+    <section className="min-h-screen pt-16 ">
       {/* {projects.map(p => <p key={p?._id}>{p.title}</p>)} */}
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
@@ -143,13 +141,13 @@ useEffect(() => {
                   </p>
                 </div>
 
-               <Link
-  href={`/projects/${project?.id}`} 
-  className="mt-6 inline-flex items-center gap-2 text-orange-500 font-semibold group cursor-pointer transition-all duration-300 hover:translate-x-1 hover:scale-105"
->
-  Learn More
-  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
-</Link>
+                <Link
+                  href={`/projects/${project?.id}`}
+                  className="mt-6 inline-flex items-center gap-2 text-orange-500 font-semibold group cursor-pointer transition-all duration-300 hover:translate-x-1 hover:scale-105"
+                >
+                  Learn More
+                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+                </Link>
               </div>
             </div>
           ))}

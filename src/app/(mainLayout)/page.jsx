@@ -1,6 +1,7 @@
 import WhatWeCareFor from "@/components/mainLayout/pages/CareFor";
 import MissionVision from "@/components/mainLayout/pages/MissionVision";
 import Numbers from "@/components/mainLayout/pages/Numbers";
+import OabBanner from "@/components/mainLayout/pages/OabBanner";
 // import OurPrograms from "@/components/mainLayout/pages/OurPrograms";
 // import OurVision from "@/components/mainLayout/pages/OurVision";
 import OurPartners from "@/components/mainLayout/pages/Partners";
@@ -12,8 +13,8 @@ import HowYouCanHelp from "@/components/mainLayout/pages/YouCanHelp";
 
 const Home = () => {
   return (
-    <section>
-   
+    <section className="min-h-screen">
+      <OabBanner />
       {/* <WhatWeDo></WhatWeDo> */}
       <MissionVision />
       {/* <OurVision></OurVision> */}
