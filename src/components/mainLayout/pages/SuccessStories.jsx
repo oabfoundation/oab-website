@@ -86,7 +86,7 @@ export default function SuccessStories() {
         </div>
 
         {/* Learn More Button */}
-        <div className="flex justify-center mt-12">
+        {/* <div className="flex justify-center mt-12">
           <Link
             href="/events"
             className="py-3 px-6 bg-orange-600 hover:bg-orange-700 text-white inline-flex items-center gap-2 group rounded-full transition duration-300"
@@ -94,7 +94,7 @@ export default function SuccessStories() {
             Explore All Stories
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

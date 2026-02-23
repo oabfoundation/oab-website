@@ -2,97 +2,96 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
-  Handshake, 
-
-} from "lucide-react";
 
 export default function OurPartners() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   const partners = [
     {
       name: "Global Platform Bangladesh",
       logo: "https://i.ibb.co.com/bjZCW092/Screenshot-2026-02-11-152156.png",
       type: "Strategic Alliance",
-      color: "from-primary-600 to-primary-500"
     },
     {
       name: "Development Partner",
       logo: "https://i.ibb.co.com/SDBggh5Q/Screenshot-2026-02-11-152207.png",
       type: "Development",
-      color: "from-primary-600 to-primary-500"
     },
     {
       name: "Corporate Sponsor",
       logo: "https://i.ibb.co.com/Pvqq0j32/Screenshot-2026-02-11-152214.png",
       type: "Corporate",
-      color: "from-primary-600 to-primary-500"
     },
     {
       name: "Government Agency",
       logo: "https://i.ibb.co.com/xSt99wfx/Screenshot-2026-02-11-152222.png",
       type: "Government",
-      color: "from-primary-600 to-primary-500"
     },
     {
       name: "International NGO",
       logo: "https://i.ibb.co.com/N62HCVvR/Screenshot-2026-02-11-152229.png",
       type: "International",
-      color: "from-rprimary-600 to-primary-500"
     },
     {
       name: "Academic Institution",
       logo: "https://i.ibb.co.com/9ktYLy9X/Screenshot-2026-02-11-152235.png",
       type: "Academic",
-      color: "from-primary-600 to-primary-500"
     },
   ];
 
-
   return (
-    <section className="relative overflow-hidden ">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
-        
+    <section className="relative overflow-hidden py-20 bg-white">
+      <div
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        ref={containerRef}
+      >
         {/* Header Section */}
-        <div className="text-center mb-10">
-
-
-          <h2
+        <div className="text-center mb-16">
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Our Valued{" "}
-            <span className="text-primary-600">
-              Partners
-            </span>
-          </h2>
+            Our Valued <span className="text-orange-600">Partners</span>
+          </motion.h2>
 
-          <p
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
+            className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed"
           >
-            Through strategic alliances and collaborative efforts, we amplify our impact 
-            and drive sustainable change across Bangladesh and beyond.
-          </p>
-
-        
+            Through strategic alliances and collaborative efforts, we amplify
+            our impact and drive sustainable change across Bangladesh and
+            beyond.
+          </motion.p>
         </div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
           {partners.map((partner, index) => (
-          <div key={index} className="flex flex-col items-center space-y-4">
-           <img src={partner?.logo} alt={partner?.name} className=" object-contain w-2xl h-2xl" />
-           </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex flex-col items-center group"
+            >
+              <div className="relative w-full h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-w-full max-h-full object-contain p-2"
+                />
+              </div>
+              <p className="text-[10px] uppercase tracking-tighter text-gray-400 font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                {partner.type}
+              </p>
+            </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

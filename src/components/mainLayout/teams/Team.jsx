@@ -12,32 +12,21 @@ import Image from "next/image";
 const Team = () => {
   const userData = [
     {
-      name: "Mohyminul Islam",
-      role: "Software Developer",
-      bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
-      photo: "https://i.ibb.co.com/1fydPrDG/munna.jpg",
+      name: "Md Akash Hossain",
+      role: "Founding Member",
+      bio: "Innovation, dedication, and compassion are the keys to driving meaningful change in society.",
+      photo: "https://i.ibb.co.com/Wpjxgrbq/Md-Akash-Hossain.jpg",
       socials: {
-        linkedin: "https://www.linkedin.com/in/mohyminul/",
-        facebook: "https://www.facebook.com/mohyminul",
-        twitter: "https://x.com/mohyminulislam_",
+        linkedin: "https://www.linkedin.com/in/",
+        facebook: "https://www.facebook.com/",
+        twitter: "https://x.com",
       },
     },
     {
-      name: "Arnob Das",
-      role: "Content Creator",
-      bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
-      photo: "https://i.ibb.co.com/6cQdw0bH/arnob.jpg",
-      socials: {
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
-      },
-    },
-    {
-      name: "Jubayer Ahmed",
-      role: "Media Manager",
-      bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
-      photo: "https://i.ibb.co.com/SDNcLxKB/Jubayer-Ahmed.jpg",
+      name: "Asaduzzaman Tohin",
+      role: "Founder & President",
+      bio: "Together we learn, lead, and grow—only through collective participation can we build a sustainable and equitable future.",
+      photo: "https://i.ibb.co.com/VcYDBpzV/Tuhin.jpg",
       socials: {
         github: "https://github.com",
         linkedin: "https://linkedin.com",
@@ -45,10 +34,21 @@ const Team = () => {
       },
     },
     {
-      name: "Mahinur Rahman",
-      role: "Media Manager",
-      bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
-      photo: "https://i.ibb.co.com/WNwk9v4C/Mahinur-Rahman.jpg",
+      name: "Md MInhajul Islam",
+      role: "Founding Member",
+      bio: "When we empower others, we empower ourselves—collective action shapes a brighter future.",
+      photo: "https://i.ibb.co.com/m5BBV3pm/mihaj.jpg",
+      socials: {
+        github: "https://github.com",
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+      },
+    },
+    {
+      name: "Rakib Hossain",
+      role: "Head of Finance",
+      bio: "Together we learn, lead, and grow—only through collective participation can we build a sustainable and equitable future.",
+      photo: "https://i.ibb.co.com/9HzRLnDB/Rakib.jpg",
       socials: {
         github: "https://github.com",
         linkedin: "https://linkedin.com",
@@ -82,7 +82,7 @@ const Team = () => {
             className="relative bg-white rounded-3xl shadow-xl overflow-hidden p-8 flex flex-col items-center text-center group"
           >
             {/* Top Border Gradient */}
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-blue-500"></div>
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-orange-500"></div>
 
             {/* Avatar */}
             <div className="w-32 h-32 rounded-full overflow-hidden mb-6 ring-4 ring-gray-50 shadow-lg">
@@ -113,7 +113,7 @@ const Team = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-600 hover:text-indigo-400 transition-all duration-200 hover:-translate-y-1"
+                  className="text-orange-600 hover:text-orange-400 transition-all duration-200 hover:-translate-y-1"
                 >
                   {iconMap[platform] || <Globe size={24} />}
                 </a>
