@@ -1,7 +1,4 @@
-"use client";
-
-import { Linkedin, Mail } from "lucide-react";
-
+import React from 'react';
 const leaders = [
   {
     name: "Asaduzzaman Tohin",
@@ -23,35 +20,10 @@ const leaders = [
     role: "Graphics & Video Team",
     image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
   },
-  {
-    name: "Farhana Alam Jesy",
-    role: "Climate Action Team",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
-  },
-  {
-    name: "Adib Imam",
-    role: "HR Team",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
-  },
-  {
-    name: "Moymuna Rahman",
-    role: "Women’s Team",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
-  },
-  {
-    name: "Rakib Mridha",
-    role: "Campus Ambassador Coordinator",
-    image: "https://scontent.fjsr8-2.fna.fbcdn.net/v/t39.30808-6/627683049_830889133337349_6161829453600216088_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X0xgKK55GHoQ7kNvwHIpmAl&_nc_oc=Adm--EAPRcJ5_h8PZ0iZGkrAzNdi0NcR7VRhL-4xq2L4_OIhIi1M6TuGf-98NhUhDCc&_nc_zt=23&_nc_ht=scontent.fjsr8-2.fna&_nc_gid=3XFHwFDkISF7ljzl41SeVQ&oh=00_Aft4RYUBMtX7n-KMlaB8ru9hzmOwydaL8VhPjig_zB3AZA&oe=699E1AEE",
-  },
-  // {
-  //   name: "Nasim Limon",
-  //   role: "Convenor Committee",
-  //   image: "/leaders/nasim.jpg",
-  // },
-];
 
-export default function Leadership() {
-  return (
+];
+const Leader = () => {
+     return (
     <section className="py-16 ">
       <div className="max-w-7xl mx-auto px-6">
         
@@ -104,4 +76,6 @@ export default function Leadership() {
       </div>
     </section>
   );
-}
+};
+
+export default Leader;

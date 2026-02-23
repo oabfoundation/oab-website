@@ -14,8 +14,6 @@ const Team = () => {
     {
       name: "Mohyminul Islam",
       role: "Software Developer",
-      college: "Khulna Polytechnic Institute",
-      session: "2021 - 2025",
       bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
       photo: "https://i.ibb.co.com/1fydPrDG/munna.jpg",
       socials: {
@@ -27,8 +25,6 @@ const Team = () => {
     {
       name: "Arnob Das",
       role: "Content Creator",
-      college: "Khulna Polytechnic Institute",
-      session: "2021 - 2025",
       bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
       photo: "https://i.ibb.co.com/6cQdw0bH/arnob.jpg",
       socials: {
@@ -40,8 +36,6 @@ const Team = () => {
     {
       name: "Jubayer Ahmed",
       role: "Media Manager",
-      college: "Khulna Polytechnic Institute",
-      session: "2021 - 2025",
       bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
       photo: "https://i.ibb.co.com/SDNcLxKB/Jubayer-Ahmed.jpg",
       socials: {
@@ -53,8 +47,6 @@ const Team = () => {
     {
       name: "Mahinur Rahman",
       role: "Media Manager",
-      college: "Dhaka Polytechnic Institute",
-      session: "2022 - 2026",
       bio: "Passionate about clean code, scalable systems, and solving real-world problems with elegant software.",
       photo: "https://i.ibb.co.com/WNwk9v4C/Mahinur-Rahman.jpg",
       socials: {
@@ -107,21 +99,7 @@ const Team = () => {
             </h2>
             <p className="text-orange-600 font-medium ">{user.role}</p>
 
-            <div className="flex items-center gap-3 text-left bg-slate-50 p-3 rounded-2xl my-2 w-full">
-              <div className="p-2 bg-orange-100 rounded-lg group-hover:bg-orange-500 transition-colors">
-                <GraduationCap className="text-orange-500 group-hover:text-white size-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs font-bold text-slate-700 leading-tight">
-                  {user.college}
-                </span>
-                <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                  Session: {user.session}
-                </span>
-              </div>
-            </div>
-
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            <p className="text-gray-600 text-sm leading-relaxed mt-2 mb-4">
               {user.bio}
             </p>
 

@@ -8,7 +8,11 @@ const MainLayout = ({ children }) => {
       <header className="sticky top-0 bg-white z-50">
         <Header />
       </header>
-      <main className="w-full mx-auto">{children}</main>
+      <main className=" bg-[#fff5f0]">
+        <section className="max-w-11/12 mx-auto bg-[#fff5f0]">
+          {children}
+        </section>
+      </main>
       <footer className="bg-green-50">
         <Footer />
       </footer>
