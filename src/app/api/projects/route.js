@@ -4,13 +4,13 @@ import { collection, dbConnect } from "@/app/lib/dbConnect"
 const projectsCollection = await dbConnect(collection.PROJECTS);
 
 export const postProjects = async (payload) => {
-    console.log("payload is", payload)
+ 
     const newprojects = {
         ...payload, createdAt: new Date(), status: "pending",
     }
     console.log("new projects is", newprojects)
     const result = await projectsCollection.insertOne(newprojects)
-    console.log('result is', result)
+ 
     if (result.acknowledged) {
         return {
             success: true,
