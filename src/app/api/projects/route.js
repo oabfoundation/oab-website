@@ -8,6 +8,7 @@ export const postProjects = async (payload) => {
     const newprojects = {
         ...payload, createdAt: new Date(), status: "pending",
     }
+    console.log("new projects is", newprojects)
     const result = await projectsCollection.insertOne(newprojects)
     console.log('result is', result)
     if (result.acknowledged) {
