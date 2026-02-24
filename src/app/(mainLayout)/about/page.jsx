@@ -60,8 +60,8 @@ const Leaf = ({ className }) => (
 );
 
 const stats = [
-  { icon: Globe, label: "Nationwide Impact", value: "64+" },
-  { icon: Users, label: "Active Volunteers", value: "5,000+" },
+  { icon: Globe, label: "Nationwide Impact", value: "34+" },
+  { icon: Users, label: "Active Volunteers", value: "2,000+" },
   { icon: Award, label: "Founded", value: "2018" },
   { icon: Leaf, label: "SDGs Aligned", value: "12+" },
 ];
