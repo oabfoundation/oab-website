@@ -1,43 +1,45 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getEvents } from "@/app/api/events/route";
-
+const newsData = [
+  {
+    id: "1",
+    title: "Manifesto Talk: Youth, Environment and Climate",
+    date: "31 May 2025",
+    image:
+      "https://i.ibb.co.com/GzcTkMQ/Whats-App-Image-2025-07-06-at-20-42-18-95475630.jpg",
+    desc: "A significant dialogue titled 'Road to Green Manifesto' focusing on political manifestos regarding youth and climate action.",
+    longDesc:
+      "The 'Manifesto Talk' served as a critical platform for 'Dialogue on Political Manifesto' with a specific focus on Youth, Environment, and Climate. Held at the Department of Environment, this day-long event aimed to bridge the gap between young climate activists and political decision-makers. Participants discussed integrating environmental sustainability and youth-centric climate policies into national political agendas to ensure a greener future.",
+    category: "Policy & Environment",
+    location: "Department of Environment, Agargaon",
+  },
+  {
+    id: "2",
+    title: "Energy Talk: Youth for Just Transition",
+    date: "20 June 2025",
+    image:
+      "https://i.ibb.co.com/jPWPzFNK/Whats-App-Image-2025-07-06-at-20-42-19-54a33708.jpg",
+    desc: "A dynamic seminar focused on engaging the youth in discussions about sustainable energy and a just transition for the future.",
+    longDesc:
+      "The 'Energy Talk: Youth for Just Transition' event brought together students, activists, and experts to discuss the shift toward renewable energy. Held at the Liberation War Museum, the program featured insightful dialogues on how the younger generation can lead the movement for climate justice and energy security. Participants explored the socio-economic impacts of energy policies and the importance of ensuring a fair transition for all communities.",
+    category: "Environment & Energy",
+    location: "Q Auditorium, Liberation War Museum, Agargaon, Dhaka",
+  },
+  {
+    id: "3",
+    title: "Ramadan Food Package Initiative",
+    date: "10 March 2026",
+    image: "https://i.ibb.co.com/KSGmtdQ/food.jpg",
+    desc: "Preparing for the holy month by ensuring that families have access to nutritious food and essential supplies.",
+    longDesc:
+      "To support fasting families during Ramadan, we distribute comprehensive food packages containing rice, oil, pulses, dates, and other essentials. This initiative aims to reduce the financial burden on low-income households, allowing them to observe the holy month with dignity and peace of mind.",
+    category: "Humanitarian",
+    location: "Dhaka Slum Areas",
+  },
+];
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fetch events from server
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const res = await getEvents();
-        if (res.success) {
-          setEvents(res.data);
-        } else {
-          console.error("Failed to fetch events:", res.message);
-        }
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg text-gray-500">Loading events...</p>
-      </div>
-    );
-  }
-
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -48,15 +50,16 @@ const Events = () => {
           </h2>
           <p className="max-w-2xl mx-auto mt-2 text-lg md:text-xl text-gray-600">
             We believe in sharing our journey with you. Stay updated with our
-            ongoing programs, recent successes, and upcoming humanitarian efforts.
+            ongoing programs, recent successes, and upcoming humanitarian
+            efforts.
           </p>
         </div>
 
         {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event) => (
+          {newsData.map((event) => (
             <div
-              key={event._id}
+              key={event.id}
               className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-500 transition-all duration-300 overflow-hidden"
             >
               {/* Event Image */}
@@ -98,7 +101,7 @@ const Events = () => {
                 {/* Read More Button */}
                 <div className="mt-auto pt-4 border-t border-gray-50">
                   <Link
-                    href={`/events/${event._id}`}
+                    href={`/events/${event.id}`}
                     className="flex items-center gap-2 text-sm font-bold text-orange-500 hover:text-orange-600 transition-colors group/btn"
                   >
                     Read More
@@ -112,17 +115,6 @@ const Events = () => {
             </div>
           ))}
         </div>
-
-        {/* Optional: Center View All Button */}
-        {/* <div className="flex justify-center mt-12">
-          <Link
-            href="/events"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full shadow-lg shadow-orange-200 transition-all duration-300 hover:-translate-y-1"
-          >
-            View All Updates
-            <ArrowRight size={18} />
-          </Link>
-        </div> */}
       </div>
     </section>
   );

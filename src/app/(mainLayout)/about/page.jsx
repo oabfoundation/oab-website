@@ -1,6 +1,10 @@
 import WorkAreas from "@/components/mainLayout/about/WorkAreas";
 import OurPartners from "@/components/mainLayout/home/Partners";
-
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn about OAB Foundation's journey since 2018, our mission, vision, and how we are working towards UN Sustainable Development Goals.",
+};
 const Globe = ({ className }) => (
   <svg
     className={className}
