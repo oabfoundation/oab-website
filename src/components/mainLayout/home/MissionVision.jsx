@@ -6,15 +6,15 @@ import { CheckCircle2 } from "lucide-react";
 
 export default function MissionVision() {
   const missionImages = [
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+    "https://i.ibb.co.com/1fS6bTsd/mission-3.jpg",
+    "https://i.ibb.co.com/GvtcVnbV/mission-2.jpg",
+    "https://i.ibb.co.com/60K0XGT1/mission-1.jpg",
   ];
 
   const visionImages = [
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+    "https://i.ibb.co.com/0RTYkk58/vision-3.jpg",
+    "https://i.ibb.co.com/pBwFwjx8/vision-2.jpg",
+    "https://i.ibb.co.com/TMB79wpP/vision-1.jpg",
   ];
 
   const features = [

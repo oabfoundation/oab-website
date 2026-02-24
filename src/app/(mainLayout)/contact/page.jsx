@@ -1,10 +1,5 @@
-import {
-  Facebook,
-  Linkedin,
-  Mail,
-  Phone,
-  Twitter,
-} from "lucide-react";
+import { Facebook, Linkedin, Mail, Phone, Twitter } from "lucide-react";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -29,11 +24,11 @@ const Contact = () => {
           <div className="space-y-3 text-gray-700">
             <p className="flex items-center gap-3">
               <Mail className="text-orange-600" />
-              contact@oabfoundation.org
+              oabfoundationbd@gmail.com
             </p>
             <p className="flex items-center gap-3">
               <Phone className="text-orange-600" />
-              +880 1234-567890
+              +880-1785305266
             </p>
           </div>
 
@@ -41,24 +36,27 @@ const Contact = () => {
           <div>
             <h4 className="font-semibold text-gray-700 mb-3">Follow Us</h4>
             <div className="flex gap-4">
-              <a
-                href="#"
+              <Link
+                href="https://www.facebook.com/oab.foundation.org.bd"
+                target="_blank"
                 className="p-3 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-600 hover:text-white transition"
               >
                 <Facebook />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/oab-foundation/posts/?feedView=all"
+                target="_blank"
                 className="p-3 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-600 hover:text-white transition"
               >
                 <Linkedin />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#"
+                target="_blank"
                 className="p-3 bg-orange-100 text-orange-700 rounded-full hover:bg-orange-600 hover:text-white transition"
               >
                 <Twitter />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

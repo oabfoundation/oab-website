@@ -9,6 +9,7 @@ export default function OabBanner() {
     "https://i.ibb.co.com/5xT2bQkZ/Whats-App-Image-2025-07-06-at-20-42-18-958b8491.jpg",
     "https://i.ibb.co.com/GzcTkMQ/Whats-App-Image-2025-07-06-at-20-42-18-95475630.jpg",
     "https://i.ibb.co.com/SXRtrsLP/Whats-App-Image-2025-07-06-at-20-42-20-5e3d1b7e.jpg.jpg",
+    "https://i.ibb.co.com/MkZjkjrx/slider.jpg",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {

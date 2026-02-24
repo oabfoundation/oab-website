@@ -3,18 +3,18 @@ import React from "react";
 
 const leaders = [
   {
-    name: "Asaduzzaman Tohin",
-    role: "Founder & President",
-    image: "https://i.ibb.co.com/FL92nkZy/Tuhin.png",
+    name: "MD.Shahanur Alam",
+    role: "Co-Lead, Program & Logistics",
+    image: "https://i.ibb.co.com/0j6NxHVW/Shahanur.png",
   },
   {
-    name: "Rakib Hossain",
-    role: "Head of Finance",
-    image: "https://i.ibb.co.com/9HzRLnDB/Rakib.jpg",
+    name: "Hasi Akter Sumaiya",
+    role: "Co Lead, Program Department",
+    image: "https://i.ibb.co.com/hxrmsyL2/hasi.jpg",
   },
   {
     name: "Mohyminul Islam",
-    role: "Lead, IT Team",
+    role: "Software Developer",
     image: "https://i.ibb.co.com/rGxhTTRq/20251226-114756.jpg",
   },
   {

@@ -1,8 +1,7 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { getProjects } from "@/app/api/projects/route";
-import { BookOpen, Utensils, HeartPulse, Calendar, Users, MapPin, ArrowRight } from "lucide-react";
+import { BookOpen, Calendar, Users, MapPin, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -61,13 +60,13 @@ const Projects = () => {
               <div className="relative h-64">
                 {project.image && project.image.length > 0 ? (
                   ""
+                ) : (
                   // <Image
                   //   src={project.image[0]}
                   //   alt={project.title}
                   //   fill
                   //   className="object-cover rounded-t-2xl transition-transform duration-500 hover:scale-105"
                   // />
-                ) : (
                   <div className="bg-gray-200 h-full w-full rounded-t-2xl flex items-center justify-center text-gray-400">
                     No Image
                   </div>
@@ -76,7 +75,9 @@ const Projects = () => {
 
               {/* Project Info */}
               <div className="p-6 flex flex-col gap-3 flex-1">
-                <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  {project.title}
+                </h3>
                 <p className="text-gray-500 text-sm">{project.category}</p>
 
                 <div className="flex flex-wrap gap-4 text-gray-600 text-sm mt-2">
@@ -94,15 +95,20 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mt-2 line-clamp-3">{project.description}</p>
-                <p className="text-gray-500 text-sm line-clamp-2">{project.longDescription}</p>
+                <p className="text-gray-700 mt-2 line-clamp-3">
+                  {project.description}
+                </p>
+                <p className="text-gray-500 text-sm line-clamp-2">
+                  {project.longDescription}
+                </p>
 
                 {/* Learn More Button */}
                 <Link
                   href={`/projects/${project._id}`}
                   className="mt-auto inline-flex items-center justify-center gap-2 text-orange-500 font-semibold cursor-pointer hover:translate-x-1 hover:scale-105 transition-all duration-300"
                 >
-                  Learn More <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+                  Learn More{" "}
+                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </div>
             </div>
