@@ -2,6 +2,7 @@
 import React from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Projects from "@/app/(mainLayout)/projects/page";
 
 const DashboardProjects = () => {
   const router = useRouter();
@@ -32,7 +33,7 @@ const DashboardProjects = () => {
 
       {/* Projects Section */}
       <div className="bg-white rounded-2xl shadow-md p-6">
-        <h1>Projects data not available</h1>
+     <Projects></Projects>
       </div>
     </div>
   );

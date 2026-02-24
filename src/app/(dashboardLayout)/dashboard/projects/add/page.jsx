@@ -10,8 +10,12 @@ import {
   Tag,
   Save,
 } from "lucide-react";
+import { postProjects } from "@/app/api/projects/route";
+import { useRouter } from "next/navigation";
+
 
 const AddProjectForm = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -30,9 +34,19 @@ const AddProjectForm = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("Project Data:", data);
-    alert("Project Data Submitted Successfully!");
+  const onSubmit = async (data) => {
+    try {
+      const res = await postProjects(data); 
+      if (res.success) {
+         alert("Project Data Submitted Successfully!");
+         router.push('/dashboard/projects')
+      } else {
+        alert("Error: " + res.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong!");
+    }
   };
 
   return (
@@ -63,7 +77,7 @@ const AddProjectForm = () => {
                   ? "border-red-400 focus:ring-red-100"
                   : "border-slate-200 focus:ring-orange-100"
               }`}
-              placeholder="e.g. Education Support"
+              placeholder=" Education Support"
             />
             {errors.title && (
               <span className="text-xs text-red-500">
@@ -97,7 +111,8 @@ const AddProjectForm = () => {
               type="number"
               {...register("beneficiaries")}
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
-              placeholder="e.g. 1250"
+              placeholder="
+               1250"
             />
           </div>
 
@@ -109,7 +124,7 @@ const AddProjectForm = () => {
             <input
               {...register("location")}
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
-              placeholder="e.g. Dhaka, Bangladesh"
+              placeholder="Dhaka, Bangladesh"
             />
           </div>
         </div>
@@ -146,6 +161,7 @@ const AddProjectForm = () => {
             <ImageIcon size={16} className="text-orange-500" /> Image URL
           </label>
           <input
+
             {...register("image")}
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
             placeholder="https://example.com/image.jpg"

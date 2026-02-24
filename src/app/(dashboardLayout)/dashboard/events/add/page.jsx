@@ -10,6 +10,7 @@ import {
   Tag,
   Send,
 } from "lucide-react";
+import { postEvents } from "@/app/api/events/route";
 
 const AddNewsForm = () => {
   const {
@@ -33,12 +34,22 @@ const AddNewsForm = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log("News Data:", data);
-    alert("Impact story added successfully!");
-    reset();
-  };
+const onSubmit = async (data) => {
+  try {
+   
+    const res = await postEvents(data);
 
+    if (res.success) {
+      alert("Impact story added successfully!");
+      reset();
+    } else {
+      alert("Error: " + res.message);
+    }
+  } catch (err) {
+    console.error("Error submitting event:", err);
+    alert("Something went wrong!");
+  }
+};
   return (
     <section className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100 max-w-5xl mx-auto my-8">
       {/* Header */}
@@ -65,7 +76,7 @@ const AddNewsForm = () => {
             </label>
             <input
               {...register("title", { required: "Title is required" })}
-              placeholder="e.g. Winter Blanket Distribution 2025"
+              placeholder=" Winter Blanket Distribution 2025"
               className={`w-full px-4 py-3 bg-slate-50 border rounded-xl outline-none focus:ring-2 transition-all ${
                 errors.title
                   ? "border-red-300 focus:ring-red-50"
@@ -81,7 +92,7 @@ const AddNewsForm = () => {
             </label>
             <input
               {...register("date")}
-              placeholder="e.g. 15 January 2026"
+              placeholder=" 15 January 2026"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
             />
           </div>
@@ -93,7 +104,7 @@ const AddNewsForm = () => {
             </label>
             <input
               {...register("location")}
-              placeholder="e.g. Northern Bangladesh"
+              placeholder="Northern Bangladesh"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
             />
           </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Events from "@/app/(mainLayout)/events/page";
 
 const DashboardEvents = () => {
   const router = useRouter();
@@ -32,7 +33,7 @@ const DashboardEvents = () => {
 
       {/* Events Section */}
       <div className="bg-white rounded-2xl shadow-md p-6">
-        <h1>Events data not available</h1>
+       <Events></Events>
       </div>
     </div>
   );
