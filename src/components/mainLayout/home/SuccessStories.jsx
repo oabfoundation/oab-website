@@ -17,14 +17,14 @@ const stories = [
       "Member Secretary, Dharti Rakshai Amra (DHORA) Coordinator, Waterkeepers Bangladesh",
     description:
       "OAB dreams of change. But to turn this dream into reality, the two most important elements are consistency and time.",
-    image: "https://i.ibb.co.com/1G0JFn5F/Sharif-Jamil.jpg",
+    image: "https://i.ibb.co.com/35b378RR/Sharif-Jamil.jpg",
   },
   {
     name: "Md Abdul Quayyum",
     title: "Head of Communication, UNDP Bangladesh",
     description:
       "My Golden Bengal, I love you. As a child of Bangladeshi soil, it is our pride and responsibility to represent our country with dignity on the global stage. Leadership, awareness, and ethical conduct of the youth are the key to our international success.",
-    image: "https://i.ibb.co.com/zhJt0p81/Abdul-Quayyum.jpg",
+    image: "https://i.ibb.co.com/KpTkfQ93/Abdul-Quayyum.jpg",
   },
 ];
 
