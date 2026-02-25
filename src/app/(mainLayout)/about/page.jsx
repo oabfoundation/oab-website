@@ -186,6 +186,10 @@ export default function AboutSection() {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -top-10 -right-4 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
             </div>
+
+            {/* <div>
+              <h1>Become a Volunteer</h1>
+            </div> */}
           </div>
           {/* Core Work Areas */}
           <WorkAreas />

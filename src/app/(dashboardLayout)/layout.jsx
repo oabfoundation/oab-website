@@ -12,6 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import Image from "next/image";
 
 const DashboardLayout = ({ children }) => {
   const pathname = usePathname();
@@ -45,7 +46,13 @@ const DashboardLayout = ({ children }) => {
             </button>
 
             <Link href="/" className="transition-transform hover:scale-105">
-              <img src="/logo.png" alt="logo" className="w-56" />
+              <Image
+                width={224}
+                height={150}
+                src="/logo.png"
+                alt="logo"
+                className="w-56"
+              />
             </Link>
           </div>
 

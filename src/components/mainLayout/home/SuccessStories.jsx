@@ -1,30 +1,30 @@
 import { ArrowRight, Quote } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const stories = [
   {
-    name: "Amina Khatun",
-    title: "Scholarship Beneficiary",
+    name: "Mir Mohammad Ali ",
+    title:
+      "Assistant Professor Aquaculture Department Sher-Bangla Agricultural University",
     description:
-      "With the support of OAB Foundation, I was able to continue my education and achieve my dream of becoming a teacher.",
-    image:
-      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+      "OAB Foundation has been able to reach this position today because of the relentless efforts and hard work of the volunteers. This recognition has removed all our fatigue and given us new strength and inspiration. ",
+    image: "https://i.ibb.co.com/KkP61Gb/Mohammad-Ali.jpg",
   },
   {
-    name: "Rahim Uddin",
-    title: "Medical Camp Beneficiary",
+    name: "Sharif Jamil",
+    title:
+      "Member Secretary, Dharti Rakshai Amra (DHORA) Coordinator, Waterkeepers Bangladesh",
     description:
-      "The free medical camp organized by OAB Foundation helped me receive treatment that I could not afford before.",
-    image:
-      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+      "OAB dreams of change. But to turn this dream into reality, the two most important elements are consistency and time.",
+    image: "https://i.ibb.co.com/1G0JFn5F/Sharif-Jamil.jpg",
   },
   {
-    name: "Fatema Begum",
-    title: "Relief Support Recipient",
+    name: "Md Abdul Quayyum",
+    title: "Head of Communication, UNDP Bangladesh",
     description:
-      "During the flood crisis, OAB Foundation provided food and essential supplies that saved our family.",
-    image:
-      "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+      "My Golden Bengal, I love you. As a child of Bangladeshi soil, it is our pride and responsibility to represent our country with dignity on the global stage. Leadership, awareness, and ethical conduct of the youth are the key to our international success.",
+    image: "https://i.ibb.co.com/zhJt0p81/Abdul-Quayyum.jpg",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function SuccessStories() {
       {/* Header Section */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-          Success <span className="text-orange-600">Stories</span>
+          Esteemed <span className="text-orange-600">feedback</span>
         </h2>
         <div className="h-1.5 w-20 bg-orange-500 mx-auto mt-4 rounded-full"></div>
         <p className="mt-6 text-lg text-gray-600 leading-relaxed">
@@ -51,7 +51,9 @@ export default function SuccessStories() {
             className="bg-gray-50 rounded-2xl shadow-md hover:shadow-xl border border-transparent hover:border-orange-500 transition duration-300 overflow-hidden flex flex-col"
           >
             <div className="relative">
-              <img
+              <Image
+                width={500}
+                height={300}
                 src={story.image}
                 alt={story.name}
                 className="w-full h-56 object-cover"
@@ -84,17 +86,6 @@ export default function SuccessStories() {
           </div>
         ))}
       </div>
-
-      {/* Learn More Button */}
-      {/* <div className="flex justify-center mt-12">
-          <Link
-            href="/events"
-            className="py-3 px-6 bg-orange-600 hover:bg-orange-700 text-white inline-flex items-center gap-2 group rounded-full transition duration-300"
-          >
-            Explore All Stories
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div> */}
     </div>
   );
 }

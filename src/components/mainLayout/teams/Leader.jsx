@@ -1,4 +1,5 @@
 import { Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const leaders = [
@@ -46,7 +47,9 @@ const Leader = () => {
             className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-orange-500 hover:shadow-xl transition-all duration-300 text-center overflow-hidden group"
           >
             <div className="relative overflow-hidden">
-              <img
+              <Image
+                width={500}
+                height={300}
                 src={leader.image}
                 alt={leader.name}
                 className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105 overflow-hidden"

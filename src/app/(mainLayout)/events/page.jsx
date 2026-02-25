@@ -66,9 +66,10 @@ const Events = () => {
               <div className="relative h-60 w-full overflow-hidden">
                 {event.image ? (
                   <Image
+                    width={400}
+                    height={300}
                     src={event.image}
                     alt={event.title}
-                    fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (

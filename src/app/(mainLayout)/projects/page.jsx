@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 // export const metadata = {
 //   title: "Our Projects & Impact",
@@ -33,13 +34,17 @@ const projects = [
 
 export default function OngoingProjects() {
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto text-center">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-orange-600 mb-4">
-        Our Ongoing Projects
-      </h2>
-      <p className="text-gray-600 mb-14 max-w-2xl mx-auto">
-        Making a meaningful impact through continuous community initiatives.
-      </p>
+    <div className="py-16 px-6 max-w-7xl mx-auto text-center">
+      <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Our Ongoing  <span className="text-orange-600">Projects</span>
+          </h2>
+          <p className="max-w-2xl mx-auto mt-2 text-lg md:text-xl text-gray-600">
+            We believe in sharing our journey with you. Stay updated with our
+            ongoing programs, recent successes, and upcoming humanitarian
+            efforts.
+          </p>
+        </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
         {projects.map((project) => (
@@ -48,7 +53,9 @@ export default function OngoingProjects() {
             className="group bg-white rounded-2xl overflow-hidden shadow-md border-2 border-orange-100 hover:border-orange-500 flex flex-col h-full transition-transform duration-300   hover:shadow-xl"
           >
             <div className="overflow-hidden">
-              <img
+              <Image
+                width={300}
+                height={200}
                 src={project.image}
                 alt={project.title}
                 className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
@@ -72,6 +79,6 @@ export default function OngoingProjects() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

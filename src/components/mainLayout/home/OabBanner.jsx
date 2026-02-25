@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -24,7 +25,9 @@ export default function OabBanner() {
     <section className="w-full h-[300px] lg:h-[600px] relative overflow-hidden">
       {/* Images */}
       {images.map((img, index) => (
-        <img
+        <Image
+          width={1200}
+          height={600}
           key={index}
           src={img}
           alt={`Slide ${index + 1}`}
