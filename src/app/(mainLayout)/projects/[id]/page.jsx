@@ -27,8 +27,7 @@ const projectData = [
     location: "Dhaka, Chattogram & Rajshahi",
     date: "2020 - Present",
     status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
+    image: "https://i.ibb.co.com/1fS6bTsd/mission-3.jpg",
   },
   {
     id: 2,
@@ -43,72 +42,22 @@ const projectData = [
     location: "National",
     date: "2018 - Present",
     status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
+    image: "https://i.ibb.co.com/KSGmtdQ/food.jpg",
   },
   {
     id: 3,
-    title: "Medical Aid",
+    title: "Green Earth Mission",
     description:
-      "Supporting patients with medical expenses and organizing free health camps.",
+      "Mass tree plantation and climate awareness programs to build a sustainable and greener Bangladesh.",
     longDescription:
-      "Our Medical Aid program provides critical healthcare support to those who cannot afford treatment. We organize free health camps in rural areas, covering general checkups, specialist consultations, and medicine distribution. We also provide financial assistance for surgeries and long-term treatments to patients in need.",
-    icon: <HeartPulse size={28} />,
-    category: "Healthcare",
-    beneficiaries: 2800,
-    location: "Multiple Districts",
+      "Aligned with the UN SDGs, the Green Earth Mission is our response to climate change. We have planted over 10,000 saplings across coastal regions to prevent soil erosion. Beyond plantation, we conduct workshops in schools to educate the next generation about waste management, plastic reduction, and the importance of biodiversity.",
+    icon: "<Leaf size={28} />",
+    category: "Environment",
+    beneficiaries: 5000,
+    location: "Khulna, Satkhira & Bagerhat",
     date: "2019 - Present",
     status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
-  {
-    id: 4,
-    title: "Winter Clothing Drive",
-    description:
-      "Distributing warm clothes to protect vulnerable communities during winter.",
-    longDescription:
-      "Every winter, we launch a massive clothing drive to protect the most vulnerable from harsh weather conditions. We collect, sort, and distribute warm clothes including blankets, sweaters, jackets, and children's winter wear. Our network of volunteers ensures delivery to remote areas and communities often overlooked by other aid programs.",
-    icon: <Shirt size={28} />,
-    category: "Seasonal Relief",
-    beneficiaries: 4200,
-    location: "Northern Districts",
-    date: "2017 - Present",
-    status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
-  {
-    id: 5,
-    title: "Skill Development",
-    description:
-      "Training youth with practical skills to help them become financially independent.",
-    longDescription:
-      "Our Skill Development program empowers young people with marketable skills for sustainable livelihoods. We offer vocational training in computer literacy, tailoring, mobile repair, and small business management. Each trainee receives hands-on instruction and post-training support including toolkits and micro-enterprise guidance.",
-    icon: <Laptop size={28} />,
-    category: "Livelihood",
-    beneficiaries: 850,
-    location: "Urban Centers",
-    date: "2021 - Present",
-    status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
-  },
-  {
-    id: 6,
-    title: "Women Empowerment",
-    description:
-      "Supporting women through education, microfinance, and entrepreneurship training.",
-    longDescription:
-      "This comprehensive program addresses multiple barriers to women's economic participation. We provide literacy classes, financial literacy training, and small business incubation. Through partnerships with microfinance institutions, we help women access capital to start or expand their businesses, fostering long-term economic independence.",
-    icon: <Users size={28} />,
-    category: "Gender Equality",
-    beneficiaries: 620,
-    location: "Rural Areas",
-    date: "2022 - Present",
-    status: "ongoing",
-    image:
-      "https://scontent.fjsr8-1.fna.fbcdn.net/v/t39.30808-6/630646305_833813823044880_7833701592610946435_n.jpg?stp=c342.0.1365.1365a_dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=5df8b4&_nc_ohc=ATPfcRcma9kQ7kNvwGS38V5&_nc_oc=AdlOsCza6vyUYUgrtvGOskG5XvjoKt4ITQg3i-IzDIxZ5KHf3UUQueK8zqP6j5xSDpw&_nc_zt=23&_nc_ht=scontent.fjsr8-1.fna&_nc_gid=gUtdtJs_szqVbKZ5jJeA4A&oh=00_AfsrGRNT8OfiJ95UnrPfpU8jVrzarbreMrthhUbElIGVZQ&oe=69A069F7",
+    image: "https://i.ibb.co.com/rfb4dDxC/climate.jpg",
   },
 ];
 

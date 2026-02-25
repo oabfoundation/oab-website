@@ -1,6 +1,10 @@
 import WorkAreas from "@/components/mainLayout/about/WorkAreas";
 import OurPartners from "@/components/mainLayout/home/Partners";
-
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn about OAB Foundation's journey since 2018, our mission, vision, and how we are working towards UN Sustainable Development Goals.",
+};
 const Globe = ({ className }) => (
   <svg
     className={className}
@@ -56,8 +60,8 @@ const Leaf = ({ className }) => (
 );
 
 const stats = [
-  { icon: Globe, label: "Nationwide Impact", value: "64+" },
-  { icon: Users, label: "Active Volunteers", value: "5,000+" },
+  { icon: Globe, label: "Nationwide Impact", value: "34+" },
+  { icon: Users, label: "Active Volunteers", value: "2,000+" },
   { icon: Award, label: "Founded", value: "2018" },
   { icon: Leaf, label: "SDGs Aligned", value: "12+" },
 ];
@@ -182,6 +186,10 @@ export default function AboutSection() {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -top-10 -right-4 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
             </div>
+
+            {/* <div>
+              <h1>Become a Volunteer</h1>
+            </div> */}
           </div>
           {/* Core Work Areas */}
           <WorkAreas />

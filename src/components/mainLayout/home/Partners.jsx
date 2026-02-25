@@ -1,5 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 export default function OurPartners() {
@@ -70,7 +71,9 @@ export default function OurPartners() {
               className="flex flex-col items-center group"
             >
               <div className="relative w-full h-24 flex items-center justify-center grayscale-0 cursor-pointer">
-                <img
+                <Image
+                  width={500}
+                  height={300}
                   src={partner.logo}
                   alt={partner.name}
                   className="max-w-full max-h-full object-contain p-2"

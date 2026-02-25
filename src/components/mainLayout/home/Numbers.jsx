@@ -51,7 +51,7 @@ export default function Numbers() {
 
   const stats = [
     {
-      number: "14K",
+      number: "2K",
       rawNumber: 14000,
       label: "Active Volunteers",
       description:
@@ -68,7 +68,7 @@ export default function Numbers() {
       trendIcon: TrendingUp,
     },
     {
-      number: "12+",
+      number: "20+",
       rawNumber: 12,
       label: "Strategic Projects",
       description:
@@ -101,7 +101,7 @@ export default function Numbers() {
       trendIcon: Heart,
     },
     {
-      number: "30+",
+      number: "34+",
       rawNumber: 30,
       label: "Districts Covered",
       description: "National reach across Bangladesh with expanding presence",

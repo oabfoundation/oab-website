@@ -3,18 +3,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export default function MissionVision() {
   const missionImages = [
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+    "https://i.ibb.co.com/1fS6bTsd/mission-3.jpg",
+    "https://i.ibb.co.com/GvtcVnbV/mission-2.jpg",
+    "https://i.ibb.co.com/60K0XGT1/mission-1.jpg",
   ];
 
   const visionImages = [
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
-    "https://oabfoundation.org/wp-content/uploads/2025/06/photo_2025-06-01_23-35-00-768x578.jpg",
+    "https://i.ibb.co.com/0RTYkk58/vision-3.jpg",
+    "https://i.ibb.co.com/pBwFwjx8/vision-2.jpg",
+    "https://i.ibb.co.com/TMB79wpP/vision-1.jpg",
   ];
 
   const features = [
@@ -70,18 +71,24 @@ export default function MissionVision() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <img
+          <Image
+            width={500}
+            height={300}
             src={missionImages[0]}
             alt="Mission Main"
             className="w-full h-72 md:h-[400px] object-cover rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
           />
           <div className="flex gap-4">
-            <img
+            <Image
+              width={500}
+              height={300}
               src={missionImages[1]}
               alt="Mission Small 1"
               className="w-1/2 h-40 md:h-48 object-cover rounded-3xl shadow-lg"
             />
-            <img
+            <Image
+              width={500}
+              height={300}
               src={missionImages[2]}
               alt="Mission Small 2"
               className="w-1/2 h-40 md:h-48 object-cover rounded-3xl shadow-lg"
@@ -133,18 +140,24 @@ export default function MissionVision() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <img
+          <Image
+            width={500}
+            height={300}
             src={visionImages[0]}
             alt="Vision Main"
             className="w-full h-72 md:h-[400px] object-cover rounded-3xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
           />
           <div className="flex gap-4">
-            <img
+            <Image
+              width={500}
+              height={300}
               src={visionImages[1]}
               alt="Vision Small 1"
               className="w-1/2 h-40 md:h-48 object-cover rounded-3xl shadow-lg"
             />
-            <img
+            <Image
+              width={500}
+              height={300}
               src={visionImages[2]}
               alt="Vision Small 2"
               className="w-1/2 h-40 md:h-48 object-cover rounded-3xl shadow-lg"

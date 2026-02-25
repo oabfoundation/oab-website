@@ -28,8 +28,8 @@ export default function WeCoverBangladesh() {
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
   const [stats, setStats] = useState({
-    totalDistricts: 64,
-    activePrograms: 128,
+    totalDistricts: "34+",
+    activePrograms: "350+",
     beneficiaries: "2.5M+",
     partners: 45,
   });
@@ -253,7 +253,7 @@ export default function WeCoverBangladesh() {
             {/* District List */}
             <div className="bg-white rounded-2xl p-6">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Key Districts
+                Key Division
               </h3>
               <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2">
                 {districts.map((district, index) => (

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const Donate = () => {
   const [amount, setAmount] = useState("");
   const [showPopup, setShowPopup] = useState(false);
+  const [bankPopup, setBankPopup] = useState(false);
 
   const quickAmounts = ["500", "1000", "2000", "5000"];
 
@@ -91,12 +92,10 @@ const Donate = () => {
                       b
                     </div>
                     <span className="font-semibold text-gray-700">
-                      bKash (Merchant)
+                      bKash (Personal)
                     </span>
                   </div>
-                  <span className="text-orange-600 font-bold">
-                    01XXX-XXXXXX
-                  </span>
+                  <span className="text-orange-600 font-bold">01785305266</span>
                 </div>
 
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -122,9 +121,12 @@ const Donate = () => {
                       Bank Transfer
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 font-medium">
-                    OAB Foundation, Dutch-Bangla Bank
-                  </span>
+                  <button
+                    onClick={() => setBankPopup(true)}
+                    className="py-2 px-3 bg-orange-600 hover:bg-orange-700 text-white rounded cursor-pointer"
+                  >
+                    click bank info
+                  </button>
                 </div>
               </div>
             </div>
@@ -181,6 +183,54 @@ const Donate = () => {
 
               <button
                 onClick={() => setShowPopup(false)}
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl transition-all active:scale-95 cursor-pointer"
+              >
+                Ok, Got it
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {bankPopup && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setBankPopup(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative bg-white rounded-[2.5rem] p-8 md:p-12 max-w-md w-full text-center shadow-2xl"
+            >
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Bank: Dutch-Bangla Bank
+              </h2>
+
+              <p className="text-gray-600 mb-2 leading-relaxed">
+                Holder: OAB Youth Foundation
+              </p>
+              <p className="text-gray-600 mb-2 leading-relaxed">
+                Account Number :{" "}
+                <span className="font-bold">1481100167897</span>
+              </p>
+              <p className="text-gray-600 mb-2 leading-relaxed">
+                Branch: <span className="font-bold">148-Shyamoli Branch</span>
+              </p>
+              <p className="text-gray-600 mb-2 leading-relaxed">
+                Routing num : <span className="font-bold">090263978</span>
+              </p>
+
+              <button
+                onClick={() => setBankPopup(false)}
                 className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl transition-all active:scale-95 cursor-pointer"
               >
                 Ok, Got it

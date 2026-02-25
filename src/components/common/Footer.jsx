@@ -62,6 +62,7 @@ const Footer = () => {
                       className="group-hover:translate-x-1 transition-transform"
                     />
                     {item}
+                    {/* https://www.facebook.com/oab.foundation.org.bd */}
                   </Link>
                 </li>
               ))}
@@ -76,15 +77,18 @@ const Footer = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-orange-500 shrink-0" />
-                <span>House 12, Road 05, Dhanmondi, Dhaka, Bangladesh</span>
+                <span>
+                  Amin Garden, Amin Bhaban, 272/5,West
+                  Agargaon,Dhaka-1207,Bangladesh
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-orange-500 shrink-0" />
-                <span>+880 1234 567 890</span>
+                <span>+880-1785305266</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-orange-500 shrink-0" />
-                <span>info@oabfoundation.org</span>
+                <span>oabfoundationbd@gmail.com</span>
               </li>
             </ul>
           </div>

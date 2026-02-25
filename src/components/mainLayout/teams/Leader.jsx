@@ -1,20 +1,21 @@
 import { Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 const leaders = [
   {
-    name: "Asaduzzaman Tohin",
-    role: "Founder & President",
-    image: "https://i.ibb.co.com/FL92nkZy/Tuhin.png",
+    name: "MD.Shahanur Alam",
+    role: "Co-Lead, Program & Logistics",
+    image: "https://i.ibb.co.com/0j6NxHVW/Shahanur.png",
   },
   {
-    name: "Rakib Hossain",
-    role: "Head of Finance",
-    image: "https://i.ibb.co.com/9HzRLnDB/Rakib.jpg",
+    name: "Hasi Akter Sumaiya",
+    role: "Co Lead, Program Department",
+    image: "https://i.ibb.co.com/hxrmsyL2/hasi.jpg",
   },
   {
     name: "Mohyminul Islam",
-    role: "Lead, IT Team",
+    role: "Software Developer",
     image: "https://i.ibb.co.com/rGxhTTRq/20251226-114756.jpg",
   },
   {
@@ -46,7 +47,9 @@ const Leader = () => {
             className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-orange-500 hover:shadow-xl transition-all duration-300 text-center overflow-hidden group"
           >
             <div className="relative overflow-hidden">
-              <img
+              <Image
+                width={500}
+                height={300}
                 src={leader.image}
                 alt={leader.name}
                 className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105 overflow-hidden"
