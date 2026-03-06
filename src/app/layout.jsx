@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.oabfoundation.org"),
   title: {
-    default:
-      "OAB Foundation | Building a Better Bangladesh",
+    default: "OAB Foundation | Building a Better Bangladesh",
     template: "%s | OAB Foundation",
   },
   description:

@@ -1,12 +1,18 @@
 import { Facebook, Linkedin, Mail, Phone, Twitter } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Learn about OAB Foundation's journey since 2018, our mission, vision, and how we are working towards UN Sustainable Development Goals.",
+};
+
 const Contact = () => {
   return (
-    <section className="min-h-[70vh] py-16">
-      <h2 className="text-4xl font-bold text-center text-orange-600 mb-10">
+    <div className="min-h-[70vh] py-16">
+      <h1 className="text-4xl font-bold text-center text-orange-600 mb-10">
         Contact Us
-      </h2>
+      </h1>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Left: Contact Info + Social */}
@@ -112,7 +118,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
