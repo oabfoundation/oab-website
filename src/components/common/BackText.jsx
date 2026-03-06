@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
-const BackButton = ({ children }) => {
+const BackText = ({ children }) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -14,14 +14,12 @@ const BackButton = ({ children }) => {
   return (
     <button
       onClick={handleBack}
-      className={`flex items-center cursor-pointer bg-black px-5 py-3 text-sm rounded-md transition-all duration-200
-
-        text-white`}
+      className="inline-flex items-center gap-2 text-orange-600 mb-6 font-medium cursor-pointer"
     >
-      <ArrowLeft className="w-5 h-5 mr-2" />
+      <ArrowLeft size={20} />
       <span className="font-semibold">{children}</span>
     </button>
   );
 };
 
-export default BackButton;
+export default BackText;

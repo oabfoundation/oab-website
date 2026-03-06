@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { Leaf, GraduationCap, Heart, Recycle, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import BottomToTop from "@/components/framer motion/BottomToTop";
-import LeftToRight from "@/components/framer motion/LeftToRight";
-import RightToLeft from "@/components/framer motion/RightToLeft";
 
 export default function WhatWeCareFor() {
   const [hoveredId, setHoveredId] = useState(null);
