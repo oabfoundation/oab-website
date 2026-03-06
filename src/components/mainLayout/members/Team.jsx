@@ -45,7 +45,7 @@ const Team = () => {
       },
     },
     {
-      name: "Rakib Hossain",
+      name: "Md Rakib Uddin",
       role: "Head of Finance",
       bio: "Together we learn, lead, and grow—only through collective participation can we build a sustainable and equitable future.",
       photo: "https://i.ibb.co.com/9HzRLnDB/Rakib.jpg",

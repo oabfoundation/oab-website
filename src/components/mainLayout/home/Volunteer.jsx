@@ -14,7 +14,8 @@ const Volunteer = () => {
           </p>
         </div>
         <Link
-          href="/contact"
+          href="https://forms.gle/P8emtLLTMDE759TTA"
+          target="_blank"
           className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg shadow-amber-200 transition-all active:scale-95 inline-block"
         >
           Apply Now

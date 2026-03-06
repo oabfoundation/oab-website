@@ -1,92 +1,28 @@
 import { notFound } from "next/navigation";
-import {
-  BookOpen,
-  Utensils,
-  HeartPulse,
-  Shirt,
-  Laptop,
-  Calendar,
-  Users,
-  MapPin,
-  ArrowLeft,
-} from "lucide-react";
+import { Calendar, Users, MapPin, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getProjects } from "@/app/api/projects/route";
 
-const projectData = [
-  {
-    id: 1,
-    title: "Education Support",
-    description:
-      "Providing books, school materials, and scholarships to underprivileged students across Bangladesh.",
-    longDescription:
-      "Our Education Support program has been transforming lives since 2020. We provide comprehensive educational support including textbooks, stationery, school uniforms, and merit-based scholarships to talented students from low-income families. Additionally, we conduct after-school tutoring programs and digital literacy workshops to bridge the educational gap.",
-    icon: <BookOpen size={28} />,
-    category: "Education",
-    beneficiaries: 1250,
-    location: "Dhaka, Chattogram & Rajshahi",
-    date: "2020 - Present",
-    status: "ongoing",
-    image: "https://i.ibb.co.com/1fS6bTsd/mission-3.jpg",
-  },
-  {
-    id: 2,
-    title: "Food Distribution",
-    description:
-      "Regular food packages distributed to low-income families and during emergencies.",
-    longDescription:
-      "Through our Food Distribution initiative, we've established a sustainable network of food banks and emergency relief programs. Every month, we provide nutritious food packages to 500+ families. During natural disasters and crises, we mobilize quickly to distribute cooked meals and dry food supplies to affected communities.",
-    icon: <Utensils size={28} />,
-    category: "Food Security",
-    beneficiaries: 3500,
-    location: "National",
-    date: "2018 - Present",
-    status: "ongoing",
-    image: "https://i.ibb.co.com/KSGmtdQ/food.jpg",
-  },
-  {
-    id: 3,
-    title: "Green Earth Mission",
-    description:
-      "Mass tree plantation and climate awareness programs to build a sustainable and greener Bangladesh.",
-    longDescription:
-      "Aligned with the UN SDGs, the Green Earth Mission is our response to climate change. We have planted over 10,000 saplings across coastal regions to prevent soil erosion. Beyond plantation, we conduct workshops in schools to educate the next generation about waste management, plastic reduction, and the importance of biodiversity.",
-    icon: "<Leaf size={28} />",
-    category: "Environment",
-    beneficiaries: 5000,
-    location: "Khulna, Satkhira & Bagerhat",
-    date: "2019 - Present",
-    status: "ongoing",
-    image: "https://i.ibb.co.com/rfb4dDxC/climate.jpg",
-  },
-];
-
-// Generate metadata for SEO
+// Metadata
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const project = projectData.find((p) => p.id === Number(id));
-
-  if (!project) {
-    return {
-      title: "Project Not Found",
-    };
-  }
+  const res = await getProjects();
+  const projectsList = res.success ? res.data : [];
+  const projects = projectsList.find((n) => n._id === id);
+  if (!projects) return { title: "projects Not Found" };
 
   return {
-    title: `${project.title} | Our Projects`,
-    description: project.description,
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      images: [project.image],
-    },
+    title: `${projects.title} | OAB Foundation`,
+    description: projects.desc,
   };
 }
-
-// Generate static paths for all projects
+// Static paths generation
 export async function generateStaticParams() {
-  return projectData.map((project) => ({
-    id: project.id.toString(),
+  const res = await getProjects();
+  const projectsList = res.success ? res.data : [];
+  return projectsList.map((projects) => ({
+    id: projects._id.toString(),
   }));
 }
 
@@ -108,9 +44,8 @@ const StatusBadge = ({ status }) => {
 };
 
 // Stat card component
-const StatCard = ({ icon, label, value }) => (
+const StatCard = ({ label, value }) => (
   <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
-    <div className="text-orange-600">{icon}</div>
     <div>
       <p className="text-sm text-gray-600">{label}</p>
       <p className="text-lg font-semibold text-gray-900">{value}</p>
@@ -118,10 +53,11 @@ const StatCard = ({ icon, label, value }) => (
   </div>
 );
 
-export default async function ProjectDetailsPage({ params }) {
+const ProjectDetailsPage = async ({ params }) => {
   const { id } = await params;
-  const projectId = Number(id);
-  const project = projectData.find((p) => p.id === projectId);
+  const res = await getProjects();
+  const projectData = res.success ? res.data : [];
+  const project = projectData.find((p) => p._id === id);
 
   if (!project) {
     notFound();
@@ -178,7 +114,7 @@ export default async function ProjectDetailsPage({ params }) {
           />
           <StatCard
             icon={<Users size={20} />}
-            label="Beneficiaries"
+            label="Participates"
             value={project.beneficiaries.toLocaleString()}
           />
           <StatCard
@@ -228,22 +164,6 @@ export default async function ProjectDetailsPage({ params }) {
                 </div>
               </div>
             </div>
-            {/* Contact Card */}
-            <div className="bg-white rounded-2xl p-3 mt-4 border border-gray-100">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Want to Learn More?
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Contact our program coordinator for detailed information about
-                this project.
-              </p>
-              <Link
-                href="/contact"
-                className="block text-center text-orange-600 font-medium hover:text-orange-700 transition-colors"
-              >
-                Contact Us →
-              </Link>
-            </div>
           </div>
 
           {/* Right Column - Sidebar */}
@@ -263,41 +183,18 @@ export default async function ProjectDetailsPage({ params }) {
               >
                 Donate Now
               </Link>
-              <button className="w-full border-2 border-orange-600 text-orange-600 py-3 px-4 rounded-xl hover:bg-orange-50 transition-colors font-semibold">
+              <Link
+                href="https://forms.gle/P8emtLLTMDE759TTA"
+                target="_blank"
+                className="w-full flex items-center justify-center border-2 border-orange-600 text-orange-600 py-3 px-4 rounded-xl hover:bg-orange-50 transition-colors font-semibold"
+              >
                 Volunteer
-              </button>
-            </div>
-
-            {/* Share Card */}
-            <div className="bg-gray-50 rounded-2xl p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Share This Project
-              </h3>
-              <div className="flex gap-3">
-                {["Facebook", "Twitter", "LinkedIn"].map((platform) => (
-                  <button
-                    key={platform}
-                    className="flex-1 bg-white py-2 px-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-orange-600 hover:text-white transition-colors border border-gray-200"
-                  >
-                    {platform}
-                  </button>
-                ))}
-              </div>
+              </Link>
             </div>
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl hover:bg-orange-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
-          >
-            <ArrowLeft size={20} />
-            View All Projects
-          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
+export default ProjectDetailsPage;

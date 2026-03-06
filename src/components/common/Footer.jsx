@@ -15,10 +15,19 @@ import Link from "next/link";
 const Footer = () => {
   const mainSocial = [
     { icon: Facebook, url: " https://www.facebook.com/oab.foundation.org.bd" },
-    { icon: Instagram, url: "https://www.instagram.com/oab_foundation_org?igsh=MThyamh6YWhwYWM4ag==" },
-    { icon: Twitter, url: "https://x.com/OAB_Foundation?t=htsJ1WVNFEJO1RxlEIYJIg&s=09" },
+    {
+      icon: Instagram,
+      url: "https://www.instagram.com/oab_foundation_org?igsh=MThyamh6YWhwYWM4ag==",
+    },
+    {
+      icon: Twitter,
+      url: "https://x.com/OAB_Foundation?t=htsJ1WVNFEJO1RxlEIYJIg&s=09",
+    },
     { icon: Linkedin, url: "https://www.linkedin.com/company/oab-foundation/" },
-    { icon: Youtube, url: "https://youtube.com/@oab_foundation_org?si=4FRJqceqpVcS7CXG" },
+    {
+      icon: Youtube,
+      url: "https://youtube.com/@oab_foundation_org?si=4FRJqceqpVcS7CXG",
+    },
   ];
 
   return (
@@ -61,7 +70,10 @@ const Footer = () => {
                 { name: "About Us", link: "/about" },
                 { name: "Our Projects", link: "/projects" },
                 { name: "Success Stories", link: "/success-stories" },
-                { name: "Volunteer", link: "/volunteer" },
+                {
+                  name: "Volunteer",
+                  link: "https://forms.gle/P8emtLLTMDE759TTA",
+                },
                 { name: "Contact", link: "/contact" },
               ].map((item, i) => (
                 <li key={i}>
@@ -150,17 +162,14 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-orange-500 shrink-0" />
                 <span>
-                  Amin Garden, Amin Bhaban, 272/5, West Agargaon,
-                  Dhaka-1207, Bangladesh
+                  Amin Garden, Amin Bhaban, 272/5, West Agargaon, Dhaka-1207,
+                  Bangladesh
                 </span>
               </li>
 
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-orange-500 shrink-0" />
-                <a
-                  href="tel:+8801785305266"
-                  className="hover:text-orange-500"
-                >
+                <a href="tel:+8801785305266" className="hover:text-orange-500">
                   +880-1785305266
                 </a>
               </li>

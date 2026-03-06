@@ -17,6 +17,7 @@ const waysToHelp = [
     description:
       "Your financial contribution helps us support education, healthcare, and relief initiatives.",
     color: "bg-blue-50 text-blue-600",
+    link: "/donate",
   },
   {
     icon: Users,
@@ -24,6 +25,7 @@ const waysToHelp = [
     description:
       "Join our volunteer team and actively participate in community development programs.",
     color: "bg-orange-50 text-orange-600",
+    link: "https://forms.gle/P8emtLLTMDE759TTA",
   },
   {
     icon: HeartHandshake,
@@ -31,6 +33,7 @@ const waysToHelp = [
     description:
       "Collaborate with OAB Foundation to create sustainable and meaningful impact.",
     color: "bg-green-50 text-green-600",
+    link: "/contact",
   },
   {
     icon: Share2,
@@ -38,6 +41,7 @@ const waysToHelp = [
     description:
       "Help raise awareness by sharing our mission and initiatives within your network.",
     color: "bg-purple-50 text-purple-600",
+    link: "/about",
   },
 ];
 
@@ -85,7 +89,7 @@ export default function HowYouCanHelp() {
 
                 {/* Simple Action Link */}
                 <Link
-                  href="/donate"
+                  href={item.link}
                   className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 group-hover:gap-3 transition-all"
                 >
                   Get Started <ArrowRight size={14} />
