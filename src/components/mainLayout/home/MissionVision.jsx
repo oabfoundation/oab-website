@@ -26,7 +26,7 @@ export default function MissionVision() {
   ];
 
   return (
-    <div className="py-20 space-y-32 overflow-hidden">
+    <div className="mt-20 space-y-32 overflow-hidden">
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
         {/* Text Side */}

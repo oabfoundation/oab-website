@@ -1,10 +1,12 @@
 import WorkAreas from "@/components/mainLayout/about/WorkAreas";
 import OurPartners from "@/components/mainLayout/home/Partners";
+
 export const metadata = {
   title: "About Us",
   description:
     "Learn about OAB Foundation's journey since 2018, our mission, vision, and how we are working towards UN Sustainable Development Goals.",
 };
+
 const Globe = ({ className }) => (
   <svg
     className={className}
@@ -81,35 +83,22 @@ const StatCard = ({ icon: Icon, label, value }) => (
 export default function AboutSection() {
   return (
     <div className="min-h-screen bg-[#faf9f7]">
-      <style>{`
-        .gradient-text {
-          background: linear-gradient(135deg, #f59e0b 0%, #ea580c 60%, #dc2626 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .mesh-bg {
-          background: radial-gradient(ellipse 80% 60% at 60% 0%, rgba(251,191,36,0.18) 0%, transparent 70%),
-                      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(234,88,12,0.08) 0%, transparent 70%),
-                      #faf9f7;
-        }
-        .quote-mark { font-size: 6rem; line-height: 0; color: #fbbf24; opacity: 0.3; font-family: Georgia, serif; }
-      `}</style>
       <div className=" space-y-24">
         {/* Hero Block */}
-        <div className="mesh-bg relative overflow-hidden rounded-3xl p-10 md:p-16 border border-amber-100">
+        <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 border border-amber-100 bg-[#faf9f7] [background:radial-gradient(ellipse_80%_60%_at_60%_0%,rgba(251,191,36,0.18)_0%,transparent_70%),radial-gradient(ellipse_60%_50%_at_10%_80%,rgba(234,88,12,0.08)_0%,transparent_70%)]">
           <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full border-[40px] border-amber-300/10 pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full border-[30px] border-orange-300/10 pointer-events-none" />
-
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold tracking-widest uppercase mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
               Non-Profit Organization · Est. 2018
             </div>
 
-            <h1 className=" text-5xl md:text-7xl font-black leading-[1.05] mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-7xl font-black leading-[1.05] mb-6 text-gray-900">
               Building a <br />
-              <span className="gradient-text">Better Bangladesh</span>
+              <span className="bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#dc2626] bg-clip-text text-transparent">
+                Better Bangladesh
+              </span>
             </h1>
 
             <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-light max-w-2xl">
@@ -118,7 +107,6 @@ export default function AboutSection() {
               United Nations SDGs.
             </p>
           </div>
-
           <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
             {stats.map((s) => (
               <StatCard key={s.label} {...s} />
@@ -167,7 +155,9 @@ export default function AboutSection() {
             </div>
 
             <div className="relative rounded-3xl bg-gradient-to-br from-amber-400 to-orange-600 p-8 md:p-10 text-white overflow-hidden">
-              <div className="absolute top-4 left-6 quote-mark">"</div>
+              <div className="absolute top-4 left-6 text-[6rem] leading-none text-amber-300 opacity-30 font-serif">
+                "
+              </div>
               <blockquote className="relative z-10 text-xl md:text-2xl font-semibold leading-snug mb-6 pt-4">
                 We believe every community holds the seeds of its own
                 transformation.
@@ -186,10 +176,6 @@ export default function AboutSection() {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -top-10 -right-4 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
             </div>
-
-            {/* <div>
-              <h1>Become a Volunteer</h1>
-            </div> */}
           </div>
           {/* Core Work Areas */}
           <WorkAreas />

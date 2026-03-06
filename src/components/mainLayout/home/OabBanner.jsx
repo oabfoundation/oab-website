@@ -50,7 +50,7 @@ export default function OabBanner() {
         </p>
 
         <Link href={"/about"}>
-          <button className="bg-orange-500 hover:bg-orange-600 text-black px-6 py-3 rounded-full font-semibold transition">
+          <button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-semibold transition cursor-pointer">
             Learn More
           </button>
         </Link>
