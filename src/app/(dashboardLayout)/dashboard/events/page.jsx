@@ -2,7 +2,6 @@
 import React from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Events from "@/app/(mainLayout)/events/page";
 
 const DashboardEvents = () => {
   const router = useRouter();
@@ -29,11 +28,6 @@ const DashboardEvents = () => {
           <Plus size={18} />
           Add Event
         </button>
-      </div>
-
-      {/* Events Section */}
-      <div className="bg-white rounded-2xl shadow-md p-6">
-       <Events></Events>
       </div>
     </div>
   );

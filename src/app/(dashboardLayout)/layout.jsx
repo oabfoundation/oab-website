@@ -7,6 +7,8 @@ import {
   House,
   Menu,
   X,
+  CalendarRange,
+  FolderKanban,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,8 +23,9 @@ const DashboardLayout = ({ children }) => {
   const sidebarLinks = [
     { name: "Return Home", path: "/", icon: House },
     { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
-    { name: "Projects", path: "/dashboard/projects", icon: PanelsTopLeft },
-    { name: "Events", path: "/dashboard/events", icon: PanelsTopLeft },
+    { name: "Projects", path: "/dashboard/projects", icon: FolderKanban },
+    { name: "Events", path: "/dashboard/events", icon: CalendarRange },
+    { name: "Committee", path: "/dashboard/committee", icon: PanelsTopLeft },
   ];
 
   const logout = () => {

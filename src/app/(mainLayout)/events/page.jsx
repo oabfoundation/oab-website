@@ -5,7 +5,6 @@ import { getEvents } from "@/app/api/events/route";
 const Events = async () => {
   const res = await getEvents();
   const eventsData = res.success ? res.data : [];
-  console.log("eventsData", eventsData);
 
   return (
     <section className="py-16 bg-gray-50">

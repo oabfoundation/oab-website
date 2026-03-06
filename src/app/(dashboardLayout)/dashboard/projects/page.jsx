@@ -2,7 +2,6 @@
 import React from "react";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Projects from "@/app/(mainLayout)/projects/page";
 
 const DashboardProjects = () => {
   const router = useRouter();
@@ -29,11 +28,6 @@ const DashboardProjects = () => {
           <Plus size={18} />
           Add Project
         </button>
-      </div>
-
-      {/* Projects Section */}
-      <div className="bg-white rounded-2xl shadow-md p-6">
-     <Projects></Projects>
       </div>
     </div>
   );
