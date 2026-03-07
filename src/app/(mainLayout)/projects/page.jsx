@@ -13,7 +13,6 @@ import { getProjects } from "@/app/api/projects/route";
 const Projects = async () => {
   const projectsData = await getProjects();
   const projects = projectsData.success ? projectsData.data : [];
-  console.log("projects", projects);
 
   return (
     <div className="py-16 px-6 max-w-7xl mx-auto text-center">
@@ -30,7 +29,7 @@ const Projects = async () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
         {projects.map((project) => (
           <div
-            key={project.id}
+            key={project._id}
             className="group bg-white rounded-2xl overflow-hidden shadow-md border-2 border-orange-100 hover:border-orange-500 flex flex-col h-full transition-transform duration-300   hover:shadow-xl"
           >
             <div className="overflow-hidden">

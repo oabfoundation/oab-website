@@ -1,11 +1,8 @@
-"use client";
-import React from "react";
+import Projects from "@/components/dashboardLayout/projects/Projects";
 import { Plus } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const DashboardProjects = () => {
-  const router = useRouter();
-
   return (
     <div className="p-6 md:p-10 bg-slate-50 min-h-screen">
       {/* Header Section */}
@@ -19,16 +16,18 @@ const DashboardProjects = () => {
           </p>
         </div>
 
-        <button
-          onClick={() => router.push("/dashboard/projects/add")}
+        <Link
+          href="/dashboard/projects/add"
           className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 
           text-white px-5 py-2.5 rounded-xl shadow-md 
           hover:shadow-lg transition duration-300 cursor-pointer"
         >
           <Plus size={18} />
           Add Project
-        </button>
+        </Link>
       </div>
+
+      <Projects />
     </div>
   );
 };

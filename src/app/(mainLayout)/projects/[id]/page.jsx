@@ -115,7 +115,7 @@ const ProjectDetailsPage = async ({ params }) => {
           <StatCard
             icon={<Users size={20} />}
             label="Participates"
-            value={project.beneficiaries.toLocaleString()}
+            value={project.participates.toLocaleString()}
           />
           <StatCard
             icon={<MapPin size={20} />}
@@ -154,7 +154,7 @@ const ProjectDetailsPage = async ({ params }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-3xl font-bold text-orange-600">
-                    {project.beneficiaries.toLocaleString()}+
+                    {project.participates.toLocaleString()}+
                   </p>
                   <p className="text-sm text-gray-600">Lives Impacted</p>
                 </div>

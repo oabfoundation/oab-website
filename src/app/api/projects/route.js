@@ -1,42 +1,44 @@
-"use server"
-import { collection, dbConnect } from "@/app/lib/dbConnect"
+"use server";
+import { collection, dbConnect } from "@/app/lib/dbConnect";
 
 const projectsCollection = await dbConnect(collection.PROJECTS);
 
 export const postProjects = async (payload) => {
- 
-    const newprojects = {
-        ...payload, createdAt: new Date(), status: "pending",
-    }
-    console.log("new projects is", newprojects)
-    const result = await projectsCollection.insertOne(newprojects)
- 
-    if (result.acknowledged) {
-        return {
-            success: true,
-            message: `projects created with ${result.insertedId.toString()}`
-        }
-    } else {
-        return {
-            success: false,
-            message: "Something went wrong, try again later"
-        }
-    }
-}
+  const newprojects = {
+    ...payload,
+    createdAt: new Date(),
+  };
+  console.log("new projects is", newprojects);
+  const result = await projectsCollection.insertOne(newprojects);
+
+  if (result.acknowledged) {
+    return {
+      success: true,
+      message: `projects created with ${result.insertedId.toString()}`,
+    };
+  } else {
+    return {
+      success: false,
+      message: "Something went wrong, try again later",
+    };
+  }
+};
 
 export const getProjects = async () => {
-    try {
+  try {
+    const result = await projectsCollection
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
 
-        const result = await projectsCollection.find({}).sort({ createdAt: -1 }).toArray();
-
-        return {
-            success: true,
-            data: JSON.parse(JSON.stringify(result))
-        };
-    } catch (error) {
-        return {
-            success: false,
-            message: "Failed to fetch projects",
-        };
-    }
+    return {
+      success: true,
+      data: JSON.parse(JSON.stringify(result)),
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Failed to fetch projects",
+    };
+  }
 };

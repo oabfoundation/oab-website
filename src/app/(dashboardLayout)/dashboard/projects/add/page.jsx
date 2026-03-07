@@ -5,14 +5,14 @@ import {
   BookOpen,
   MapPin,
   Users,
-  Calendar,
   Image as ImageIcon,
   Tag,
   Save,
+  CalendarFold,
+  Info,
 } from "lucide-react";
 import { postProjects } from "@/app/api/projects/route";
 import { useRouter } from "next/navigation";
-
 
 const AddProjectForm = () => {
   const router = useRouter();
@@ -23,11 +23,11 @@ const AddProjectForm = () => {
   } = useForm({
     defaultValues: {
       title: "",
-      category: "Education",
-      beneficiaries: "",
+      category: "",
+      participates: "",
       location: "",
-      date: "2020 - Present",
-      status: "ongoing",
+      status: "Select Status",
+      date: "",
       description: "",
       longDescription: "",
       image: "",
@@ -36,10 +36,10 @@ const AddProjectForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await postProjects(data); 
+      const res = await postProjects(data);
       if (res.success) {
-         alert("Project Data Submitted Successfully!");
-         router.push('/dashboard/projects')
+        alert("Project Data Submitted Successfully!");
+        router.push("/dashboard/projects");
       } else {
         alert("Error: " + res.message);
       }
@@ -50,7 +50,7 @@ const AddProjectForm = () => {
   };
 
   return (
-    <section className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 max-w-4xl mx-auto my-10">
+    <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 max-w-4xl mx-auto my-10">
       <div className="flex items-center gap-3 mb-8 border-b pb-6">
         <div className="p-3 bg-orange-100 rounded-2xl">
           <BookOpen className="text-orange-600" size={24} />
@@ -77,7 +77,7 @@ const AddProjectForm = () => {
                   ? "border-red-400 focus:ring-red-100"
                   : "border-slate-200 focus:ring-orange-100"
               }`}
-              placeholder=" Education Support"
+              placeholder="Enter project name"
             />
             {errors.title && (
               <span className="text-xs text-red-500">
@@ -91,28 +91,32 @@ const AddProjectForm = () => {
             <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
               <BookOpen size={16} className="text-orange-500" /> Category
             </label>
-            <select
-              {...register("category")}
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100 transition-all"
-            >
-              <option value="Education">Education</option>
-              <option value="Health">Health</option>
-              <option value="Relief">Relief</option>
-              <option value="Environment">Environment</option>
-            </select>
+            <input
+              {...register("category", { required: "category is required" })}
+              className={`w-full px-4 py-3 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
+                errors.category
+                  ? "border-red-400 focus:ring-red-100"
+                  : "border-slate-200 focus:ring-orange-100"
+              }`}
+              placeholder="Education"
+            />
+            {errors.category && (
+              <span className="text-xs text-red-500">
+                {errors.category.message}
+              </span>
+            )}
           </div>
 
-          {/* Beneficiaries */}
+          {/* participates */}
           <div className="space-y-2">
             <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-              <Users size={16} className="text-orange-500" /> Beneficiaries
+              <Users size={16} className="text-orange-500" /> Participates
             </label>
             <input
               type="number"
-              {...register("beneficiaries")}
+              {...register("participates")}
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
-              placeholder="
-               1250"
+              placeholder="Participates"
             />
           </div>
 
@@ -125,6 +129,33 @@ const AddProjectForm = () => {
               {...register("location")}
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
               placeholder="Dhaka, Bangladesh"
+            />
+          </div>
+
+          {/* status */}
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+              <Info size={16} className="text-orange-500" /> status
+            </label>
+            <select
+              {...register("status")}
+              className="w-full px-4 py-3 cursor-pointer bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100 transition-all"
+            >
+              <option>Select Status</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="complete">Complete</option>
+            </select>
+          </div>
+
+          {/* date */}
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+              <CalendarFold size={16} className="text-orange-500" /> Date
+            </label>
+            <input
+              {...register("date")}
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
+              placeholder="07 March 2026"
             />
           </div>
         </div>
@@ -158,10 +189,9 @@ const AddProjectForm = () => {
         {/* Image Link */}
         <div className="space-y-2">
           <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
-            <ImageIcon size={16} className="text-orange-500" /> Image URL
+            <ImageIcon size={16} className="text-orange-500" /> Only Image URL
           </label>
           <input
-
             {...register("image")}
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-100"
             placeholder="https://example.com/image.jpg"
