@@ -48,13 +48,13 @@ const DashboardLayout = ({ children }) => {
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            <Link href="/" className="transition-transform hover:scale-105">
+            <Link href="/">
               <Image
                 width={224}
                 height={150}
                 src="/logo.png"
                 alt="logo"
-                className="w-56"
+                className="md:w-[85%] h-full"
               />
             </Link>
           </div>

@@ -7,8 +7,8 @@ import {
   Image as ImageIcon,
   AlignLeft,
   MapPin,
-  Tag,
   Send,
+  BookOpenCheck,
 } from "lucide-react";
 import { postEvents } from "@/app/api/events/route";
 
@@ -18,38 +18,27 @@ const AddNewsForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({
-    defaultValues: {
-      title: "",
-      date: new Date().toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }),
-      category: "Impact",
-      location: "",
-      image: "",
-      desc: "",
-      longDesc: "",
-    },
-  });
+  } = useForm({});
 
-const onSubmit = async (data) => {
-  try {
-   
-    const res = await postEvents(data);
+  const onSubmit = async (data) => {
+    const formatData = {
+      ...data,
+      slug: data.title.toLowerCase().trim().replace(/\s+/g, "-"),
+    };
+    try {
+      const res = await postEvents(formatData);
 
-    if (res.success) {
-      alert("Impact story added successfully!");
-      reset();
-    } else {
-      alert("Error: " + res.message);
+      if (res.success) {
+        alert("Event added successfully!");
+        reset();
+      } else {
+        alert("Error: " + res.message);
+      }
+    } catch (err) {
+      console.error("Error submitting event:", err);
+      alert("Something went wrong!");
     }
-  } catch (err) {
-    console.error("Error submitting event:", err);
-    alert("Something went wrong!");
-  }
-};
+  };
   return (
     <section className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100 max-w-5xl mx-auto my-8">
       {/* Header */}
@@ -59,7 +48,7 @@ const onSubmit = async (data) => {
         </div>
         <div>
           <h2 className="text-2xl font-bold text-slate-800">
-            Post Latest Impact
+            Post Latest events
           </h2>
           <p className="text-slate-500 text-sm">
             Share the success stories of OAB Foundation with the world.
@@ -83,6 +72,11 @@ const onSubmit = async (data) => {
                   : "border-slate-200 focus:ring-orange-100"
               }`}
             />
+            {errors.title && (
+              <span className="text-xs text-red-500">
+                {errors.title.message}
+              </span>
+            )}
           </div>
 
           {/* Date */}
@@ -91,7 +85,7 @@ const onSubmit = async (data) => {
               <Calendar size={16} className="text-orange-500" /> Date
             </label>
             <input
-              {...register("date")}
+              {...register("date", { required: "Date is required" })}
               placeholder=" 15 January 2026"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
             />
@@ -103,7 +97,7 @@ const onSubmit = async (data) => {
               <MapPin size={16} className="text-orange-500" /> Location
             </label>
             <input
-              {...register("location")}
+              {...register("location", { required: "Location is required" })}
               placeholder="Northern Bangladesh"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
             />
@@ -111,18 +105,23 @@ const onSubmit = async (data) => {
 
           {/* Category */}
           <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
-              <Tag size={16} className="text-orange-500" /> Category
+            <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
+              <BookOpenCheck size={16} className="text-orange-500" /> Category
             </label>
-            <select
-              {...register("category")}
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100 cursor-pointer"
-            >
-              <option value="Impact">Impact</option>
-              <option value="Event">Event</option>
-              <option value="Relief">Relief</option>
-              <option value="Education">Education</option>
-            </select>
+            <input
+              {...register("category", { required: "category is required" })}
+              className={`w-full px-4 py-3 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 transition-all ${
+                errors.category
+                  ? "border-red-400 focus:ring-red-100"
+                  : "border-slate-200 focus:ring-orange-100"
+              }`}
+              placeholder="Education"
+            />
+            {errors.category && (
+              <span className="text-xs text-red-500">
+                {errors.category.message}
+              </span>
+            )}
           </div>
         </div>
 
@@ -132,7 +131,7 @@ const onSubmit = async (data) => {
             <AlignLeft size={16} className="text-orange-500" /> Short Summary
           </label>
           <textarea
-            {...register("desc")}
+            {...register("desc", { required: "Short Description is required" })}
             rows={2}
             placeholder="Write a brief intro (max 150 characters)..."
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100 resize-none"
@@ -145,7 +144,9 @@ const onSubmit = async (data) => {
             Full Detailed Story
           </label>
           <textarea
-            {...register("longDesc")}
+            {...register("longDesc", {
+              required: "Long Description is required",
+            })}
             rows={5}
             placeholder="Explain the whole impact journey here..."
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
@@ -158,7 +159,7 @@ const onSubmit = async (data) => {
             <ImageIcon size={16} className="text-orange-500" /> Cover Image URL
           </label>
           <input
-            {...register("image")}
+            {...register("image", { required: "image is required" })}
             placeholder="https://oabfoundation.org/photo.jpg"
             className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-orange-100"
           />
@@ -167,9 +168,9 @@ const onSubmit = async (data) => {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full md:w-max px-10 bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-orange-100 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg shadow-orange-100 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
         >
-          Publish Impact Story
+          Publish Events
         </button>
       </form>
     </section>
