@@ -16,7 +16,7 @@ export default function WhatWeCareFor() {
       description:
         "At OAB Foundation, we believe that caring for the environment is not just a responsibility—it’s a necessity.As climate change threatens the well-being of millions, especially in vulnerable regions like Bangladesh, we take meaningful action to raise awareness, build resilience, and inspire sustainable living.Our initiatives include large-scale tree-planting drives, clean-up campaigns, youth climate education, and community-based environmental projects.We engage local voices, support eco-friendly solutions, and promote behavioral change that respects the balance of nature.By nurturing a deeper connection between people and the planet, we work every day to ensure a healthier, greener future for all.",
       image:
-        "https://oabfoundation.org/wp-content/uploads/2024/10/IMG-20240920-WA0170-768x1024.jpg",
+        "https://i.ibb.co.com/3xXtVXb/pngtreeprotecting-planet-together.webp",
       stats: "10,000+ Trees Planted",
 
       reverse: false,
@@ -30,7 +30,7 @@ export default function WhatWeCareFor() {
       description:
         "we believe education is every child’s right, not a privilege.We work to ensure that children—especially from underserved communities—have access to quality learning, safe classrooms, and the tools they need to succeed.Through school programs, educational support, and awareness campaigns, we are building a future where no child is left behind.",
       image:
-        "https://oabfoundation.org/wp-content/uploads/2020/06/IMG-20240921-WA0036-1536x2048.jpg",
+        "https://i.ibb.co.com/MyH6VC7z/stop.webp",
       stats: "5,000+ Children Educated",
 
       reverse: true,
@@ -44,7 +44,7 @@ export default function WhatWeCareFor() {
       description:
         "OAB Foundation stands against all forms of violence and abuse toward women.We work to raise awareness, provide support,and empower survivors to reclaim their voice and dignity.Through education, advocacy, and community outreach, we challenge harmful norms and promote a culture of respect and safety.We believe every woman deserves to live free from fear, with equal rights and protection.Together, we are building a society where women are safe, valued, and empowered.",
       image:
-        "https://oabfoundation.org/wp-content/uploads/2025/01/IMG_9995-scaled.jpg",
+        "https://i.ibb.co.com/8gb46Kqp/Ending-Violence.webp",
       stats: "2,500+ Women Empowered",
 
       reverse: false,
@@ -58,7 +58,7 @@ export default function WhatWeCareFor() {
       description:
         "Plastic pollution is one of the most pressing environmental threats we face today. At OAB Foundation, we are committed to reducing plastic waste and protecting our environment for future generations.We organize clean-up drives, awareness campaigns, and educational programs to help communities understand the dangers of single-use plastics.By promoting eco-friendly alternatives and sustainable habits, we encourage people to reduce, reuse, and rethink plastic use in daily life. Together, we’re working toward a cleaner, greener, and plastic-free Bangladesh.",
       image:
-        "https://oabfoundation.org/wp-content/uploads/2025/07/5cf06c68-7b2d-4431-a81a-d05e11586b87.jpeg",
+        "https://i.ibb.co.com/wFhWgnc0/Say-No-to-Plastic.webp",
       stats: "50+ Clean-up Drives",
 
       reverse: true,
