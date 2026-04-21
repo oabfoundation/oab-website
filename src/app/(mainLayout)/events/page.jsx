@@ -25,19 +25,22 @@ const Events = async () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {eventsData.map((event) => (
             <div
-              key={event.id}
+              key={event._id}
               className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-500 transition-all duration-300 overflow-hidden"
             >
               {/* Event Image */}
               <div className="relative h-60 w-full overflow-hidden">
                 {event.image ? (
                   <Image
-                    width={400}
-                    height={300}
-                    src={event.image}
-                    alt={event.title}
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+  width={400}
+  height={300}
+  src={
+    event.image?.startsWith("http")
+      ? event.image
+      : "/placeholder.png"
+  }
+  alt={event.title}
+/>
                 ) : (
                   <div className="bg-gray-200 h-full w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
                     No Image

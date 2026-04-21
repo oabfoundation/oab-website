@@ -1,6 +1,5 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@oabfoundation.w5cbawy.mongodb.net/?appName=oabfoundation`;
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const uri = process.env.DB_URI;
 export const collection = {
   PROJECTS: "projects",
   EVENTS: "events",

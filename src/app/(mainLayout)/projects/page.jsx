@@ -2,8 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { getProjects } from "@/app/api/projects/route";
-
+import getProjects from "../../lib/project"
 // export const metadata = {
 //   title: "Our Projects & Impact",
 //   description:
@@ -11,7 +10,12 @@ import { getProjects } from "@/app/api/projects/route";
 // };
 
 const Projects = async () => {
-  const projectsData = await getProjects();
+const res = await fetch("http://localhost:3000/api/getProjects", {
+    cache: "no-store",
+  });
+
+  const projectsData = await res.json();
+
   const projects = projectsData.success ? projectsData.data : [];
 
   return (

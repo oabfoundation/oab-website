@@ -2,6 +2,7 @@
 import { collection, dbConnect } from "@/app/lib/dbConnect";
 
 const projectsCollection = await dbConnect(collection.PROJECTS);
+console.log(projectsCollection);
 
 export const postProjects = async (payload) => {
   const newprojects = {
@@ -24,21 +25,21 @@ export const postProjects = async (payload) => {
   }
 };
 
-export const getProjects = async () => {
-  try {
-    const result = await projectsCollection
-      .find({})
-      .sort({ createdAt: -1 })
-      .toArray();
-
-    return {
-      success: true,
-      data: JSON.parse(JSON.stringify(result)),
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message: "Failed to fetch projects",
-    };
-  }
-};
+// export const getProjects = async () => {
+//   try {
+//     const result = await projectsCollection
+//       .find({})
+//       .sort({ createdAt: -1 })
+//       .toArray();
+// console.log("result", result);
+//     return {
+//       success: true,
+//       data: JSON.parse(JSON.stringify(result)),
+//     };
+//   } catch (error) {
+//     return {
+//       success: false,
+//       message: "Failed to fetch projects",
+//     };
+//   }
+// };

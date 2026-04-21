@@ -1,22 +1,28 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Edit2, Trash2, ImageIcon } from "lucide-react";
-import { getProjects } from "@/app/api/projects/route";
+
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
-  // Data fetch
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projectsData = await getProjects();
+// Data fetch
+useEffect(() => {
+  const fetchProjects = async () => {
+    try {
+      const res = await fetch("/api/getProjects"); 
+      const projectsData = await res.json();
+
       if (projectsData.success) {
         setProjects(projectsData.data);
       }
-    };
-    fetchProjects();
-  }, []);
+    } catch (error) {
+      console.error("Failed to fetch projects", error);
+    }
+  };
 
+  fetchProjects();
+}, []);
   const handleEdit = (id) => console.log("Edit ID:", _id);
   const handleDelete = (id) => console.log("Delete ID:", _id);
   return (
