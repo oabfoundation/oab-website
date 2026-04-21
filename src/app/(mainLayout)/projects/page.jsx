@@ -40,10 +40,23 @@ const res = await fetch("http://localhost:3000/api/getProjects", {
               <Image
                 width={300}
                 height={200}
-                src={project.image}
-                alt={project.title}
+               src={
+   "/placeholder.png"
+  }
+  alt={project.title}
                 className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
               />
+              {/* <Image
+                width={300}
+                height={200}
+               src={
+    project.image?.startsWith("https")
+      ? project.image
+      : "/placeholder.png"
+  }
+  alt={project.title}
+                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+              /> */}
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">

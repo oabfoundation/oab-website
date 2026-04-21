@@ -35,7 +35,7 @@ const Events = async () => {
   width={400}
   height={300}
   src={
-    event.image?.startsWith("http")
+    event.image?.startsWith("https")
       ? event.image
       : "/placeholder.png"
   }
