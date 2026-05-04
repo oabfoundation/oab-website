@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import getProjects from "../../lib/project"
 // export const metadata = {
 //   title: "Our Projects & Impact",
 //   description:
@@ -10,7 +9,7 @@ import getProjects from "../../lib/project"
 // };
 
 const Projects = async () => {
-const res = await fetch("http://localhost:3000/api/getProjects", {
+const res = await fetch("/api/getProjects", {
     cache: "no-store",
   });
 
