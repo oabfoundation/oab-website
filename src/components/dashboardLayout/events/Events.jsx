@@ -131,7 +131,7 @@ const Events = () => {
       </div>
 
       {/* ✅ Edit Modal */}
-      {isEditOpen && (
+      {/* {isEditOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-xl w-[400px]">
             <h2 className="text-xl font-bold mb-4">Edit Event</h2>
@@ -173,7 +173,7 @@ const Events = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
