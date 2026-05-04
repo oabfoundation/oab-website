@@ -9,7 +9,8 @@ import Image from "next/image";
 // };
 
 const Projects = async () => {
-const res = await fetch("/api/getProjects", {
+  const baseUrl = "https://oabfoundation.org/" || "https://oabfoundation.vercel.app/" || "http://localhost:3000";
+const res = await fetch(`${baseUrl}/api/getProjects`, {
     cache: "no-store",
   });
 
