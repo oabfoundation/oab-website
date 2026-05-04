@@ -112,7 +112,7 @@ useEffect(() => {
 
             {/* Content */}
             <div className="p-4">
-              {/* <h3 className="font-bold mb-4">{post.title}</h3> */}
+              <h3 className="font-bold mb-4">{post.title}</h3>
               
 
    <div className="flex gap-2">
