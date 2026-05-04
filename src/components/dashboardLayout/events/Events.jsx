@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Edit2, Trash2, ImageIcon } from "lucide-react";
-import { getEvents } from "@/app/api/events/route";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -13,15 +12,22 @@ const Events = () => {
     image: "",
   });
 
- useEffect(() => {
-    const fetchEvents = async () => {
-      const eventsData = await getEvents();
-      if (eventsData.success) {
-        setEvents(eventsData.data);
+useEffect(() => {
+  const fetchEvents = async () => {
+    try {
+      const res = await fetch("/api/getEvents");
+      const data = await res.json();
+
+      if (data.success) {
+        setEvents(data.data);
       }
-    };
-    fetchEvents();
-  }, []);
+    } catch (error) {
+      console.error("Failed to fetch events:", error);
+    }
+  };
+
+  fetchEvents();
+}, []);
 
   // ✅ Open modal
   const openEditModal = (event) => {
@@ -36,7 +42,7 @@ const Events = () => {
   // ✅ Update
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`/api/events/${selectedEvent._id}`, {
+      const res = await fetch(`/api/getEvents/${selectedEvent._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +73,7 @@ const Events = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`/api/events/${id}`, {
+      const res = await fetch(`/api/getEvents/${id}`, {
         method: "DELETE",
       });
 
@@ -106,7 +112,7 @@ const Events = () => {
 
             {/* Content */}
             <div className="p-4">
-              <h3 className="font-bold mb-4">{post.title}</h3>
+              {/* <h3 className="font-bold mb-4">{post.title}</h3> */}
               
 
    <div className="flex gap-2">

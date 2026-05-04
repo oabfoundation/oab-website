@@ -27,7 +27,7 @@ export default function Login() {
       Cookies.set("isLoggedIn", "true", { expires: 1 });
       Cookies.set("user", JSON.stringify(user), { expires: 1 });
       router.push("/dashboard");
-      console.log("router", router);
+
     }
   };
 

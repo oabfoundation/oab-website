@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { collection, dbConnect } from "@/app/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
@@ -7,7 +8,7 @@ export async function GET(req, { params }) {
   try {
     const eventCollection = await dbConnect(collection.EVENTS);
 
-    const { id } = params;
+    const { id } =params;
 
     if (!ObjectId.isValid(id)) {
       return NextResponse.json({ success: false }, { status: 400 });
@@ -28,7 +29,7 @@ export async function PATCH(req, { params }) {
   try {
     const eventCollection = await dbConnect(collection.EVENTS);
 
-    const { id } = await params;
+    const { id } = params;
     const body = await req.json();
 
     if (!ObjectId.isValid(id)) {
@@ -51,7 +52,7 @@ export async function DELETE(req, { params }) {
   try {
     const eventCollection = await dbConnect(collection.EVENTS);
 
-    const { id } =await params;
+    const { id } = params;
 
     if (!ObjectId.isValid(id)) {
       return NextResponse.json({ success: false }, { status: 400 });

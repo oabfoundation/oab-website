@@ -5,7 +5,6 @@ import React from 'react';
 const AddProjects = ({formData}) => {
 const router = useRouter();
 
-    console.log('formdata is', formData)
   const handleSubmit = async () => {
     const data = await postProjects(formData)
 

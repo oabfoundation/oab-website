@@ -1,13 +1,13 @@
+"use server"
 import { collection, dbConnect } from "@/app/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
-// ✅ GET (single data)
- const projectCollection = await dbConnect(collection.PROJECTS);
+
 
 export async function GET(req, { params }) {
   try {
-    const { id } =await params;
+    const { id } = params;
 
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -15,6 +15,7 @@ export async function GET(req, { params }) {
         { status: 400 }
       );
     }
+     const projectCollection = await dbConnect(collection.PROJECTS);
     const project = await projectCollection.findOne({ _id: new ObjectId(id) });
 
     if (!project) {
@@ -58,7 +59,7 @@ export async function PATCH(req, { params }) {
 // ✅ DELETE
 export async function DELETE(req, { params }) {
   try {
-    const { id } = params;
+    const { id } =params;
 
     const projectCollection = await dbConnect(collection.PROJECTS);
 
