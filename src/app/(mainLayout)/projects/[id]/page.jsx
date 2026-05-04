@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Calendar, Users, MapPin, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProjects } from "@/app/api/projects/route";
+import { getProjects } from "@/app/lib/project";
 
 // Metadata
 export async function generateMetadata({ params }) {
