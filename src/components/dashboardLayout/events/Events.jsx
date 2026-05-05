@@ -1,13 +1,16 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Edit2, Trash2, ImageIcon, MapPin, Calendar, Tag, AlignLeft } from "lucide-react";
+import { Edit2, Trash2, ImageIcon, MapPin, Calendar, Tag, AlignLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   
-  // 1. Shobgulo field state-e add kora holo
+  // ✅ Pagination States
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; 
+
   const [formData, setFormData] = useState({
     title: "",
     date: "",
@@ -31,9 +34,16 @@ const Events = () => {
     fetchEvents();
   }, []);
 
+  // ✅ Pagination Calculation
+  const totalPages = Math.ceil(events.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentEvents = events.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const openEditModal = (event) => {
     setSelectedEvent(event);
-    // 2. Modal kholar somoy existing data set kora
     setFormData({
       title: event.title || "",
       date: event.date || "",
@@ -79,9 +89,10 @@ const Events = () => {
   };
 
   return (
-    <div className="p-6 bg-slate-50 min-h-screen">
+    <div className="space-y-10 p-6 bg-slate-50 min-h-screen">
+      {/* Events Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {events.map((event) => (
+        {currentEvents.map((event) => (
           <div key={event._id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-all group">
             <div className="h-48 bg-slate-100 overflow-hidden">
               {event.image ? (
@@ -109,17 +120,52 @@ const Events = () => {
         ))}
       </div>
 
-      {/* ✅ Full Detailed Modal */}
+      {/* ✅ Pagination UI */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-2 pb-10">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="p-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`w-10 h-10 rounded-lg font-semibold transition-all ${
+                currentPage === index + 1
+                  ? "bg-orange-500 text-white shadow-lg shadow-orange-200"
+                  : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="p-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      )}
+
+      {/* ✅ Modal (Oibhabei thakbe) */}
       {isEditOpen && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-in zoom-in duration-200">
+            {/* Modal content input gulo */}
             <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
               <h2 className="text-xl font-bold text-slate-800">Update Event Details</h2>
               <button onClick={() => setIsEditOpen(false)} className="text-slate-400 hover:text-red-500 text-3xl leading-none">&times;</button>
             </div>
-
+            {/* ... input fields (title, date, desc etc.) ... */}
             <div className="p-6 space-y-4 max-h-[75vh] overflow-y-auto custom-scrollbar">
-              {/* Title & Category */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-semibold text-slate-600 mb-1 flex items-center gap-2"><Edit2 size={14}/> Title</label>
@@ -130,8 +176,7 @@ const Events = () => {
                   <input type="text" value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="w-full border border-slate-200 p-2.5 rounded-xl outline-none focus:border-orange-500 transition-all" />
                 </div>
               </div>
-
-              {/* Date & Location */}
+              {/* Image URL, Location, Dates, Descriptions continue... */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-semibold text-slate-600 mb-1 flex items-center gap-2"><Calendar size={14}/> Date</label>
@@ -142,26 +187,19 @@ const Events = () => {
                   <input type="text" value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} className="w-full border border-slate-200 p-2.5 rounded-xl outline-none focus:border-orange-500 transition-all" />
                 </div>
               </div>
-
-              {/* Image URL */}
               <div>
                 <label className="text-sm font-semibold text-slate-600 mb-1 flex items-center gap-2"><ImageIcon size={14}/> Image URL</label>
                 <input type="text" value={formData.image} onChange={(e) => setFormData({ ...formData, image: e.target.value })} className="w-full border border-slate-200 p-2.5 rounded-xl outline-none focus:border-orange-500 transition-all" />
               </div>
-
-              {/* Short Description */}
               <div>
-                <label className="text-sm font-semibold text-slate-600 mb-1 flex items-center gap-2"><AlignLeft size={14}/> Short Description (desc)</label>
+                <label className="text-sm font-semibold text-slate-600 mb-1 flex items-center gap-2"><AlignLeft size={14}/> Short Description</label>
                 <textarea rows="2" value={formData.desc} onChange={(e) => setFormData({ ...formData, desc: e.target.value })} className="w-full border border-slate-200 p-2.5 rounded-xl outline-none focus:border-orange-500 transition-all resize-none" />
               </div>
-
-              {/* Long Description */}
               <div>
-                <label className="text-sm font-semibold text-slate-600 mb-1">Detailed Description (longDesc)</label>
+                <label className="text-sm font-semibold text-slate-600 mb-1">Detailed Description</label>
                 <textarea rows="4" value={formData.longDesc} onChange={(e) => setFormData({ ...formData, longDesc: e.target.value })} className="w-full border border-slate-200 p-2.5 rounded-xl outline-none focus:border-orange-500 transition-all" />
               </div>
             </div>
-
             <div className="px-6 py-4 bg-slate-50 border-t flex gap-3">
               <button onClick={() => setIsEditOpen(false)} className="flex-1 bg-white border border-slate-200 py-2.5 rounded-xl font-bold text-slate-600 hover:bg-slate-100 transition-all">Cancel</button>
               <button onClick={handleUpdate} className="flex-[2] bg-orange-600 text-white py-2.5 rounded-xl font-bold hover:bg-orange-700 shadow-lg shadow-orange-600/20 transition-all">Update Event</button>
