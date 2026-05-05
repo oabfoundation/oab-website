@@ -32,21 +32,21 @@ export const postEvents = async (payload) => {
   }
 };
 
-export const getEvents = async () => {
-  try {
-    const result = await eventsCollection
-      .find({})
-      .sort({ createdAt: -1 })
-      .toArray();
+// export const getEvents = async () => {
+//   try {
+//     const result = await eventsCollection
+//       .find({})
+//       .sort({ createdAt: -1 })
+//       .toArray();
 
-    return {
-      success: true,
-      data: JSON.parse(JSON.stringify(result)),
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message: "Failed to fetch events",
-    };
-  }
-};
+//     return {
+//       success: true,
+//       data: JSON.parse(JSON.stringify(result)),
+//     };
+//   } catch (error) {
+//     return {
+//       success: false,
+//       message: "Failed to fetch events",
+//     };
+//   }
+// };

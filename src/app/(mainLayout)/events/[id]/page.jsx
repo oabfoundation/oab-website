@@ -4,33 +4,58 @@ import Link from "next/link";
 import { Calendar, MapPin, ArrowLeft, Share2, Clock, Info } from "lucide-react";
 import BackText from "@/components/common/BackText";
 
-// Metadata
+
 export async function generateMetadata({ params }) {
-  const { id } = await params;
-  const res = await getEvents();
-  const eventsList = res.success ? res.data : [];
-  const events = eventsList.find((n) => n._id === id);
-  if (!events) return { title: "events Not Found" };
+  const { id } = params;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/getEvents`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+
+  const events = data.success ? data.data : [];
+
+  const event = events.find((n) => n._id === id);
+
+  if (!event) return { title: "Event Not Found" };
 
   return {
-    title: `${events.title} | OAB Foundation`,
-    description: events.desc,
+    title: `${event.title} | OAB Foundation`,
+    description: event.description,
   };
 }
 // Static paths generation
 export async function generateStaticParams() {
-  const res = await getEvents();
-  const eventsList = res.success ? res.data : [];
-  return eventsList.map((events) => ({
-    id: events._id.toString(),
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/getEvents`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+
+  const eventsList = data.success ? data.data : [];
+
+  return eventsList.map((event) => ({
+    id: event._id.toString(),
   }));
 }
-
 const EventDetailsPage = async ({ params }) => {
-  const { id } = await params;
-  const res = await getEvents();
-  const events = res.success ? res.data : [];
+ const { id } = params;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/getEvents`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+
+  const events = data.success ? data.data : [];
+
   const event = events.find((n) => n._id === id);
+
+  if (!event) return <div>Event Not Found</div>;
 
   return (
     <div className="min-h-screen pt-20">
@@ -47,6 +72,7 @@ const EventDetailsPage = async ({ params }) => {
             className="rounded-3xl object-cover shadow-2xl"
             priority
           />
+
           <div className="absolute top-6 left-6">
             <span className="bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg">
               {event.category}

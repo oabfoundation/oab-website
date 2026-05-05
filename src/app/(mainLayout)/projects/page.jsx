@@ -8,15 +8,25 @@ import Image from "next/image";
 //     "Explore OAB Foundation's nationwide initiatives including Winter Blanket Distribution, Project Shikhkha, and Emergency Relief missions.",
 // };
 
-const Projects = async () => {
-  const baseUrl = "https://oabfoundation.org/" || "https://oabfoundation.vercel.app/" || "http://localhost:3000";
-const res = await fetch(`${baseUrl}/api/getProjects`, {
-    cache: "no-store",
-  });
+const Projects = async ({ searchParams }) => {
+const params = await searchParams; 
+  const page = Number(params?.page) || 1;
+  const limit = 12;
+const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://oabfoundation.org";
+
+const res = await fetch(
+    `${baseUrl}/api/getProjects?page=${page}&limit=${limit}`,
+    { cache: "no-store" }
+  );
 
   const projectsData = await res.json();
-
   const projects = projectsData.success ? projectsData.data : [];
+  const total = projectsData.total || 0;
+  const totalPages = Math.ceil(total / limit);
+
 
   return (
     <div className="py-16 px-6 max-w-7xl mx-auto text-center">
@@ -37,16 +47,13 @@ const res = await fetch(`${baseUrl}/api/getProjects`, {
             className="group bg-white rounded-2xl overflow-hidden shadow-md border-2 border-orange-100 hover:border-orange-500 flex flex-col h-full transition-transform duration-300   hover:shadow-xl"
           >
             <div className="overflow-hidden">
-              <Image
-                width={300}
-                height={200}
-               src={
-   "/placeholder.png"
-  }
+          {/* <img
+  src={project.image}
   alt={project.title}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              {/* <Image
+  loading="lazy"
+  className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+/> */}
+              <Image
                 width={300}
                 height={200}
                src={
@@ -56,7 +63,7 @@ const res = await fetch(`${baseUrl}/api/getProjects`, {
   }
   alt={project.title}
                 className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-              /> */}
+              />
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
@@ -76,6 +83,34 @@ const res = await fetch(`${baseUrl}/api/getProjects`, {
           </div>
         ))}
       </div>
+      <div className="flex justify-center mt-12 gap-4">
+  {/* Previous */}
+  <Link
+    href={`?page=${page - 1}`}
+    className={`px-4 py-2 border rounded ${
+      page === 1 ? "pointer-events-none opacity-50" : "hover:bg-gray-100"
+    }`}
+  >
+    Prev
+  </Link>
+
+  {/* Page Info */}
+  <span className="px-4 py-2">
+    Page {page} of {totalPages}
+  </span>
+
+  {/* Next */}
+ <Link
+  href={`?page=${page + 1}`}
+  className={`px-4 py-2 border rounded ${
+    page >= totalPages
+      ? "pointer-events-none opacity-50"
+      : "hover:bg-gray-100"
+  }`}
+>
+  Next
+</Link>
+</div>
     </div>
   );
 };

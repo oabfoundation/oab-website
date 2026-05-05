@@ -1,10 +1,25 @@
+
 import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { getEvents } from "@/app/api/events/route";
-const Events = async () => {
-  const res = await getEvents();
-  const eventsData = res.success ? res.data : [];
+const Events =async ({ searchParams }) => {
+  const params = await searchParams;
+  const page = Number(params?.page) || 1;
+  const limit = 12; 
+
+  const baseUrl = process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://oabfoundation.org";
+
+  const res = await fetch(
+    `${baseUrl}/api/getEvents?page=${page}&limit=${limit}`,
+    { cache: "no-store" }
+  );
+
+  const eventsData = await res.json();
+  const events = eventsData.success ? eventsData.data : [];
+  const total = eventsData.total || 0;
+  const totalPages = Math.ceil(total / limit);
 
   return (
     <section className="py-16 bg-gray-50">
@@ -23,7 +38,7 @@ const Events = async () => {
 
         {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {eventsData.map((event) => (
+          {events.map((event) => (
             <div
               key={event._id}
               className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-orange-500 transition-all duration-300 overflow-hidden"
@@ -31,6 +46,19 @@ const Events = async () => {
               {/* Event Image */}
               <div className="relative h-60 w-full overflow-hidden">
                 {event.image ? (
+  <Image
+    width={400}
+    height={300}
+    src={event.image.startsWith("http") ? event.image : "/placeholder.png"}
+    alt={event.title || "Event Image"}
+    className="w-full h-56 object-cover rounded-t-2xl" // Optional: styling add korlam
+  />
+) : (
+  <div className="bg-gray-200 h-56 w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
+    No Image
+  </div>
+)}
+                {/* {event.image ? (
                   <Image
   width={400}
   height={300}
@@ -45,7 +73,7 @@ const Events = async () => {
                   <div className="bg-gray-200 h-full w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
                     No Image
                   </div>
-                )}
+                )} */}
                 <div className="absolute top-4 left-4">
                   <span className="bg-orange-500 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-lg">
                     {event.category || "Event"}
@@ -84,6 +112,21 @@ const Events = async () => {
               </div>
             </div>
           ))}
+        </div>
+          <div className="flex justify-center mt-12 gap-4">
+          <Link
+            href={`?page=${page - 1}`}
+            className={`px-4 py-2 border rounded ${page === 1 ? "opacity-50 pointer-events-none" : "hover:bg-gray-100"}`}
+          >
+            Prev
+          </Link>
+          <span className="px-4 py-2">Page {page} of {totalPages}</span>
+          <Link
+            href={`?page=${page + 1}`}
+            className={`px-4 py-2 border rounded ${page >= totalPages ? "opacity-50 pointer-events-none" : "hover:bg-gray-100"}`}
+          >
+            Next
+          </Link>
         </div>
       </div>
     </section>

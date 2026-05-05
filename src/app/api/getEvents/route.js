@@ -1,23 +1,14 @@
-import { collection, dbConnect } from "@/app/lib/dbConnect";
-import { NextResponse } from "next/server";
+import { getEvents } from "@/app/lib/event";
 
-export async function GET() {
+export async function GET(request) {
   try {
-    const eventsCollection = await dbConnect(collection.EVENTS);
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get("page")) || 1;
+    const limit = parseInt(searchParams.get("limit")) || 12; 
 
-    const result = await eventsCollection
-      .find({})
-      .sort({ createdAt: -1 })
-      .toArray();
-
-    return NextResponse.json({
-      success: true,
-      data: JSON.parse(JSON.stringify(result)),
-    });
+    const result = await getEvents(page, limit);
+    return Response.json(result);
   } catch (error) {
-    return NextResponse.json(
-      { success: false, message: "Failed to fetch events" },
-      { status: 500 }
-    );
+    return Response.json({ success: false, total: 0, data: [] });
   }
 }
