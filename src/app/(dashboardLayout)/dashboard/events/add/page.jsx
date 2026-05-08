@@ -11,6 +11,7 @@ import {
   BookOpenCheck,
 } from "lucide-react";
 import { postEvents } from "@/app/api/events/route";
+import Swal from "sweetalert2";
 
 const AddNewsForm = () => {
   const {
@@ -20,25 +21,63 @@ const AddNewsForm = () => {
     reset,
   } = useForm({});
 
-  const onSubmit = async (data) => {
-    const formatData = {
-      ...data,
-      slug: data.title.toLowerCase().trim().replace(/\s+/g, "-"),
-    };
-    try {
-      const res = await postEvents(formatData);
+  // const onSubmit = async (data) => {
+  //   const formatData = {
+  //     ...data,
+  //     slug: data.title.toLowerCase().trim().replace(/\s+/g, "-"),
+  //   };
+  //   try {
+  //     const res = await postEvents(formatData);
 
-      if (res.success) {
-        alert("Event added successfully!");
-        reset();
-      } else {
-        alert("Error: " + res.message);
-      }
-    } catch (err) {
-      console.error("Error submitting event:", err);
-      alert("Something went wrong!");
-    }
+  //     if (res.success) {
+  //       alert("Event added successfully!");
+  //       reset();
+  //     } else {
+  //       alert("Error: " + res.message);
+  //     }
+  //   } catch (err) {
+  //     console.error("Error submitting event:", err);
+  //     alert("Something went wrong!");
+  //   }
+  // };
+  
+  const onSubmit = async (data) => {
+  const formatData = {
+    ...data,
+    slug: data.title.toLowerCase().trim().replace(/\s+/g, "-"),
   };
+
+  try {
+    const res = await postEvents(formatData);
+
+    if (res.success) {
+      Swal.fire({
+        title: "Success!",
+        text: "Event added successfully!",
+        icon: "success",
+        confirmButtonColor: "#ea580c", 
+      }).then(() => {
+        reset(); 
+      });
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: res.message || "Could not add event",
+        icon: "error",
+        confirmButtonColor: "#ea580c",
+      });
+    }
+  } catch (err) {
+    console.error("Error submitting event:", err);
+    Swal.fire({
+      title: "Something went wrong!",
+      text: "Please try again later.",
+      icon: "error",
+      confirmButtonColor: "#ea580c",
+    });
+  }
+};
+  
   return (
     <section className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-100 max-w-5xl mx-auto my-8">
       {/* Header */}

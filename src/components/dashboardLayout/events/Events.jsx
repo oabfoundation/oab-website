@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Edit2, Trash2, ImageIcon, MapPin, Calendar, Tag, AlignLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import Swal from "sweetalert2";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -56,40 +57,127 @@ const Events = () => {
     setIsEditOpen(true);
   };
 
+  // const handleUpdate = async () => {
+  //   try {
+  //     const res = await fetch(`/api/getEvents/${selectedEvent._id}`, {
+  //       method: "PATCH",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(formData),
+  //     });
+
+  //     const data = await res.json();
+  //     if (data.success) {
+  //       setEvents((prev) =>
+  //         prev.map((e) => (e._id === selectedEvent._id ? { ...e, ...formData } : e))
+  //       );
+  //       setIsEditOpen(false);
+  //     }
+  //   } catch (error) {
+  //     console.error("Update failed", error);
+  //   }
+  // };
+
   const handleUpdate = async () => {
-    try {
-      const res = await fetch(`/api/getEvents/${selectedEvent._id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+  try {
+    const res = await fetch(`/api/getEvents/${selectedEvent._id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      setEvents((prev) =>
+        prev.map((e) => (e._id === selectedEvent._id ? { ...e, ...formData } : e))
+      );
+      setIsEditOpen(false);
+
+      Swal.fire({
+        title: "Updated!",
+        text: "Event updated successfully!",
+        icon: "success",
+        confirmButtonColor: "#ea580c",
       });
-
-      const data = await res.json();
-      if (data.success) {
-        setEvents((prev) =>
-          prev.map((e) => (e._id === selectedEvent._id ? { ...e, ...formData } : e))
-        );
-        setIsEditOpen(false);
-      }
-    } catch (error) {
-      console.error("Update failed", error);
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: data.message || "Failed to update event.",
+        icon: "error",
+        confirmButtonColor: "#ea580c",
+      });
     }
-  };
+  } catch (error) {
+    console.error("Update failed", error);
+    Swal.fire({
+      title: "Error!",
+      text: "Something went wrong. Please try again.",
+      icon: "error",
+      confirmButtonColor: "#ea580c",
+    });
+  }
+};
 
-  const handleDelete = async (id) => {
-    if (!confirm("Are you sure?")) return;
-    try {
-      const res = await fetch(`/api/getEvents/${id}`, { method: "DELETE" });
-      if ((await res.json()).success) {
-        setEvents((prev) => prev.filter((e) => e._id !== id));
+  // const handleDelete = async (id) => {
+  //   if (!confirm("Are you sure?")) return;
+  //   try {
+  //     const res = await fetch(`/api/getEvents/${id}`, { method: "DELETE" });
+  //     if ((await res.json()).success) {
+  //       setEvents((prev) => prev.filter((e) => e._id !== id));
+  //     }
+  //   } catch (error) {
+  //     console.error("Delete failed", error);
+  //   }
+  // };
+
+const handleDelete = async (id) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this event!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#ea580c",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        const res = await fetch(`/api/getEvents/${id}`, {
+          method: "DELETE",
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          setEvents((prev) => prev.filter((e) => e._id !== id));
+          Swal.fire({
+            title: "Deleted!",
+            text: "The event has been deleted.",
+            icon: "success",
+            confirmButtonColor: "#ea580c",
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: data.message || "Failed to delete the event.",
+            icon: "error",
+            confirmButtonColor: "#ea580c",
+          });
+        }
+      } catch (error) {
+        console.error("Delete failed", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#ea580c",
+        });
       }
-    } catch (error) {
-      console.error("Delete failed", error);
     }
-  };
+  });
+};
 
   return (
-    <div className="space-y-10 p-6 bg-slate-50 min-h-screen">
+    <div className="space-y-10 bg-slate-50 min-h-screen">
       {/* Events Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentEvents.map((event) => (

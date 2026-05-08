@@ -1,11 +1,11 @@
 
 import { Calendar, ArrowRight } from "lucide-react";
-import Image from "next/image";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 import Link from "next/link";
 const Events =async ({ searchParams }) => {
   const params = await searchParams;
   const page = Number(params?.page) || 1;
-  const limit = 12; 
+  const limit = 6; 
 
   const baseUrl = process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
@@ -46,34 +46,22 @@ const Events =async ({ searchParams }) => {
               {/* Event Image */}
               <div className="relative h-60 w-full overflow-hidden">
                 {event.image ? (
-  <Image
+  <ImageWithFallback
     width={400}
     height={300}
-    src={event.image.startsWith("http") ? event.image : "/placeholder.png"}
+    src={
+      event.image && event.image.startsWith("http") 
+        ? event.image 
+        : "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg"
+    }
     alt={event.title || "Event Image"}
-    className="w-full h-56 object-cover rounded-t-2xl" // Optional: styling add korlam
+    className="w-full h-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-110"
   />
 ) : (
   <div className="bg-gray-200 h-56 w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
     No Image
   </div>
 )}
-                {/* {event.image ? (
-                  <Image
-  width={400}
-  height={300}
-  src={
-    event.image?.startsWith("https")
-      ? event.image
-      : "/placeholder.png"
-  }
-  alt={event.title}
-/>
-                ) : (
-                  <div className="bg-gray-200 h-full w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
-                    No Image
-                  </div>
-                )} */}
                 <div className="absolute top-4 left-4">
                   <span className="bg-orange-500 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-lg">
                     {event.category || "Event"}
@@ -88,13 +76,16 @@ const Events =async ({ searchParams }) => {
                   <span>{event.date}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-800 leading-snug mb-3 group-hover:text-orange-500 transition-colors">
-                  {event.title}
-                </h3>
+               <h3 
+  className="text-xl font-bold text-gray-800 leading-snug mb-3 group-hover:text-orange-500 transition-colors truncate" 
+  title={event.title}
+>
+  {event.title}
+</h3>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                  {event.desc || event.longDesc || "No description available."}
-                </p>
+<p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">
+  {event.desc || event.longDesc || "No description available."}
+</p>
 
                 {/* Read More Button */}
                 <div className="mt-auto pt-4 border-t border-gray-50">

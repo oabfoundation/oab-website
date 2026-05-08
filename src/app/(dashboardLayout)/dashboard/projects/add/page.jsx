@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { postProjects } from "@/app/api/projects/route";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const AddProjectForm = () => {
   const router = useRouter();
@@ -34,20 +35,53 @@ const AddProjectForm = () => {
     },
   });
 
-  const onSubmit = async (data) => {
-    try {
-      const res = await postProjects(data);
-      if (res.success) {
-        alert("Project Data Submitted Successfully!");
+  // const onSubmit = async (data) => {
+  //   try {
+  //     const res = await postProjects(data);
+  //     if (res.success) {
+  //       alert("Project Data Submitted Successfully!");
+  //       router.push("/dashboard/projects");
+  //     } else {
+  //       alert("Error: " + res.message);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Something went wrong!");
+  //   }
+  // };
+
+const onSubmit = async (data) => {
+  try {
+    const res = await postProjects(data);
+
+    if (res.success) {
+      Swal.fire({
+        title: "Submission Successful!",
+        text: "Project Data Submitted Successfully!",
+        icon: "success",
+        confirmButtonColor: "#ea580c",
+      }).then(() => {
         router.push("/dashboard/projects");
-      } else {
-        alert("Error: " + res.message);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong!");
+      });
+    } else {
+      Swal.fire({
+        title: "Submission Failed",
+        text: res.message || "An error occurred while saving.",
+        icon: "error",
+        confirmButtonColor: "#ea580c",
+      });
     }
-  };
+  } catch (err) {
+    console.error(err);
+    Swal.fire({
+      title: "Oops...",
+      text: "Something went wrong! Please check your connection.",
+      icon: "error",
+      confirmButtonColor: "#ea580c",
+    });
+  }
+};
+
 
   return (
     <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 max-w-4xl mx-auto my-10">

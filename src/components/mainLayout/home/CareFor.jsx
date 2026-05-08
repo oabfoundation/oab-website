@@ -152,6 +152,7 @@ export default function WhatWeCareFor() {
                         alt={item.title}
                         width={768}
                         height={1024}
+                        unoptimized
                         className="w-full h-[400px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-90 group-hover:contrast-125"
                       />
 

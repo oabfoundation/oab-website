@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 // export const metadata = {
 //   title: "Our Projects & Impact",
 //   description:
@@ -11,7 +11,7 @@ import Image from "next/image";
 const Projects = async ({ searchParams }) => {
 const params = await searchParams; 
   const page = Number(params?.page) || 1;
-  const limit = 12;
+  const limit = 6;
 const baseUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
@@ -46,31 +46,25 @@ const res = await fetch(
             key={project._id}
             className="group bg-white rounded-2xl overflow-hidden shadow-md border-2 border-orange-100 hover:border-orange-500 flex flex-col h-full transition-transform duration-300   hover:shadow-xl"
           >
-            <div className="overflow-hidden">
-          {/* <img
-  src={project.image}
-  alt={project.title}
-  loading="lazy"
-  className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-/> */}
-              <Image
-                width={300}
-                height={200}
-               src={
-    project.image?.startsWith("https")
-      ? project.image
-      : "/placeholder.png"
-  }
-  alt={project.title}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
+           <div className="overflow-hidden">
+  <ImageWithFallback
+    width={300}
+    height={200}
+    src={
+      project.image?.startsWith("https")
+        ? project.image
+        : "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg"
+    }
+    alt={project.title}
+    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+  />
+</div>
             <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
-                {project.title}
-              </h3>
+              <h3 className="text-lg font-bold text-slate-800 mb-1 truncate" title={project.title}>
+  {project.title}
+</h3>
 
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-2">
                 {project.description}
               </p>
               <Link
