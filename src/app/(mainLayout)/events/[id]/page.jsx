@@ -6,7 +6,7 @@ import BackText from "@/components/common/BackText";
 
 
 export async function generateMetadata({ params }) {
-  const { id } = params;
+  const { id } =await params;
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/getEvents`,
@@ -42,7 +42,7 @@ export async function generateStaticParams() {
   }));
 }
 const EventDetailsPage = async ({ params }) => {
- const { id } = params;
+ const { id } =await params;
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/getEvents`,
