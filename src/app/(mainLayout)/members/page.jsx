@@ -1,6 +1,7 @@
 import React from "react";
 import Leader from "@/components/mainLayout/members/Leader";
 import Team from "@/components/mainLayout/members/Team";
+import GeneralMember from "@/components/mainLayout/members/GeneralMember";
 export const metadata = {
   title: "Members",
   description:
@@ -11,6 +12,7 @@ const Teams = () => {
     <div className="min-h-screen max-w-11/12 mx-auto px-6">
       {/* teams */}
       <div>
+        <GeneralMember />
         <Team />
       </div>
       {/* Leaders  */}

@@ -12,6 +12,17 @@ import Image from "next/image";
 const Team = () => {
   const userData = [
     {
+      name: "Asaduzzaman Tohin",
+      role: "Founder & President",
+      bio: "Together we learn, lead, and grow—only through collective participation can we build a sustainable and equitable future.",
+      photo: "https://i.ibb.co.com/RGX6BtR2/Tuhin.webp",
+      socials: {
+        github: "https://github.com",
+        linkedin: "https://linkedin.com",
+        twitter: "https://twitter.com",
+      },
+    },
+    {
       name: "Md Akash Hossain",
       role: "Founding Member",
       bio: "Innovation, dedication, and compassion are the keys to driving meaningful change in society.",
@@ -20,17 +31,6 @@ const Team = () => {
         linkedin: "https://www.linkedin.com/in/",
         facebook: "https://www.facebook.com/",
         twitter: "https://x.com",
-      },
-    },
-    {
-      name: "Asaduzzaman Tohin",
-      role: "Founder & President",
-      bio: "Together we learn, lead, and grow—only through collective participation can we build a sustainable and equitable future.",
-      photo: "https://i.ibb.co.com/VcYDBpzV/Tuhin.jpg",
-      socials: {
-        github: "https://github.com",
-        linkedin: "https://linkedin.com",
-        twitter: "https://twitter.com",
       },
     },
     {

@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "title": "Global Innovation Summit 2025",
+  "short_description": "A short tagline shown on the banner",
+  "description": "Full description...",
+  "paragraphs": ["Para 1...", "Para 2...", "Para 3..."],
+  "banner_image": "https://your-cdn.com/banner.jpg",
+  "venue": "Dhaka Convention Center",
+  "event_date": "2025-08-15T09:00:00",
+  "end_date": "2025-08-18T18:00:00",
+  "apply_deadline": "2025-08-01T00:00:00",
+  "format": "In-Person",
+  "language": "English / Bengali",
+  "fee": "৳ 4,500 / person",
+  "certificate": "Yes, digital",
+  "category": "Technology",
+  "seats_total": 300,
+  "seats_taken": 204
+}

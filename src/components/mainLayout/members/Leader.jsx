@@ -16,7 +16,7 @@ const leaders = [
   {
     name: "Mohyminul Islam",
     role: "Software Developer",
-    image: "https://i.ibb.co.com/rGxhTTRq/20251226-114756.jpg",
+    image: "https://i.ibb.co.com/1fydPrDG/munna.jpg",
   },
   {
     name: "Forhad Hossain",
