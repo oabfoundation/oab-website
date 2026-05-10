@@ -119,7 +119,7 @@ export default function UpcomingEvent() {
             <div className="flex justify-between text-sm">
               <span className="text-gray-500 font-medium">Fee</span>
               <span className="text-orange-600 font-bold text-lg">
-                {event.fee === "0" ? "Free" : `$${event.fee}`}
+                {event.fee === "0" ? "Free" : `৳${event.fee}`}
               </span>
             </div>
 
