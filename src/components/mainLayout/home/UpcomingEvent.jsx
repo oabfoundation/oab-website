@@ -34,7 +34,7 @@ export default function UpcomingEvent() {
   const countdown = useCountdown(event?.event_date);
 
   useEffect(() => {
-    fetch("/api/upcoming-event")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/upcoming-event`)
       .then((res) => res.json())
       .then((data) => {
         setEvent(Array.isArray(data) ? data[0] : data);
@@ -119,10 +119,10 @@ export default function UpcomingEvent() {
             <div className="flex justify-between text-sm">
               <span className="text-gray-500 font-medium">Fee</span>
               <span className="text-orange-600 font-bold text-lg">
-                {event.fee === "0" ? "Free" : `$${event.fee}`}
+                {event.fee === "0" ? "Free" : `৳ ${event.fee}`}
               </span>
             </div>
-
+{/* 
             <div className="space-y-1">
               <div className="flex justify-between text-xs mb-1">
                 <span className="text-gray-500">Seats Availability</span>
@@ -138,7 +138,7 @@ export default function UpcomingEvent() {
                   }}
                 ></div>
               </div>
-            </div>
+            </div> */}
 
             <div className="pt-2 space-y-2">
               <div className="flex justify-between text-[13px]">

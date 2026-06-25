@@ -1,19 +1,19 @@
-
 import { Calendar, ArrowRight } from "lucide-react";
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import Link from "next/link";
-const Events =async ({ searchParams }) => {
+const Events = async ({ searchParams }) => {
   const params = await searchParams;
   const page = Number(params?.page) || 1;
-  const limit = 6; 
+  const limit = 6;
 
-  const baseUrl = process.env.NODE_ENV === "development"
+  const baseUrl =
+    process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://oabfoundation.org";
 
   const res = await fetch(
     `${baseUrl}/api/getEvents?page=${page}&limit=${limit}`,
-    { cache: "no-store" }
+    { cache: "no-store" },
   );
 
   const eventsData = await res.json();
@@ -46,22 +46,22 @@ const Events =async ({ searchParams }) => {
               {/* Event Image */}
               <div className="relative h-60 w-full overflow-hidden">
                 {event.image ? (
-  <ImageWithFallback
-    width={400}
-    height={300}
-    src={
-      event.image && event.image.startsWith("http") 
-        ? event.image 
-        : "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg"
-    }
-    alt={event.title || "Event Image"}
-    className="w-full h-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-110"
-  />
-) : (
-  <div className="bg-gray-200 h-56 w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
-    No Image
-  </div>
-)}
+                  <ImageWithFallback
+                    width={400}
+                    height={300}
+                    src={
+                      event.image && event.image.startsWith("http")
+                        ? event.image
+                        : "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg"
+                    }
+                    alt={event.title || "Event Image"}
+                    className="w-full h-full object-cover rounded-t-2xl transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="bg-gray-200 h-56 w-full flex items-center justify-center text-gray-400 rounded-t-2xl">
+                    No Image
+                  </div>
+                )}
                 <div className="absolute top-4 left-4">
                   <span className="bg-orange-500 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-lg">
                     {event.category || "Event"}
@@ -76,16 +76,16 @@ const Events =async ({ searchParams }) => {
                   <span>{event.date}</span>
                 </div>
 
-               <h3 
-  className="text-xl font-bold text-gray-800 leading-snug mb-3 group-hover:text-orange-500 transition-colors truncate" 
-  title={event.title}
->
-  {event.title}
-</h3>
+                <h3
+                  className="text-xl font-bold text-gray-800 leading-snug mb-3 group-hover:text-orange-500 transition-colors truncate"
+                  title={event.title}
+                >
+                  {event.title}
+                </h3>
 
-<p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">
-  {event.desc || event.longDesc || "No description available."}
-</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">
+                  {event.desc || event.longDesc || "No description available."}
+                </p>
 
                 {/* Read More Button */}
                 <div className="mt-auto pt-4 border-t border-gray-50">
@@ -104,14 +104,16 @@ const Events =async ({ searchParams }) => {
             </div>
           ))}
         </div>
-          <div className="flex justify-center mt-12 gap-4">
+        <div className="flex justify-center mt-12 gap-4">
           <Link
             href={`?page=${page - 1}`}
             className={`px-4 py-2 border rounded ${page === 1 ? "opacity-50 pointer-events-none" : "hover:bg-gray-100"}`}
           >
             Prev
           </Link>
-          <span className="px-4 py-2">Page {page} of {totalPages}</span>
+          <span className="px-4 py-2">
+            Page {page} of {totalPages}
+          </span>
           <Link
             href={`?page=${page + 1}`}
             className={`px-4 py-2 border rounded ${page >= totalPages ? "opacity-50 pointer-events-none" : "hover:bg-gray-100"}`}

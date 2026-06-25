@@ -4,7 +4,7 @@ import Numbers from "@/components/mainLayout/home/Numbers";
 import OabBanner from "@/components/mainLayout/home/OabBanner";
 import OurPartners from "@/components/mainLayout/home/Partners";
 import SuccessStories from "@/components/mainLayout/home/SuccessStories";
-import UpcomingEvent from "@/components/mainLayout/home/UpcomingEvent";
+// import UpcomingEvent from "@/components/mainLayout/home/UpcomingEvent";
 import Volunteer from "@/components/mainLayout/home/Volunteer";
 import WeCoverBangladesh from "@/components/mainLayout/home/WeCoverBangladesh";
 import HowYouCanHelp from "@/components/mainLayout/home/YouCanHelp";
@@ -14,7 +14,7 @@ const Home = () => {
     <section className="min-h-screen">
       <OabBanner />
       <div className="max-w-11/12 mx-auto">
-        <UpcomingEvent />
+        {/* <UpcomingEvent /> */}
         <MissionVision />
         <Volunteer></Volunteer>
         {/* <OurPrograms></OurPrograms> */}

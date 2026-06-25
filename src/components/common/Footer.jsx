@@ -216,12 +216,20 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-wider">
           <p>© 2026 OAB Foundation. All Rights Reserved.</p>
 
-          <div className="flex gap-6">
-            <Link href="/privacy-policy" className="hover:text-orange-500">
-              Privacy Policy
+          <div className="flex gap-1">
+            <Link
+              href="/https://www.inovixasoft.com/"
+              target="_blank"
+              className="hover:text-orange-500 font-bold"
+            >
+              Developed by
             </Link>
-            <Link href="/terms-of-service" className="hover:text-orange-500">
-              Terms of Service
+            <Link
+              href="/https://www.inovixasoft.com/"
+              target="_blank"
+              className="text-orange-500 font-bold"
+            >
+              InovixaSoft
             </Link>
           </div>
         </div>

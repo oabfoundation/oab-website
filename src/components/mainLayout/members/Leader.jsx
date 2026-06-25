@@ -9,11 +9,6 @@ const leaders = [
     image: "https://i.ibb.co.com/0j6NxHVW/Shahanur.png",
   },
   {
-    name: "Hasi Akter Sumaiya",
-    role: "Co Lead, Program Department",
-    image: "https://i.ibb.co.com/hxrmsyL2/hasi.jpg",
-  },
-  {
     name: "Mohyminul Islam",
     role: "Software Developer",
     image: "https://i.ibb.co.com/1fydPrDG/munna.jpg",
@@ -30,9 +25,7 @@ const Leader = () => {
     <div className="py-16">
       {/* Section Header */}
       <div className="text-center mb-14">
-        <h2 className="text-4xl font-bold text-gray-800">
-          Our <span className="text-orange-600">Leaders</span>
-        </h2>
+        <h2 className="text-4xl font-bold text-gray-800">Our Leaders</h2>
         <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
           Meet the passionate leaders guiding OAB Foundation toward sustainable
           impact and community empowerment.
