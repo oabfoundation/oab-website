@@ -26,6 +26,8 @@ const DashboardLayout = ({ children }) => {
     { name: "Projects", path: "/dashboard/projects", icon: FolderKanban },
     { name: "Events", path: "/dashboard/events", icon: CalendarRange },
     { name: "Committee", path: "/dashboard/committee", icon: PanelsTopLeft },
+    { name: "Board of Director", path: "/dashboard/board-of-director", icon: PanelsTopLeft },
+    { name: "Leader", path: "/dashboard/leader", icon: PanelsTopLeft },
     {
       name: "Upcoming Events",
       path: "/dashboard/upcomingEvents",
@@ -34,6 +36,21 @@ const DashboardLayout = ({ children }) => {
     {
       name: "General Member",
       path: "/dashboard/general-member",
+      icon: PanelsTopLeft,
+    },
+    {
+      name: "Reference",
+      path: "/dashboard/reference",
+      icon: PanelsTopLeft,
+    },
+    {
+      name: "Moments",
+      path: "/dashboard/moments",
+      icon: PanelsTopLeft,
+    },
+    {
+      name: "Testimonials",
+      path: "/dashboard/testimonials",
       icon: PanelsTopLeft,
     },
   ];

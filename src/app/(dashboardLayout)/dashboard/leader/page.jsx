@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { Trash2, Edit2 } from "lucide-react";
 
-export default function AddMemberForm() {
+export default function LeaderForm() {
   const [loading, setLoading] = useState(false);
   const [members, setMembers] = useState([]);
   const [fetchingMembers, setFetchingMembers] = useState(false);
@@ -28,12 +28,12 @@ export default function AddMemberForm() {
   const fetchMembers = async () => {
     setFetchingMembers(true);
     try {
-      const response = await fetch("/api/general-member");
+      const response = await fetch("/api/leader");
       const data = await response.json();
       setMembers(data || []);
     } catch (error) {
-      console.error("Error fetching members:", error);
-      Swal.fire("Error", "Failed to fetch members", "error");
+      console.error("Error fetching leaders:", error);
+      Swal.fire("Error", "Failed to fetch leaders", "error");
     } finally {
       setFetchingMembers(false);
     }
@@ -43,8 +43,8 @@ export default function AddMemberForm() {
     setLoading(true);
     try {
       const url = editingId
-        ? `/api/general-member/${editingId}`
-        : "/api/general-member";
+        ? `/api/leader/${editingId}`
+        : "/api/leader";
       const method = editingId ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -59,7 +59,7 @@ export default function AddMemberForm() {
         const isEdit = editingId ? "updated" : "added";
         Swal.fire({
           title: "Success!",
-          text: `Member ${isEdit} successfully.`,
+          text: `Leader ${isEdit} successfully.`,
           icon: "success",
           confirmButtonColor: "#8B5CF6",
         });
@@ -67,7 +67,7 @@ export default function AddMemberForm() {
         setEditingId(null);
         fetchMembers();
       } else {
-        Swal.fire("Error", result.message || "Failed to save member", "error");
+        Swal.fire("Error", result.message || "Failed to save leader", "error");
       }
     } catch (error) {
       Swal.fire("Error", "Something went wrong!", "error");
@@ -81,6 +81,7 @@ export default function AddMemberForm() {
     setValue("name", member.name);
     setValue("designation", member.designation);
     setValue("image", member.image);
+    setValue("message", member.message || "");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -91,7 +92,7 @@ export default function AddMemberForm() {
 
   const handleDelete = async (id, name) => {
     const confirm = await Swal.fire({
-      title: "Delete Member?",
+      title: "Delete Leader?",
       text: `Are you sure you want to delete ${name}?`,
       icon: "warning",
       showCancelButton: true,
@@ -103,7 +104,7 @@ export default function AddMemberForm() {
     if (confirm.isConfirmed) {
       setDeleting(id);
       try {
-        const response = await fetch(`/api/general-member/${id}`, {
+        const response = await fetch(`/api/leader/${id}`, {
           method: "DELETE",
         });
 
@@ -112,13 +113,13 @@ export default function AddMemberForm() {
         if (result.success) {
           Swal.fire({
             title: "Deleted!",
-            text: "Member deleted successfully.",
+            text: "Leader deleted successfully.",
             icon: "success",
             confirmButtonColor: "#8B5CF6",
           });
           fetchMembers();
         } else {
-          Swal.fire("Error", result.message || "Failed to delete member", "error");
+          Swal.fire("Error", result.message || "Failed to delete leader", "error");
         }
       } catch (error) {
         Swal.fire("Error", "Something went wrong!", "error");
@@ -130,10 +131,10 @@ export default function AddMemberForm() {
 
   return (
     <div className="mx-auto p-8 font-sans">
-      {/* Add/Edit Member Form */}
+      {/* Add/Edit Leader Form */}
       <div className="max-w-2xl mx-auto p-8 bg-white shadow-xl rounded-3xl border border-gray-100 mb-10">
         <h2 className="text-2xl font-bold text-slate-800 mb-6">
-          {editingId ? "Edit Team Member" : "Add Team Member"}
+          {editingId ? "Edit Leader" : "Add Leader"}
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -162,7 +163,7 @@ export default function AddMemberForm() {
                 required: "Designation is required",
               })}
               className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all"
-              placeholder="e.g. Content Marketing"
+              placeholder="e.g. Team Lead"
             />
             {errors.designation && (
               <p className="text-red-500 text-xs mt-1">
@@ -186,6 +187,19 @@ export default function AddMemberForm() {
             )}
           </div>
 
+          {/* Message (Optional) */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-1">
+              Message (Optional)
+            </label>
+            <textarea
+              {...register("message")}
+              className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all"
+              placeholder="e.g. Leadership is not about standing on the stage..."
+              rows="4"
+            />
+          </div>
+
           <div className="flex gap-3">
             <button
               type="submit"
@@ -196,7 +210,7 @@ export default function AddMemberForm() {
                   : "bg-orange-600 hover:bg-orange-700 active:scale-95 shadow-orange-200"
               }`}
             >
-              {loading ? (editingId ? "Updating..." : "Adding...") : (editingId ? "Update Member" : "Add Member")}
+              {loading ? (editingId ? "Updating..." : "Adding...") : (editingId ? "Update Leader" : "Add Leader")}
             </button>
             {editingId && (
               <button
@@ -211,19 +225,19 @@ export default function AddMemberForm() {
         </form>
       </div>
 
-      {/* Members List */}
+      {/* Leaders List */}
       <div className="max-w-6xl mx-auto p-8 bg-white shadow-xl rounded-3xl border border-gray-100">
         <h2 className="text-2xl font-bold text-slate-800 mb-6">
-          Team Members ({members.length})
+          Leaders ({members.length})
         </h2>
 
         {fetchingMembers ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">Loading members...</p>
+            <p className="text-gray-500">Loading leaders...</p>
           </div>
         ) : members.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">No members yet. Add one to get started!</p>
+            <p className="text-gray-500">No leaders yet. Add one to get started!</p>
           </div>
         ) : (
           <div className="overflow-x-auto">

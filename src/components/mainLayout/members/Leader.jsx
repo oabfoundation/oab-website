@@ -1,26 +1,25 @@
+"use client";
+
 import { Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-
-const leaders = [
-  {
-    name: "MD.Shahanur Alam",
-    role: "Co-Lead, Program & Logistics",
-    image: "https://i.ibb.co.com/0j6NxHVW/Shahanur.png",
-  },
-  {
-    name: "Mohyminul Islam",
-    role: "Software Developer",
-    image: "https://i.ibb.co.com/1fydPrDG/munna.jpg",
-  },
-  {
-    name: "Forhad Hossain",
-    role: "Graphics & Video Team",
-    image: "https://i.ibb.co.com/wrRyFVhX/user.png",
-  },
-];
+import React, { useEffect, useState } from "react";
 
 const Leader = () => {
+  const [leaders, setLeaders] = useState([]);
+
+  useEffect(() => {
+    const fetchLeaders = async () => {
+      try {
+        const response = await fetch("/api/leader");
+        const data = await response.json();
+        setLeaders(data.data || data || []);
+      } catch (error) {
+        console.error("Error fetching leaders:", error);
+      }
+    };
+
+    fetchLeaders();
+  }, []);
   return (
     <div className="py-16">
       {/* Section Header */}
@@ -34,9 +33,9 @@ const Leader = () => {
 
       {/* Leadership Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {leaders.map((leader, index) => (
+        {leaders.map((leader) => (
           <div
-            key={index}
+            key={leader._id}
             className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-orange-500 hover:shadow-xl transition-all duration-300 text-center overflow-hidden group"
           >
             <div className="relative overflow-hidden">
@@ -70,7 +69,7 @@ const Leader = () => {
                 {leader.name}
               </h3>
               <p className="text-gray-500 text-sm mt-1 font-medium">
-                {leader.role}
+                {leader.designation}
               </p>
             </div>
           </div>

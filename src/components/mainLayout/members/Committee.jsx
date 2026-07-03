@@ -1,22 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const GeneralMember = () => {
+const Committee = () => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch("/api/general-member")
+    fetch("/api/committee")
       .then((res) => res.json())
-      .then((data) => setMembers(data.data || data || []));
+      .then((data) => setMembers(data));
   }, []);
 
   return (
     <div className="py-12">
       <h1 className="text-4xl font-bold text-slate-800 text-center">
-        Our General Member
+        Executive Committee
       </h1>
       <p className="text-slate-500 text-center">
-        The people behind the member, passionate about what they do.
+        The dedicated leaders driving our mission and vision forward.
       </p>
 
       <div
@@ -48,4 +48,4 @@ const GeneralMember = () => {
   );
 };
 
-export default GeneralMember;
+export default Committee;

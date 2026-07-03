@@ -4,7 +4,13 @@ export const collection = {
   PROJECTS: "projects",
   EVENTS: "events",
   UPCOMINGEVENT: "UpcomingEvents",
-  GENERALMEMBER: "GeneralMember"
+  GENERALMEMBER: "GeneralMember",
+  COMMITTEE: "Committee",
+  BOARDOFDIRECTOR: "BoardOfDirector",
+  LEADER: "Leader",
+  REFERENCE: "Reference",
+  MOMENTS: "Moments",
+  TESTIMONIALS: "Testimonials"
 };
 
 const client = new MongoClient(uri, {

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { Trash2, Edit2 } from "lucide-react";
 
-export default function AddMemberForm() {
+export default function BoardOfDirectorForm() {
   const [loading, setLoading] = useState(false);
   const [members, setMembers] = useState([]);
   const [fetchingMembers, setFetchingMembers] = useState(false);
@@ -28,12 +28,12 @@ export default function AddMemberForm() {
   const fetchMembers = async () => {
     setFetchingMembers(true);
     try {
-      const response = await fetch("/api/general-member");
+      const response = await fetch("/api/board-of-director");
       const data = await response.json();
       setMembers(data || []);
     } catch (error) {
       console.error("Error fetching members:", error);
-      Swal.fire("Error", "Failed to fetch members", "error");
+      Swal.fire("Error", "Failed to fetch board members", "error");
     } finally {
       setFetchingMembers(false);
     }
@@ -43,8 +43,8 @@ export default function AddMemberForm() {
     setLoading(true);
     try {
       const url = editingId
-        ? `/api/general-member/${editingId}`
-        : "/api/general-member";
+        ? `/api/board-of-director/${editingId}`
+        : "/api/board-of-director";
       const method = editingId ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -59,7 +59,7 @@ export default function AddMemberForm() {
         const isEdit = editingId ? "updated" : "added";
         Swal.fire({
           title: "Success!",
-          text: `Member ${isEdit} successfully.`,
+          text: `Board member ${isEdit} successfully.`,
           icon: "success",
           confirmButtonColor: "#8B5CF6",
         });
@@ -91,7 +91,7 @@ export default function AddMemberForm() {
 
   const handleDelete = async (id, name) => {
     const confirm = await Swal.fire({
-      title: "Delete Member?",
+      title: "Delete Board Member?",
       text: `Are you sure you want to delete ${name}?`,
       icon: "warning",
       showCancelButton: true,
@@ -103,7 +103,7 @@ export default function AddMemberForm() {
     if (confirm.isConfirmed) {
       setDeleting(id);
       try {
-        const response = await fetch(`/api/general-member/${id}`, {
+        const response = await fetch(`/api/board-of-director/${id}`, {
           method: "DELETE",
         });
 
@@ -112,7 +112,7 @@ export default function AddMemberForm() {
         if (result.success) {
           Swal.fire({
             title: "Deleted!",
-            text: "Member deleted successfully.",
+            text: "Board member deleted successfully.",
             icon: "success",
             confirmButtonColor: "#8B5CF6",
           });
@@ -130,10 +130,10 @@ export default function AddMemberForm() {
 
   return (
     <div className="mx-auto p-8 font-sans">
-      {/* Add/Edit Member Form */}
+      {/* Add/Edit Board Member Form */}
       <div className="max-w-2xl mx-auto p-8 bg-white shadow-xl rounded-3xl border border-gray-100 mb-10">
         <h2 className="text-2xl font-bold text-slate-800 mb-6">
-          {editingId ? "Edit Team Member" : "Add Team Member"}
+          {editingId ? "Edit Board Member" : "Add Board Member"}
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -162,7 +162,7 @@ export default function AddMemberForm() {
                 required: "Designation is required",
               })}
               className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all"
-              placeholder="e.g. Content Marketing"
+              placeholder="e.g. Board Director"
             />
             {errors.designation && (
               <p className="text-red-500 text-xs mt-1">
@@ -211,10 +211,10 @@ export default function AddMemberForm() {
         </form>
       </div>
 
-      {/* Members List */}
+      {/* Board Members List */}
       <div className="max-w-6xl mx-auto p-8 bg-white shadow-xl rounded-3xl border border-gray-100">
         <h2 className="text-2xl font-bold text-slate-800 mb-6">
-          Team Members ({members.length})
+          Board Members ({members.length})
         </h2>
 
         {fetchingMembers ? (
@@ -223,7 +223,7 @@ export default function AddMemberForm() {
           </div>
         ) : members.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">No members yet. Add one to get started!</p>
+            <p className="text-gray-500">No board members yet. Add one to get started!</p>
           </div>
         ) : (
           <div className="overflow-x-auto">

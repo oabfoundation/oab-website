@@ -1,11 +1,29 @@
 import { collection, dbConnect } from "@/app/lib/dbConnect";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('page')) || 1;
+    const limit = parseInt(searchParams.get('limit')) || 12;
+    const skip = (page - 1) * limit;
+
     const GeneralMemberCollection = await dbConnect(collection.GENERALMEMBER);
-    const result = await GeneralMemberCollection.find({}).toArray();
-    return NextResponse.json(result);
+    const result = await GeneralMemberCollection.find({})
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .toArray();
+    
+    const total = await GeneralMemberCollection.countDocuments({});
+
+    return NextResponse.json({
+      data: result,
+      total,
+      page,
+      limit,
+      totalPages: Math.ceil(total / limit)
+    });
   } catch (error) {
     console.error(error);
     return NextResponse.json(

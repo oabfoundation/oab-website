@@ -4,6 +4,7 @@ import Numbers from "@/components/mainLayout/home/Numbers";
 import OabBanner from "@/components/mainLayout/home/OabBanner";
 import OurPartners from "@/components/mainLayout/home/Partners";
 import SuccessStories from "@/components/mainLayout/home/SuccessStories";
+import Testimonials from "@/components/mainLayout/testimonials/Testimonials";
 // import UpcomingEvent from "@/components/mainLayout/home/UpcomingEvent";
 import Volunteer from "@/components/mainLayout/home/Volunteer";
 import WeCoverBangladesh from "@/components/mainLayout/home/WeCoverBangladesh";
@@ -23,6 +24,7 @@ const Home = () => {
         <WhatWeCareFor></WhatWeCareFor>
         <HowYouCanHelp></HowYouCanHelp>
         <SuccessStories></SuccessStories>
+        <Testimonials></Testimonials>
         <OurPartners></OurPartners>
       </div>
     </section>
