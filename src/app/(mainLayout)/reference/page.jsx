@@ -25,16 +25,15 @@ export default async function SuccessStories() {
   return (
     <div className="min-h-screen bg-orange-50/30 text-slate-800 antialiased">
       {/* Eye-catching Hero Section with Orange Accent */}
-      <section className="relative overflow-hidden bg-gradient-to-br bg-orange-600 py-20 text-white text-center px-4">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-orange-600/20 via-transparent to-transparent"></div>
+      <section className="py-10 text-black text-center px-4">
         <div className="max-w-4xl mx-auto relative z-10">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-800 text-white text-sm font-medium border border-orange-500/30 mb-4 backdrop-blur-sm">
             <Award className="w-4 h-4 text-white" /> Global Success Stories
           </span>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-white bg-clip-text text-transparent">
-            Global Achievements via OAB Foundation
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-black bg-clip-text text-transparent">
+            Global Achievements
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Meet our brilliant students who successfully moved abroad for higher education with our dedicated mentorship and verified institutional references.
           </p>
         </div>

@@ -1,5 +1,14 @@
-import React from 'react';
-import { Calendar, MapPin, Award, Star, Clock, User, Heart, ChevronRight } from 'lucide-react';
+import React from "react";
+import {
+  Calendar,
+  MapPin,
+  Award,
+  Star,
+  Clock,
+  User,
+  Heart,
+  ChevronRight,
+} from "lucide-react";
 import { collection, dbConnect } from "@/app/lib/dbConnect";
 
 async function getMoments() {
@@ -8,13 +17,13 @@ async function getMoments() {
     const result = await MomentsCollection.find({})
       .sort({ createdAt: 1 })
       .toArray();
-    return result.map(doc => ({
+    return result.map((doc) => ({
       ...doc,
       _id: doc._id.toString(),
       createdAt: doc.createdAt ? doc.createdAt.toISOString() : null,
     }));
   } catch (error) {
-    console.error('Error fetching moments:', error);
+    console.error("Error fetching moments:", error);
     return [];
   }
 }
@@ -23,30 +32,30 @@ export default async function SpecialMoments() {
   const moments = await getMoments();
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50/40 to-slate-50 text-slate-800 antialiased">
-      
       {/* Hero Header */}
-      <section className="relative overflow-hidden py-24 text-white text-center px-4">
-        <div className="max-w-3xl mx-auto relative z-10 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-600 text-white text-xs font-semibold tracking-wider uppercase border border-orange-500/30 backdrop-blur-sm">
-            <Star className="w-3.5 h-3.5 fill-orange-400" /> Executive Highlights
+      <section className="py-10 text-black text-center px-4">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-800 text-white text-sm font-medium border border-orange-500/30 mb-4 backdrop-blur-sm">
+            <Award className="w-4 h-4 text-white" /> Executive Highlights
           </span>
-          <h1 className="text-4xl md:text-6xl text-black">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6 bg-black bg-clip-text text-transparent">
             Special Moments
           </h1>
-          <p className="text-base md:text-lg text-black max-w-xl mx-auto font-light leading-relaxed">
-            Celebrating the milestones, breakthroughs, and proudest moments of our leadership team charting paths worldwide.
+          <p className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Celebrating the milestones, breakthroughs, and proudest moments of
+            our leadership team charting paths worldwide.
           </p>
         </div>
       </section>
 
       {/* Moments List Section */}
-      <section className="max-w-5xl mx-auto px-4 py-20 space-y-16">
+      <section className="max-w-5xl mx-auto px-4 py-8 space-y-12">
         {moments.length > 0 ? (
           moments.map((moment, index) => (
             <div
               key={moment._id}
               className={`flex flex-col lg:flex-row gap-8 items-stretch ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Image / Media Container (Left/Right Alternative) */}
@@ -68,14 +77,14 @@ export default async function SpecialMoments() {
               {/* Content Container */}
               <div className="w-full lg:w-1/2 flex flex-col justify-between p-2">
                 <div className="space-y-4">
-
                   {/* Meta details: Time & Place */}
                   <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs font-semibold text-orange-600 tracking-wide uppercase">
                     <span className="flex items-center gap-1 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-100/50">
                       <Clock className="w-3.5 h-3.5" /> {moment.dateAndTime}
                     </span>
                     <span className="flex items-center gap-1 text-slate-500">
-                      <MapPin className="w-3.5 h-3.5 text-orange-500" /> {moment.location}
+                      <MapPin className="w-3.5 h-3.5 text-orange-500" />{" "}
+                      {moment.location}
                     </span>
                   </div>
 
@@ -98,20 +107,23 @@ export default async function SpecialMoments() {
                       <User className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">{moment.name}</h4>
-                      <p className="text-xs text-orange-600 font-medium mb-1.5">{moment.role}</p>
+                      <h4 className="text-sm font-bold text-slate-900">
+                        {moment.name}
+                      </h4>
+                      <p className="text-xs text-orange-600 font-medium mb-1.5">
+                        {moment.role}
+                      </p>
                     </div>
                   </div>
-
                 </div>
 
                 {/* Bottom Interactive Trigger */}
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-orange-600 cursor-pointer group/btn">
                   <span className="flex items-center gap-1">
-                    <Award className="w-4 h-4 text-orange-500" /> Highlight Verified Case
+                    <Award className="w-4 h-4 text-orange-500" /> Highlight
+                    Verified Case
                   </span>
                 </div>
-
               </div>
             </div>
           ))
@@ -125,10 +137,10 @@ export default async function SpecialMoments() {
       {/* Bottom Footer Section */}
       <footer className="bg-white py-12 border-t border-slate-200 text-center">
         <p className="text-sm text-slate-500">
-          Shaping the future through strong values & unforgettable corporate milestones.
+          Shaping the future through strong values & unforgettable corporate
+          milestones.
         </p>
       </footer>
-
     </div>
   );
 }

@@ -44,10 +44,12 @@ export default function MissionVision() {
             Our <span className="text-orange-600">Mission</span>
           </h2>
           <p className="text-gray-600 leading-relaxed text-lg mb-8">
-            To create skilled citizens by empowering disadvantaged children,
-            youth and women’s communities and raising awareness among people to
-            ensure effective workforce and leadership, real education and the
-            elimination of social inequality, climate change and injustice.
+            To empower underprivileged children, youth, and women through skill
+            development, quality education, and awareness initiatives, fostering
+            effective leadership, social responsibility, and sustainable human
+            resource development while working towards the elimination of social
+            inequality, injustice, and the impacts of climate change and
+            environmental challenges.
           </p>
 
           <ul className="grid grid-cols-2 gap-4">
@@ -114,9 +116,9 @@ export default function MissionVision() {
             Our <span className="text-orange-600">Vision</span>
           </h2>
           <p className="text-gray-600 leading-relaxed text-lg mb-8">
-            We want a sustainable, non-discriminatory society where everyone is
-            able to fulfill their highest potential and a green world full of
-            vibrant people.
+            To create a just, sustainable, inclusive, and non discriminatory
+            society where every individual is empowered to unlock their full
+            potential and contribute positively to the world.
           </p>
 
           <div className="grid grid-cols-2 gap-4">

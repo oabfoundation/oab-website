@@ -34,8 +34,8 @@ export default function MembersTabContainer() {
             className="w-full py-3 px-4 bg-white border border-slate-200 rounded-xl text-slate-800 font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
           >
             <option value={TABS.BOARD_OF_DIRECTOR}>Board of Director</option>
-            <option value={TABS.LEADER}>Our Leader</option>
             <option value={TABS.GENERAL_MEMBER}>General Member</option>
+            <option value={TABS.LEADER}>Our Leader</option>
           </select>
         </div>
 
@@ -43,7 +43,7 @@ export default function MembersTabContainer() {
         <div className="hidden md:flex items-center p-1 bg-slate-100/80 rounded-2xl border border-slate-200/50 backdrop-blur-sm shadow-inner">
           <button
             onClick={() => setActiveTab(TABS.BOARD_OF_DIRECTOR)}
-            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer ${
               activeTab === TABS.BOARD_OF_DIRECTOR
                 ? "bg-white text-orange-600 shadow-md font-bold"
                 : "text-slate-600 hover:text-slate-800"
@@ -52,24 +52,24 @@ export default function MembersTabContainer() {
             Board of Director
           </button>
           <button
-            onClick={() => setActiveTab(TABS.LEADER)}
-            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
-              activeTab === TABS.LEADER
-                ? "bg-white text-orange-600 shadow-md font-bold"
-                : "text-slate-600 hover:text-slate-800"
-            }`}
-          >
-            Our Leader
-          </button>
-          <button
             onClick={() => setActiveTab(TABS.GENERAL_MEMBER)}
-            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer ${
               activeTab === TABS.GENERAL_MEMBER
                 ? "bg-white text-orange-600 shadow-md font-bold"
                 : "text-slate-600 hover:text-slate-800"
             }`}
           >
             General Member
+          </button>
+          <button
+            onClick={() => setActiveTab(TABS.LEADER)}
+            className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 cursor-pointer ${
+              activeTab === TABS.LEADER
+                ? "bg-white text-orange-600 shadow-md font-bold"
+                : "text-slate-600 hover:text-slate-800"
+            }`}
+          >
+            Our Leader
           </button>
         </div>
       </div>
