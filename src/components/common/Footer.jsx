@@ -136,7 +136,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-orange-500"
                 >
-                  Allways Love Bangladesh
+                  Opportunity Hub BD
                 </a>
               </li>
 
@@ -162,8 +162,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-orange-500 shrink-0" />
                 <span>
-                  Amin Garden, Amin Bhaban, 272/5, West Agargaon, Dhaka-1207,
-                  Bangladesh
+                  36/14 Johurimohollah, PC Culture Housing society, Shaymoli,
+                  Dhaka 1207
                 </span>
               </li>
 
@@ -213,7 +213,7 @@ const Footer = () => {
         </div>
 
         <hr className="border-gray-800 mb-8" />
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-wider">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium  tracking-wider">
           <p>© 2026 OAB Foundation. All Rights Reserved.</p>
 
           <div className="flex gap-1">
