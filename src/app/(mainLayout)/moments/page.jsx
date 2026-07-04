@@ -1,6 +1,5 @@
 import React from 'react';
 import { Calendar, MapPin, Award, Star, Clock, User, Heart, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
 
 async function getMoments() {
   try {
@@ -107,9 +106,6 @@ export default async function SpecialMoments() {
                   <span className="flex items-center gap-1">
                     <Award className="w-4 h-4 text-orange-500" /> Highlight Verified Case
                   </span>
-                  <Link href={moment.link} className="flex items-center gap-0.5 text-slate-900 group-hover/btn:text-orange-600 transition-colors">
-                    Explore Event <ChevronRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
                 </div>
 
               </div>

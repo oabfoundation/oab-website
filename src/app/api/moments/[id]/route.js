@@ -99,13 +99,6 @@ export async function PUT(request, { params }) {
         { status: 400 }
       );
     }
-    if (body.link !== undefined && (!body.link || !body.link.trim())) {
-      return NextResponse.json(
-        { success: false, message: "Link cannot be empty" },
-        { status: 400 }
-      );
-    }
-
     const MomentsCollection = await dbConnect(collection.MOMENTS);
 
     const updateData = {
@@ -117,7 +110,6 @@ export async function PUT(request, { params }) {
       ...(body.dateAndTime && { dateAndTime: body.dateAndTime }),
       ...(body.location && { location: body.location }),
       ...(body.image && { image: body.image }),
-      ...(body.link && { link: body.link }),
       updatedAt: new Date(),
     };
 

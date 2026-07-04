@@ -84,7 +84,6 @@ export default function MomentsForm() {
     setValue("dateAndTime", moment.dateAndTime);
     setValue("location", moment.location);
     setValue("image", moment.image);
-    setValue("link", moment.link);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -269,21 +268,6 @@ export default function MomentsForm() {
             />
             {errors.image && (
               <p className="text-red-500 text-xs mt-1">{errors.image.message}</p>
-            )}
-          </div>
-
-          {/* Link */}
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
-              Link
-            </label>
-            <input
-              {...register("link")}
-              className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all"
-              placeholder="https://example.com"
-            />
-            {errors.link && (
-              <p className="text-red-500 text-xs mt-1">{errors.link.message}</p>
             )}
           </div>
 

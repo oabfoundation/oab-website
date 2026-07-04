@@ -86,13 +86,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    if (!body.link || !body.link.trim()) {
-      return NextResponse.json(
-        { success: false, message: "Link is required" },
-        { status: 400 }
-      );
-    }
-
     const MomentsCollection = await dbConnect(collection.MOMENTS);
 
     const newMoment = {
@@ -104,7 +97,6 @@ export async function POST(request) {
       dateAndTime: body.dateAndTime,
       location: body.location,
       image: body.image,
-      link: body.link,
       createdAt: new Date(),
     };
 
