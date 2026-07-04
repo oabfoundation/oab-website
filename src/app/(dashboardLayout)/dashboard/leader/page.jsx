@@ -30,7 +30,7 @@ export default function LeaderForm() {
     try {
       const response = await fetch("/api/leader");
       const data = await response.json();
-      setMembers(data || []);
+      setMembers(data?.data || []);
     } catch (error) {
       console.error("Error fetching leaders:", error);
       Swal.fire("Error", "Failed to fetch leaders", "error");

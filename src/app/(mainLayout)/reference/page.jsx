@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, MapPin, Calendar, Award, ChevronRight, BookOpen, Quote } from 'lucide-react';
+import ClientImage from '@/components/mainLayout/ClientImage';
 
 async function getReferences() {
   try {
@@ -7,7 +8,8 @@ async function getReferences() {
       cache: 'no-store',
     });
     if (!response.ok) throw new Error('Failed to fetch');
-    return await response.json();
+    const json = await response.json();
+    return json?.data || [];
   } catch (error) {
     console.error('Error fetching references:', error);
     return [];
@@ -44,11 +46,10 @@ export default async function SuccessStories() {
             >
               {/* LEFT SIDE: Image Component (Takes full width on mobile, fixed/proportional width on desktop) */}
               <div className="relative w-full md:w-2/5 min-h-[260px] md:min-h-full bg-slate-100 overflow-hidden">
-                <img 
-                  src={reference.image} 
+                <ClientImage
+                  src={reference.image}
                   alt={reference.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0"
-                  onError={(e) => { e.target.src = 'https://via.placeholder.com/400?text=No+Image'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent"></div>
                 

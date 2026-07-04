@@ -30,7 +30,7 @@ export default function BoardOfDirectorForm() {
     try {
       const response = await fetch("/api/board-of-director");
       const data = await response.json();
-      setMembers(data || []);
+      setMembers(data?.data || []);
     } catch (error) {
       console.error("Error fetching members:", error);
       Swal.fire("Error", "Failed to fetch board members", "error");

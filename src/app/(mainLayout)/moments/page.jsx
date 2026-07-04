@@ -8,7 +8,8 @@ async function getMoments() {
       cache: 'no-store',
     });
     if (!response.ok) throw new Error('Failed to fetch');
-    return await response.json();
+    const json = await response.json();
+    return json?.data || [];
   } catch (error) {
     console.error('Error fetching moments:', error);
     return [];

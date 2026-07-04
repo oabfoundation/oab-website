@@ -30,7 +30,7 @@ export default function MomentsForm() {
     try {
       const response = await fetch("/api/moments");
       const data = await response.json();
-      setMoments(data || []);
+      setMoments(data?.data || []);
     } catch (error) {
       console.error("Error fetching moments:", error);
       Swal.fire("Error", "Failed to fetch moments", "error");

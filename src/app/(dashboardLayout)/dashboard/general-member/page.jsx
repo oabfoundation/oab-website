@@ -30,7 +30,7 @@ export default function AddMemberForm() {
     try {
       const response = await fetch("/api/general-member");
       const data = await response.json();
-      setMembers(data || []);
+      setMembers(data?.data || []);
     } catch (error) {
       console.error("Error fetching members:", error);
       Swal.fire("Error", "Failed to fetch members", "error");

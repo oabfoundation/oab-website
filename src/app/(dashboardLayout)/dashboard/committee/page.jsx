@@ -30,7 +30,7 @@ export default function CommitteeForm() {
     try {
       const response = await fetch("/api/committee");
       const data = await response.json();
-      setMembers(data || []);
+      setMembers(data?.data || []);
     } catch (error) {
       console.error("Error fetching members:", error);
       Swal.fire("Error", "Failed to fetch committee members", "error");

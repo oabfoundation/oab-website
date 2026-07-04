@@ -30,7 +30,7 @@ export default function ReferenceForm() {
     try {
       const response = await fetch("/api/reference");
       const data = await response.json();
-      setReferences(data || []);
+      setReferences(data?.data || []);
     } catch (error) {
       console.error("Error fetching references:", error);
       Swal.fire("Error", "Failed to fetch references", "error");
