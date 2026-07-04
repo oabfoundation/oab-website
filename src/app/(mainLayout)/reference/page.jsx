@@ -1,15 +1,19 @@
 import React from 'react';
 import { GraduationCap, MapPin, Calendar, Award, ChevronRight, BookOpen, Quote } from 'lucide-react';
 import ClientImage from '@/components/mainLayout/ClientImage';
+import { collection, dbConnect } from "@/app/lib/dbConnect";
 
 async function getReferences() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/reference`, {
-      cache: 'no-store',
-    });
-    if (!response.ok) throw new Error('Failed to fetch');
-    const json = await response.json();
-    return json?.data || [];
+    const ReferenceCollection = await dbConnect(collection.REFERENCE);
+    const result = await ReferenceCollection.find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+    return result.map(doc => ({
+      ...doc,
+      _id: doc._id.toString(),
+      createdAt: doc.createdAt ? doc.createdAt.toISOString() : null,
+    }));
   } catch (error) {
     console.error('Error fetching references:', error);
     return [];

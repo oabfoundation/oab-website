@@ -1,14 +1,18 @@
 import React from 'react';
 import { Calendar, MapPin, Award, Star, Clock, User, Heart, ChevronRight } from 'lucide-react';
+import { collection, dbConnect } from "@/app/lib/dbConnect";
 
 async function getMoments() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'}/api/moments`, {
-      cache: 'no-store',
-    });
-    if (!response.ok) throw new Error('Failed to fetch');
-    const json = await response.json();
-    return json?.data || [];
+    const MomentsCollection = await dbConnect(collection.MOMENTS);
+    const result = await MomentsCollection.find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+    return result.map(doc => ({
+      ...doc,
+      _id: doc._id.toString(),
+      createdAt: doc.createdAt ? doc.createdAt.toISOString() : null,
+    }));
   } catch (error) {
     console.error('Error fetching moments:', error);
     return [];
