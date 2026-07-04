@@ -1,7 +1,7 @@
 "use client";
 
 import { Linkedin, Mail } from "lucide-react";
-import Image from "next/image";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 import React, { useEffect, useState } from "react";
 
 const Leader = () => {
@@ -39,7 +39,7 @@ const Leader = () => {
             className="bg-white rounded-2xl shadow-md border-2 border-transparent hover:border-orange-500 hover:shadow-xl transition-all duration-300 text-center overflow-hidden group"
           >
             <div className="relative overflow-hidden">
-              <Image
+              <ImageWithFallback
                 width={500}
                 height={300}
                 src={leader.image}

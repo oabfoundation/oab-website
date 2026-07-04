@@ -6,7 +6,7 @@ async function getMoments() {
   try {
     const MomentsCollection = await dbConnect(collection.MOMENTS);
     const result = await MomentsCollection.find({})
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 1 })
       .toArray();
     return result.map(doc => ({
       ...doc,

@@ -64,7 +64,7 @@ export async function PUT(request, { params }) {
       { returnDocument: "after" }
     );
 
-    if (!result.value) {
+    if (!result) {
       return NextResponse.json(
         { success: false, message: "Member not found" },
         { status: 404 }
@@ -74,7 +74,7 @@ export async function PUT(request, { params }) {
     return NextResponse.json({
       success: true,
       message: "Member updated successfully",
-      data: result.value,
+      data: result,
     });
   } catch (error) {
     console.error("PUT Error:", error);

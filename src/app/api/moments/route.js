@@ -10,7 +10,7 @@ export async function GET(request) {
 
     const MomentsCollection = await dbConnect(collection.MOMENTS);
     const result = await MomentsCollection.find({})
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 1 })
       .skip(skip)
       .limit(limit)
       .toArray();

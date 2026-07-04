@@ -3,6 +3,12 @@ import React, { useEffect, useState } from "react";
 
 const GeneralMember = () => {
   const [members, setMembers] = useState([]);
+  const fallback = "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg";
+
+  const isValidUrl = (url) => {
+    if (!url || typeof url !== "string") return false;
+    return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/");
+  };
 
   useEffect(() => {
     fetch("/api/general-member")
@@ -29,9 +35,12 @@ const GeneralMember = () => {
           >
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src={member.image}
+                src={isValidUrl(member.image) ? member.image : fallback}
                 alt={member.name}
                 className="h-[270px] w-full rounded-2xl hover:scale-105 transition-all duration-300 object-cover object-top"
+                onError={(e) => {
+                  e.target.src = fallback;
+                }}
               />
               <div className="absolute bottom-0 z-10 h-10 w-full bg-gradient-to-t pointer-events-none from-black to-transparent"></div>
             </div>

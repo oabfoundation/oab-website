@@ -10,7 +10,7 @@ export async function GET(request) {
 
     const BoardOfDirectorCollection = await dbConnect(collection.BOARDOFDIRECTOR);
     const result = await BoardOfDirectorCollection.find({})
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 1 })
       .skip(skip)
       .limit(limit)
       .toArray();

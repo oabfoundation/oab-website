@@ -6,7 +6,14 @@ import Image from "next/image";
 const ImageWithFallback = ({ src, alt, className, width, height }) => {
   const fallback = "https://i.ibb.co.com/p6Ds2H8S/IMG-20241121-WA0048.jpg";
 
-  const [imgSrc, setImgSrc] = useState(src);
+  const isValidUrl = (url) => {
+    if (!url || typeof url !== "string") return false;
+    return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/");
+  };
+
+  const [imgSrc, setImgSrc] = useState(() => {
+    return isValidUrl(src) ? src : fallback;
+  });
 
   return (
     <Image

@@ -10,7 +10,7 @@ export async function GET(request) {
 
     const LeaderCollection = await dbConnect(collection.LEADER);
     const result = await LeaderCollection.find({})
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 1 })
       .skip(skip)
       .limit(limit)
       .toArray();

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Github, Linkedin, Twitter, Globe, Facebook } from "lucide-react";
-import Image from "next/image";
+import ImageWithFallback from "@/components/common/ImageWithFallback";
 
 const Team = () => {
   const [userData, setUserData] = useState([]);
@@ -45,7 +45,7 @@ const Team = () => {
                 key={member._id}
                 className="bg-white border border-slate-100 hover:border-slate-300 transition-colors rounded-xl p-5"
               >
-                <Image
+                <ImageWithFallback
                   width={100}
                   height={100}
                   src={member.image}
