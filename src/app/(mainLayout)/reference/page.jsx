@@ -1,7 +1,17 @@
-import React from 'react';
-import { GraduationCap, MapPin, Calendar, Award, ChevronRight, BookOpen, Quote } from 'lucide-react';
-import ClientImage from '@/components/mainLayout/ClientImage';
+import React from "react";
+import {
+  GraduationCap,
+  MapPin,
+  Calendar,
+  Award,
+  ChevronRight,
+  BookOpen,
+  Quote,
+} from "lucide-react";
+import ClientImage from "@/components/mainLayout/ClientImage";
 import { collection, dbConnect } from "@/app/lib/dbConnect";
+
+export const revalidate = 30;
 
 async function getReferences() {
   try {
@@ -9,19 +19,21 @@ async function getReferences() {
     const result = await ReferenceCollection.find({})
       .sort({ createdAt: -1 })
       .toArray();
-    return result.map(doc => ({
+    return result.map((doc) => ({
       ...doc,
       _id: doc._id.toString(),
       createdAt: doc.createdAt ? doc.createdAt.toISOString() : null,
     }));
   } catch (error) {
-    console.error('Error fetching references:', error);
+    console.error("Error fetching references:", error);
     return [];
   }
 }
 
 export default async function SuccessStories() {
   const references = await getReferences();
+  console.log("references", references);
+
   return (
     <div className="min-h-screen bg-orange-50/30 text-slate-800 antialiased">
       {/* Eye-catching Hero Section with Orange Accent */}
@@ -34,7 +46,9 @@ export default async function SuccessStories() {
             Global Achievements
           </h1>
           <p className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Meet our brilliant students who successfully moved abroad for higher education with our dedicated mentorship and verified institutional references.
+            Meet our brilliant students who successfully moved abroad for higher
+            education with our dedicated mentorship and verified institutional
+            references.
           </p>
         </div>
       </section>
@@ -43,11 +57,11 @@ export default async function SuccessStories() {
       <section className="max-w-5xl mx-auto px-4 py-16 space-y-8">
         {references.length > 0 ? (
           references.map((reference) => (
-            <div 
-              key={reference._id} 
+            <div
+              key={reference._id}
               className="bg-white rounded-2xl shadow-xl shadow-orange-900/5 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 border border-orange-100 overflow-hidden group flex flex-col md:flex-row"
             >
-              {/* LEFT SIDE: Image Component (Takes full width on mobile, fixed/proportional width on desktop) */}
+              {/* LEFT SIDE: Image Component */}
               <div className="relative w-full md:w-2/5 min-h-[260px] md:min-h-full bg-slate-100 overflow-hidden">
                 <ClientImage
                   src={reference.image}
@@ -55,7 +69,7 @@ export default async function SuccessStories() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent"></div>
-                
+
                 {/* Floating Scholarship Badge */}
                 <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm bg-orange-600/90 flex items-center gap-1">
                   <Award className="w-3.5 h-3.5" />
@@ -100,7 +114,8 @@ export default async function SuccessStories() {
                 {/* Action/Verification Footer */}
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-orange-600 group-hover:text-orange-700 transition-colors">
                   <span className="flex items-center gap-1.5 bg-orange-50 text-orange-700 px-2.5 py-1 rounded-md">
-                    <BookOpen className="w-3.5 h-3.5" /> Reference Verified by OAB
+                    <BookOpen className="w-3.5 h-3.5" /> Reference Verified by
+                    OAB
                   </span>
                   <span className="flex items-center gap-0.5 group-hover:translate-x-1 transition-transform cursor-pointer">
                     View Success Story <ChevronRight className="w-4 h-4" />
@@ -119,8 +134,12 @@ export default async function SuccessStories() {
       {/* Orange Themed Call to Action Footer */}
       <footer className="text-center py-12 bg-white border-t border-orange-100">
         <p className="text-base text-slate-600 max-w-md mx-auto px-4">
-          Want to build your global career through OAB Foundation's authentic references? 
-          <a href="#" className="block md:inline-block text-orange-600 font-bold md:ml-1.5 hover:underline mt-2 md:mt-0">
+          Want to build your global career through OAB Foundation's authentic
+          references?
+          <a
+            href="#"
+            className="block md:inline-block text-orange-600 font-bold md:ml-1.5 hover:underline mt-2 md:mt-0"
+          >
             Contact Our Mentors Now &rarr;
           </a>
         </p>

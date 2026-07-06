@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Calendar,
-  MapPin,
-  Award,
-  Star,
-  Clock,
-  User,
-  Heart,
-  ChevronRight,
-} from "lucide-react";
+import { MapPin, Award, Clock, User, Heart } from "lucide-react";
 import { collection, dbConnect } from "@/app/lib/dbConnect";
+
+export const revalidate = 30;
 
 async function getMoments() {
   try {

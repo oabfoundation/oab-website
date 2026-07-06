@@ -3,26 +3,16 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get('page')) || 1;
-    const limit = parseInt(searchParams.get('limit')) || 12;
-    const skip = (page - 1) * limit;
-
     const GeneralMemberCollection = await dbConnect(collection.GENERALMEMBER);
+
     const result = await GeneralMemberCollection.find({})
       .sort({ createdAt: 1 })
-      .skip(skip)
-      .limit(limit)
       .toArray();
-    
-    const total = await GeneralMemberCollection.countDocuments({});
 
     return NextResponse.json({
+      success: true,
       data: result,
-      total,
-      page,
-      limit,
-      totalPages: Math.ceil(total / limit)
+      total: result.length,
     });
   } catch (error) {
     console.error(error);

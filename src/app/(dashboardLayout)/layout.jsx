@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }) => {
           path: "/dashboard/committee",
           icon: PanelsTopLeft,
         },
-        { name: "Leader", path: "/dashboard/leader", icon: PanelsTopLeft },
+        { name: "Our Leaders", path: "/dashboard/leader", icon: PanelsTopLeft },
       ],
     },
   ];

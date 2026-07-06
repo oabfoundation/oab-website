@@ -51,18 +51,6 @@ export default function MissionVision() {
             inequality, injustice, and the impacts of climate change and
             environmental challenges.
           </p>
-
-          <ul className="grid grid-cols-2 gap-4">
-            {features.map((item, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-2 text-gray-800 font-medium"
-              >
-                <CheckCircle2 className="text-orange-500 w-5 h-5" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </motion.div>
 
         {/* Image Side */}
@@ -121,17 +109,6 @@ export default function MissionVision() {
             potential and contribute positively to the world.
           </p>
 
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-gray-800 font-medium"
-              >
-                <CheckCircle2 className="text-orange-500 w-5 h-5" />
-                {item}
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Image Side */}
