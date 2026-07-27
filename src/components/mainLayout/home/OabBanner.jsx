@@ -45,8 +45,12 @@ export default function OabBanner() {
         <h1 className="text-4xl md:text-6xl font-bold mb-4">OAB Foundation</h1>
 
         <p className="max-w-2xl text-lg md:text-xl mb-6">
-          We are committed to empowering communities through education,
-          healthcare, and social support initiatives.
+          Building a Just, Green, and Sustainable Bangladesh through Climate
+          Action, Environmental Conservation, Women & Child Development, Quality
+          Education, Youth Leadership, Soft Skills Development, Innovation,
+          Health, Humanitarian Action, and Sustainable Development. Together, we
+          empower communities, inspire change, and advance the Sustainable
+          Development Goals (SDGs).
         </p>
 
         <Link href={"/about"}>
